@@ -3,6 +3,7 @@ call plug#begin()
 " Functionality & Utility
 Plug 'kien/ctrlp.vim'
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
+Plug 'dylanaraps/wal.vim'
 
 " Theming & Aesthetics
 Plug 'vim-airline/vim-airline'
@@ -32,16 +33,17 @@ set expandtab
 set number
 set colorcolumn=80
 set hlsearch
-set termguicolors
-" colorscheme office-dark
-colorscheme gruvbox
+" When using the WAL colorscheme, disable termguicolors
+"" colorscheme office-dark
+"colorscheme gruvbox
+"" Enable true 24-bit colour
+"set termguicolors
+colorscheme wal
 set background=dark
 set cursorline
 set wildmenu
 " set the cursor to the traditional vim cursor
 set guicursor=
-" Enable true 24-bit colour
-set termguicolors
 " ENable modeline
 set modeline
 
