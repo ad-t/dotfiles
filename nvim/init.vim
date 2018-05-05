@@ -35,10 +35,10 @@ set colorcolumn=80
 set hlsearch
 " When using the WAL colorscheme, disable termguicolors
 "" colorscheme office-dark
-"colorscheme gruvbox
+colorscheme gruvbox
 "" Enable true 24-bit colour
-"set termguicolors
-colorscheme wal
+set termguicolors
+"colorscheme wal
 set background=dark
 set cursorline
 set wildmenu
