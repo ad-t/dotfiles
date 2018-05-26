@@ -34,7 +34,9 @@ font pango:Menlo for powerline 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec konsole
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -234,6 +236,6 @@ client.background       $bg
 bindsym $mod+d exec dmenu_run -nb "$dark" -nf "$fg" -sb "$bg" -sf "$dark"
 
 for_window [class="^.*"] border pixel 2
-for_window [class="cad"] floating enable
+# for_window [class="cad"] floating enable
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # exec "feh --bg-fill --restore ~/backgrounds/road.jpg"
