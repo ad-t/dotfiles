@@ -9,8 +9,12 @@ endfunction
 " Functionality & Utility
 Plug 'kien/ctrlp.vim'
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
-Plug 'dylanaraps/wal.vim'
+" Plug 'dylanaraps/wal.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'w0rp/ale'
+Plug 'sheerun/vim-polyglot'
+Plug 'ngmy/vim-rubocop'
 
 " Theming & Aesthetics
 Plug 'vim-airline/vim-airline'
@@ -84,6 +88,7 @@ nnoremap K :tabprevious<CR>
 nnoremap J :tabnext<CR>
 
 nnoremap <c-c> :! ./compile.sh <cr>
+nnoremap <F8> :NERDTreeToggle<CR>
 
 " Neotags Config
 let g:neotags_enabled = 1
@@ -98,3 +103,7 @@ autocmd VimEnter * wincmd p
 
 " vim-flake8 config - map linter to F3 and go back to previous window
 autocmd FileType python map <buffer> <F3> :call Flake8()<CR><c-w><c-p>
+autocmd FileType ruby map <buffer> <F3> :RuboCop -a<CR><c-w><c-p>
+
+" ctrl-p config
+let g:ctrlp_by_filename = 1

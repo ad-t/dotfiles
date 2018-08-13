@@ -208,28 +208,28 @@ bindsym $mod+Shift+0 move container to workspace $WS10
 # }
 
 # class                 border  backgr. text    indicator child_border
-# client.focused          #FAE5BC #285577 #ffffff #8e8f8d     #8e8f8d
-# client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-# client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-# client.urgent           #2f343a #900000 #ffffff #900000   #900000
-# client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.focused          #FAE5BC #285577 #ffffff #8e8f8d     #8e8f8d
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 # Set colors from Xresources
 # Change 'color7' and 'color2' to whatever colors you want i3 to use 
 # from the generated scheme.
 # NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
 # it fails to get colors from Xresources.
-set_from_resource $fg i3wm.color7 #f0f0f0
-set_from_resource $bg i3wm.color2 #f0f0f0
-set_from_resource $dark i3wm.color0
+# set_from_resource $fg i3wm.color7 #f0f0f0
+# set_from_resource $bg i3wm.color2 #f0f0f0
+# set_from_resource $dark i3wm.color0
 
 # class                 border  backgr. text indicator child_border
-client.focused          $bg     $bg     $fg  $bg       $bg
-client.focused_inactive $dark     $bg     $fg  $dark       $dark
-client.unfocused        $dark     $bg     $fg  $dark       $dark
-client.urgent           $bg     $bg     $fg  $bg       $bg
-client.placeholder      $bg     $bg     $fg  $bg       $bg
-
-client.background       $bg
+# client.focused          $bg     $bg     $fg  $bg       $bg
+# client.focused_inactive $dark     $bg     $fg  $dark       $dark
+# client.unfocused        $dark     $bg     $fg  $dark       $dark
+# client.urgent           $bg     $bg     $fg  $bg       $bg
+# client.placeholder      $bg     $bg     $fg  $bg       $bg
+# 
+# client.background       $bg
 
 # PROTIP: You can also dynamically set dmenu's colors this way:
 # start dmenu (a program launcher)
@@ -238,4 +238,4 @@ bindsym $mod+d exec dmenu_run -nb "$dark" -nf "$fg" -sb "$bg" -sf "$dark"
 for_window [class="^.*"] border pixel 2
 # for_window [class="cad"] floating enable
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-# exec "feh --bg-fill --restore ~/backgrounds/road.jpg"
+exec "feh --bg-fill --restore ~/backgrounds/minimal_master_chief.png"
