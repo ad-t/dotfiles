@@ -234,6 +234,5 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 bindsym $mod+d exec dmenu_run -nb "$dark" -nf "$fg" -sb "$bg" -sf "$dark"
 
 for_window [class="^.*"] border pixel 2
-for_window [class="cad"] floating enable
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # exec "feh --bg-fill --restore ~/backgrounds/road.jpg"

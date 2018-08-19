@@ -57,7 +57,7 @@ font-0 = "Menlo for Powerline:pixelsize=18;1"
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0:
 font-2 = siji:pixelsize=12;1
 
-modules-left = bspwm i3
+modules-left = i3
 modules-center = LeftArrow date RightArrow
 modules-right = filesystem Separator xbacklight volume Separator xkeyboard Separator memory Separator cpu Separator wlan eth Separator battery temperature powermenu
 

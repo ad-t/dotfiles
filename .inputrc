@@ -1,0 +1,7 @@
+$include /etc/inputrc
+# From: https://unix.stackexchange.com/questions/24419/terminal-autocomplete-cycle-through-suggestions
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+set menu-complete-display-prefix on
+"\t": menu-complete
+"\e[Z": menu-complete-backward
