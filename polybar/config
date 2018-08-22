@@ -30,7 +30,7 @@ item-back = #373b41
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 ;height = 27
-height = 35
+height = 40
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 3.0
@@ -52,7 +52,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = "Menlo for Powerline:pixelsize=18;1"
+font-0 = "Menlo for Powerline:pixelsize=20;1"
 ; font-0 = fixed:pixelsize=18;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0:
 font-2 = siji:pixelsize=12;1
