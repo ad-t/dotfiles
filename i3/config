@@ -157,7 +157,7 @@ bindsym $mod+Shift+f exec "firefox"
 bindsym $mod+Shift+o exec "opera"
 bindsym $mod+Shift+s exec "subl3"
 bindsym $mod+q exec "qutebrowser"
-bindsym $mod+Shift+t exec "i3lock -i ~/backgrounds/blurred_moon.png"
+bindsym $mod+Shift+t exec "~/.config/i3/lock_screen.sh"
 
 # setting workspace names
 set $WS1 "1:www"
