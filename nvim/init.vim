@@ -7,7 +7,8 @@ function! DoRemote(arg)
 endfunction
 
 " Functionality & Utility
-Plug 'kien/ctrlp.vim'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
 " Plug 'dylanaraps/wal.vim'
 Plug 'scrooloose/nerdtree'
@@ -15,6 +16,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
 Plug 'ngmy/vim-rubocop'
+Plug 'jamessan/vim-gnupg'
+" Grammar checker
+" Plug 'rhysd/vim-grammarous'
 
 " Theming & Aesthetics
 Plug 'vim-airline/vim-airline'
@@ -29,7 +33,8 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-Plug 'c0r73x/neotags.nvim', { 'do': function('DoRemote') }
+" Plug 'c0r73x/neotags.nvim', { 'do': function('DoRemote') }
+Plug 'ludovicchabant/vim-gutentags'
 
 " Language compatibility
 Plug 'neoclide/vim-jsx-improve'
@@ -67,6 +72,9 @@ set wildmenu
 set guicursor=
 " Enable modeline
 set modeline
+" change the current working directory of the window dependent on what
+" file is currently opened in the window
+" set autochdir
 
 setlocal foldmethod=syntax
 noremap <silent><c-l> :nohlsearch<cr>
@@ -89,6 +97,7 @@ nnoremap J :tabnext<CR>
 
 nnoremap <c-c> :! ./compile.sh <cr>
 nnoremap <F8> :NERDTreeToggle<CR>
+nnoremap <c-i> :GrammarousCheck<CR>
 
 " Neotags Config
 let g:neotags_enabled = 1
@@ -105,5 +114,8 @@ autocmd VimEnter * wincmd p
 autocmd FileType python map <buffer> <F3> :call Flake8()<CR><c-w><c-p>
 autocmd FileType ruby map <buffer> <F3> :RuboCop -a<CR><c-w><c-p>
 
-" ctrl-p config
-let g:ctrlp_by_filename = 1
+" fix problems with working directory
+" set autochdir
+" fzf fuzzy searching
+nnoremap <C-p> :Files .<Cr>
+nmap ; :Buffers<CR>
