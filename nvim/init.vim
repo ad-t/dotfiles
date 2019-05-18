@@ -17,6 +17,7 @@ Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
 Plug 'ngmy/vim-rubocop'
 Plug 'jamessan/vim-gnupg'
+Plug 'moll/vim-bbye'
 " Grammar checker
 " Plug 'rhysd/vim-grammarous'
 
@@ -25,15 +26,14 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'nightsense/office'
 
+" Autocompletion using language servers
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
 " Recommendations
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-" Plug 'c0r73x/neotags.nvim', { 'do': function('DoRemote') }
 Plug 'ludovicchabant/vim-gutentags'
 
 " Language compatibility
@@ -96,7 +96,7 @@ nnoremap K :tabprevious<CR>
 nnoremap J :tabnext<CR>
 
 nnoremap <c-c> :! ./compile.sh <cr>
-nnoremap <F8> :NERDTreeToggle<CR>
+nnoremap E :NERDTreeToggle<CR>
 nnoremap <c-i> :GrammarousCheck<CR>
 
 " Neotags Config
@@ -106,7 +106,7 @@ let g:neotags_enabled = 1
 let g:deoplete#enable_at_startup = 1
 
 " NERDTree Config
-let g:NERDTreeWinPos = "right"
+let g:NERDTreeWinPos = "left"
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 
@@ -119,3 +119,19 @@ autocmd FileType ruby map <buffer> <F3> :RuboCop -a<CR><c-w><c-p>
 " fzf fuzzy searching
 nnoremap <C-p> :Files .<Cr>
 nmap ; :Buffers<CR>
+
+" delete buffers
+nnoremap <Leader>q :Bdelete<CR>
+
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    \ 'python': ['/usr/local/bin/pyls'],
+    \ 'go': ['/home/adam/go/bin/go-langserver'],
+    \ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
