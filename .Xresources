@@ -13,7 +13,7 @@ URxvt.perl-ext-common: default,matcher,font-size
 URxvt.keysym.Control-0x2b: perl:font-size:increase
 URxvt.keysym.Control-0x2d: perl:font-size:decrease
 ! pixels
-URxvt.internalBorder: 15
+URxvt.internalBorder: 32
 
 ! *color0:  #191726
 *color0:  #231E18
