@@ -37,7 +37,7 @@ set hlsearch
 "" colorscheme office-dark
 colorscheme gruvbox
 "" Enable true 24-bit colour
-set termguicolors
+" set termguicolors
 "colorscheme wal
 set background=dark
 set cursorline
@@ -46,6 +46,7 @@ set wildmenu
 set guicursor=
 " ENable modeline
 set modeline
+set t_Co=256
 
 setlocal foldmethod=syntax
 noremap <silent><c-l> :nohlsearch<cr>
