@@ -7,7 +7,7 @@ function! DoRemote(arg)
 endfunction
 
 " Functionality & Utility
-Plug '/usr/local/opt/fzf'
+Plug '~/.fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
 Plug 'lervag/vimtex'
