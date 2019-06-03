@@ -16,6 +16,7 @@ import qualified Data.Map        as M
 
 -- For layout spacing
 import XMonad.Layout.Spacing
+import XMonad.Layout.Gaps
 
 -- for xmobar
 import XMonad.Hooks.DynamicLog
@@ -23,6 +24,12 @@ import System.IO
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Layout.IndependentScreens
+
+-- for polybar
+import Data.List (sortBy)
+import Data.Function(on)
+import Control.Monad(forM_, join)
+import XMonad.Util.Run (safeSpawn)
 
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
@@ -136,7 +143,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
 
     -- Restart xmonad
-    , ((modm              , xK_q     ), spawn "killall xmobar; xmonad --recompile; xmonad --restart")
+    , ((modm              , xK_q     ), spawn "killall polybar; xmonad --recompile; xmonad --restart")
 
     -- Run xmessage with a summary of the default keybindings (useful for beginners)
     , ((modm .|. shiftMask, xK_slash ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
@@ -195,7 +202,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = tiled ||| Mirror tiled ||| Full
+myLayout = gaps [(U, 15), (R, 15), (L, 15), (D, 15)] $ smartSpacing 15 $ (tiled ||| Mirror tiled ||| Full)
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
@@ -247,7 +254,20 @@ myEventHook = mempty
 -- Perform an arbitrary action on each internal state change or X event.
 -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
 --
-myLogHook = return () 
+-- Adding polybar compatibility from https://github.com/polybar/polybar/wiki/User-contributed-modules
+-- myLogHook = return () 
+myLogHook = do
+  winset <- gets windowset
+  let currWs = W.currentTag winset
+  let wss = map W.tag $ W.workspaces winset
+  let wsStr = join $ map (fmt currWs) $ sort' wss
+
+  io $ appendFile "/tmp/.xmonad-workspace-log" (wsStr ++ "\n")
+
+  where fmt currWs ws
+          | currWs == ws = "[" ++ ws ++ "]"
+          | otherwise = " " ++ ws ++ " "
+        sort' = sortBy (compare `on` (!! 0))
 
 ------------------------------------------------------------------------
 -- Startup hook
@@ -271,8 +291,9 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 -- main = xmonad defaults
 
 main = do
-  -- xmproc <- spawnPipe ("~/.cabal/bin/xmobar ~/.config/dotfiles/xmonad/.xmobarrc")
-  xmonad =<< statusBar "~/.cabal/bin/xmobar ~/.config/dotfiles/xmonad/.xmobarrc" xmobarPP toggleStrutsKey defaults
+  forM_ [".xmonad-workspace-log"] $ \file -> do
+    safeSpawn "mkfifo" ["/tmp/" ++ file]
+  xmonad =<< statusBar "~/.config/dotfiles/polybar/launch.sh" xmobarPP toggleStrutsKey defaults
 
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will

@@ -52,12 +52,12 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = "Anonymous Pro:pixelsize=22;1"
+font-0 = "Anonymice Powerline:pixelsize=22;1"
 ; font-0 = fixed:pixelsize=18;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0:
-font-2 = siji:pixelsize=12;1
+font-2 = Siji:pixelsize=22;1
 
-modules-left = i3
+modules-left = xmonad
 modules-center = LeftArrow date RightArrow
 modules-right = filesystem Separator alsa Separator memory Separator cpu Separator eth Separator temperature
 
@@ -140,7 +140,7 @@ label-empty = %index%
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 2
 
-[module/workspaces-xmonad]
+[module/xmonad]
 type = custom/script
 exce = tail -F /tmp/.xmonad-workspace-log
 exec-if = [ -p /tmp/.xmonad-workspace-log ]
