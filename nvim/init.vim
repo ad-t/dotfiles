@@ -7,9 +7,11 @@ function! DoRemote(arg)
 endfunction
 
 " Functionality & Utility
-Plug '/usr/local/opt/fzf'
+Plug '~/.fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
+Plug 'lervag/vimtex'
+Plug 'sirver/ultisnips'
 " Plug 'dylanaraps/wal.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -61,9 +63,7 @@ set colorcolumn=100
 set hlsearch
 " When using the WAL colorscheme, disable termguicolors
 "" colorscheme office-dark
-colorscheme gruvbox
-"" Enable true 24-bit colour
-set termguicolors
+" colorscheme gruvbox
 "colorscheme wal
 set background=dark
 set cursorline
@@ -75,6 +75,13 @@ set modeline
 " change the current working directory of the window dependent on what
 " file is currently opened in the window
 " set autochdir
+
+set t_Co=16
+
+syntax on
+"" Enable true 24-bit colour
+" set termguicolors
+colorscheme custom
 
 setlocal foldmethod=syntax
 noremap <silent><c-l> :nohlsearch<cr>
@@ -119,6 +126,25 @@ autocmd FileType ruby map <buffer> <F3> :RuboCop -a<CR><c-w><c-p>
 " fzf fuzzy searching
 nnoremap <C-p> :Files .<Cr>
 nmap ; :Buffers<CR>
+
+" Vimtex config
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+autocmd FileType tex,latex :VimtexCompile
+" autocmd FileType tex,latex :VimtexView
+
+" Polyglot config
+let g:polyglot_disabled = ['latex']
+
+" ultisnips config
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+let g:UltiSnipsSnippetsDir="~/.config/nvim/UltiSnips"
+let g:UltiSnipsSnippetDirectories=["~/.config/nvim/UltiSnips", "UltiSnips"]
 
 " delete buffers
 nnoremap <Leader>q :Bdelete<CR>
