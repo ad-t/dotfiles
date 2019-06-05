@@ -31,6 +31,9 @@ import Data.Function(on)
 import Control.Monad(forM_, join)
 import XMonad.Util.Run (safeSpawn)
 
+-- for feh
+import XMonad.Actions.SpawnOn
+
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
@@ -277,7 +280,8 @@ myLogHook = do
 -- per-workspace layout choices.
 --
 -- By default, do nothing.
-myStartupHook = return ()
+myStartupHook = do
+  spawnHere "feh --bg-fill $HOME/backgrounds/background.png"
 
 ------------------------------------------------------------------------
 -- Keybinding to toggle the gap for the status bar
