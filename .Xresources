@@ -9,27 +9,29 @@ URxvt*font: xft:Anonymice Powerline:size=12:antialias=true, xft:DejaVu Sans:size
 URxvt*letterSpace: 0
 URxvt*saveLines: 1000000
 URxvt*scrollBar: false
-URxvt.perl-ext-common: default,matcher,font-size
+URxvt.perl-ext-common: default,matcher,font-size,selection-to-clipboard,pasta
+URxvt.keysym.Control-Shift-V: perl:pasta:paste
 URxvt.keysym.Control-0x2b: perl:font-size:increase
 URxvt.keysym.Control-0x2d: perl:font-size:decrease
 ! pixels
 URxvt.internalBorder: 32
+URxvt.dynamicColors: on
 
-! *color0:  #191726
-*color0:  #231E18
-*color1:  #FF5C57
-*color2:  #FFB536
-*color3:  #F3F99D
-*color4:  #5AF78E
-*color5:  #9AEDFE
-*color6:  #57C7FF
-*color7:  #FFFFFF
-! *color8:  #191726
-*color8:  #231E18
-*color9:  #FF5C57
-*color10: #FFB536
-*color11: #F3F99D
-*color12: #5AF78E
-*color13: #9AEDFE
-*color14: #57C7FF
-*color15: #FFFFFF
+! ! *color0:  #191726
+! *color0:  #231E18
+! *color1:  #FF5C57
+! *color2:  #FFB536
+! *color3:  #F3F99D
+! *color4:  #5AF78E
+! *color5:  #9AEDFE
+! *color6:  #57C7FF
+! *color7:  #FFFFFF
+! ! *color8:  #191726
+! *color8:  #231E18
+! *color9:  #FF5C57
+! *color10: #FFB536
+! *color11: #F3F99D
+! *color12: #5AF78E
+! *color13: #9AEDFE
+! *color14: #57C7FF
+! *color15: #FFFFFF

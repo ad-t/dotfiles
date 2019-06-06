@@ -71,8 +71,8 @@ myWorkspaces    = withScreens 2 ["1","2","3","4","5","6","7","8","9"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
-myNormalBorderColor  = "#dddddd"
-myFocusedBorderColor = "#ff0000"
+myNormalBorderColor  = "#000000"
+myFocusedBorderColor = "#8db5f4"
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
@@ -205,7 +205,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = gaps [(U, 15), (R, 15), (L, 15), (D, 15)] $ smartSpacing 15 $ (tiled ||| Mirror tiled ||| Full)
+myLayout = gaps [(U, 15), (R, 15), (L, 15), (D, 15)] $ (tiled ||| Mirror tiled ||| Full)
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
@@ -280,8 +280,9 @@ myLogHook = do
 -- per-workspace layout choices.
 --
 -- By default, do nothing.
-myStartupHook = do
-  spawnHere "feh --bg-fill $HOME/backgrounds/background.png"
+-- myStartupHook = return()
+myStartupHook = spawnHere "feh --bg-fill $HOME/backgrounds/background.png"
+  >> spawnHere "wal -R"
 
 ------------------------------------------------------------------------
 -- Keybinding to toggle the gap for the status bar
