@@ -55,7 +55,7 @@ hi Statement ctermfg=212 ctermbg=NONE cterm=NONE guifg=#ff79c6 guibg=NONE gui=NO
 hi StorageClass ctermfg=117 ctermbg=NONE cterm=NONE guifg=#8be9fd guibg=NONE gui=italic
 hi String ctermfg=228 ctermbg=NONE cterm=NONE guifg=#f1fa8c guibg=NONE gui=NONE
 hi Tag ctermfg=212 ctermbg=NONE cterm=NONE guifg=#ff79c6 guibg=NONE gui=NONE
-hi Title ctermfg=39 ctermbg=NONE cterm=bold guifg=#f8f8f2 guibg=NONE gui=bold
+" hi Title ctermfg=39 ctermbg=NONE cterm=bold guifg=#f8f8f2 guibg=NONE gui=bold
 hi Todo ctermfg=61 ctermbg=NONE cterm=inverse,bold guifg=#6272a4 guibg=NONE gui=inverse,bold
 hi Type ctermfg=2 ctermbg=NONE cterm=NONE guifg=#8be9fd guibg=NONE gui=NONE
 hi Underlined ctermfg=NONE ctermbg=NONE cterm=underline guifg=NONE guibg=NONE gui=underline
@@ -105,9 +105,14 @@ hi Underlined ctermfg=NONE ctermbg=NONE cterm=underline guifg=NONE guibg=NONE gu
 " hi cssValueLength ctermfg=141 ctermbg=NONE cterm=NONE guifg=#bd93f9 guibg=NONE gui=NONE
 " hi cssCommonAttr ctermfg=81 ctermbg=NONE cterm=NONE guifg=#6be5fd guibg=NONE gui=NONE
 " hi cssBraces ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-" hi TabLineFill  guifg=#333333 guibg=#282a36 gui=none
-" hi TabLine      guifg=#666666 guibg=#282a36 gui=none
+" hi TabLineFill  guifg=BLACK guibg=#282a36 gui=none
+" hi TabLine      guifg=RED guibg=#282a36 gui=none
 " hi TabLineSel   guifg=WHITE guibg=#282a36 gui=none
+hi TabLineFill  ctermfg=DARKBLUE ctermbg=WHITE gui=none
+hi TabLine      ctermfg=White ctermbg=DarkBlue  gui=none cterm=bold
+hi TabLineSel   ctermfg=BLACK ctermbg=WHITE  gui=none cterm=bold
+hi Title        ctermfg=WHITE
+" ctermbg=WHITE
 
 " Elixir {{{
 hi elixirAtom ctermfg=81 ctermbg=NONE cterm=NONE guifg=#66d9ef guibg=NONE gui=italic"
