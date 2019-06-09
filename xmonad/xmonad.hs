@@ -283,6 +283,7 @@ myLogHook = do
 -- myStartupHook = return()
 myStartupHook = spawnHere "feh --bg-fill $HOME/backgrounds/background.png"
   >> spawnHere "wal -R"
+  >> spawnHere "xrdb -merge ~/.Xresources"
 
 ------------------------------------------------------------------------
 -- Keybinding to toggle the gap for the status bar
