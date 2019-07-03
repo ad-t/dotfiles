@@ -12,7 +12,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
 Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
-" Plug 'dylanaraps/wal.vim'
+Plug 'dylanaraps/wal.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'w0rp/ale'
@@ -81,7 +81,8 @@ set t_Co=16
 syntax on
 "" Enable true 24-bit colour
 " set termguicolors
-colorscheme custom
+" colorscheme custom
+colorscheme wal
 
 setlocal foldmethod=syntax
 noremap <silent><c-l> :nohlsearch<cr>
