@@ -36,6 +36,9 @@ import qualified XMonad.StackSet as W
 -- for feh
 import XMonad.Actions.SpawnOn
 
+-- for Xresources
+import System.Cmd
+
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
@@ -76,7 +79,6 @@ myWorkspaces    = withScreens 2 ["1","2","3","4","5","6","7","8","9"]
 myNormalBorderColor  = "#000000"
 myFocusedBorderColor = "#8db5f4"
 
-------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
 --
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
@@ -267,12 +269,42 @@ myEventHook = mempty
 myLogHook = do
   -- from: https://gitlab.com/karetsu/xmonad-aloysius/blob/master/lib/Bus/Events.hs
   winset <- gets windowset
+
+  -- workspaces
   let currWs = W.currentTag winset
-  let wss = map W.tag $ W.workspaces winset
+  -- blocking named scratchpad appearing
+  let wss = filter (/= "NSP") $ map W.tag $ W.workspaces winset
   let wsStr = join $ map (fmt currWs) $ sort' wss
 
+  -- layout
+  let currLt = description . W.layout . W.workspace . W.current $ winset
+  let ltStr  = layoutParse currLt
+
   -- fifo
-  io $ appendFile "~/.tmp/xmonad-ws"     (wsStr ++ "\n")
+  io $ appendFile "/tmp/xmonad-ws"     (wsStr ++ "\n")
+  -- io $ appendFile "/tmp/xmonad-layout" (ltStr ++ "\n")
+
+  where
+    fmt currWs ws
+      -- %{T3} changes font to bold in polybar
+      -- %{T-} resets it back to font-0
+      -- NOTE: Foreground colours also edited here
+      -- this block then depends on +THEME+
+      -- | currWs == ws = " %{F"  ++ base00 ++ "}%{T3}[" ++ ws ++ "]%{T-}%{F-} "
+      -- | otherwise    = "  %{F" ++ base10 ++ "}%{T4}"  ++ ws ++ "%{T-}%{F-}  "
+      | currWs == ws = " %{F#f00}[" ++ ws ++ "]%{F-} "
+      | otherwise    = " %{F#0f0}"  ++ ws ++ "%{F-} "
+
+    sort' = sortBy (compare `on` (!! 0))
+    layoutParse s  -- pretty printing
+-- FIXME: polybar needs monospaced symbols for this to be effective, changes the width on change otherwise
+      | s == "Spacing ThreeCol"      = "%{T2}+|+%{T-} TCM "
+      | s == "Spacing BSP"           = "%{T2}||+%{T-} BSP "
+      | s == "Spacing ResizableTall" = "%{T2}|||%{T-} Tall"
+      | s == "Full"                  = "%{T2}___%{T-} Full"
+      | s == "SimplestFloat"         = "%{T2}+++%{T-} FLT "
+      | otherwise                    = s -- fallback for changes in C.Layout
+
 
 ------------------------------------------------------------------------
 -- Startup hook
@@ -285,7 +317,7 @@ myLogHook = do
 -- myStartupHook = return()
 myStartupHook = spawnHere "wal -R"
   >> spawnHere "xrdb -merge ~/.Xresources"
-  >> spawn "mkfifo /home/adam/.tmp/xmonad-ws"
+  >> spawn "mkfifo /tmp/xmonad-ws"
 
 ------------------------------------------------------------------------
 -- Keybinding to toggle the gap for the status bar
