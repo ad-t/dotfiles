@@ -142,10 +142,13 @@ label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 2
 
 [module/xmonad]
-type = custom/script
-exce = tail -F /tmp/.xmonad-workspace-log
-exec-if = [ -p /tmp/.xmonad-workspace-log ]
-tail = true
+type = "custom/script"
+exce = "tail -f /home/adam/.tmp/xmonad-ws"
+exec-if = "[ -p /home/adam/.tmp/xmonad-ws ]"
+# tail = true
+
+format ="<label>"
+label = "%output%"
 
 [module/i3]
 type = internal/i3
