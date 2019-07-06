@@ -27,9 +27,11 @@ import XMonad.Layout.IndependentScreens
 
 -- for polybar
 import Data.List (sortBy)
-import Data.Function(on)
-import Control.Monad(forM_, join)
+import Data.Function (on)
+import Control.Monad (forM_, join)
 import XMonad.Util.Run (safeSpawn)
+import XMonad.Util.NamedWindows (getName)
+import qualified XMonad.StackSet as W
 
 -- for feh
 import XMonad.Actions.SpawnOn
@@ -263,17 +265,14 @@ myEventHook = mempty
 -- Adding polybar compatibility from https://github.com/polybar/polybar/wiki/User-contributed-modules
 -- myLogHook = return () 
 myLogHook = do
+  -- from: https://gitlab.com/karetsu/xmonad-aloysius/blob/master/lib/Bus/Events.hs
   winset <- gets windowset
   let currWs = W.currentTag winset
   let wss = map W.tag $ W.workspaces winset
   let wsStr = join $ map (fmt currWs) $ sort' wss
 
-  io $ appendFile "/tmp/.xmonad-workspace-log" (wsStr ++ "\n")
-
-  where fmt currWs ws
-          | currWs == ws = "[" ++ ws ++ "]"
-          | otherwise = " " ++ ws ++ " "
-        sort' = sortBy (compare `on` (!! 0))
+  -- fifo
+  io $ appendFile "~/.tmp/xmonad-ws"     (wsStr ++ "\n")
 
 ------------------------------------------------------------------------
 -- Startup hook
@@ -284,9 +283,9 @@ myLogHook = do
 --
 -- By default, do nothing.
 -- myStartupHook = return()
-myStartupHook = spawnHere "feh --bg-fill $HOME/backgrounds/background.png"
-  >> spawnHere "wal -R"
+myStartupHook = spawnHere "wal -R"
   >> spawnHere "xrdb -merge ~/.Xresources"
+  >> spawn "mkfifo /home/adam/.tmp/xmonad-ws"
 
 ------------------------------------------------------------------------
 -- Keybinding to toggle the gap for the status bar
@@ -300,8 +299,6 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 -- main = xmonad defaults
 
 main = do
-  forM_ [".xmonad-workspace-log"] $ \file -> do
-    safeSpawn "mkfifo" ["/tmp/" ++ file]
   xmonad =<< statusBar "~/.config/dotfiles/polybar/launch.sh" xmobarPP toggleStrutsKey defaults
 
 -- A structure containing your configuration settings, overriding
