@@ -81,8 +81,8 @@ set t_Co=16
 syntax on
 "" Enable true 24-bit colour
 " set termguicolors
-" colorscheme custom
-colorscheme wal
+colorscheme wal_custom
+" colorscheme wal
 
 setlocal foldmethod=syntax
 noremap <silent><c-l> :nohlsearch<cr>
