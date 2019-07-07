@@ -292,8 +292,9 @@ myLogHook = do
       -- this block then depends on +THEME+
       -- | currWs == ws = " %{F"  ++ base00 ++ "}%{T3}[" ++ ws ++ "]%{T-}%{F-} "
       -- | otherwise    = "  %{F" ++ base10 ++ "}%{T4}"  ++ ws ++ "%{T-}%{F-}  "
-      | currWs == ws = " %{F#f00}[" ++ ws ++ "]%{F-} "
-      | otherwise    = " %{F#0f0}"  ++ ws ++ "%{F-} "
+      | currWs == ws = " %{F#fff}[" ++ ws ++ "]%{F-} "
+      | otherwise    = ""
+      -- | otherwise    = " %{F#0f0}"  ++ ws ++ "%{F-} "
 
     sort' = sortBy (compare `on` (!! 0))
     layoutParse s  -- pretty printing
