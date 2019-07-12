@@ -58,7 +58,7 @@ set mouse=a
 set ruler
 set shiftwidth=2
 set expandtab
-set number
+set number relativenumber
 set colorcolumn=100
 set hlsearch
 " When using the WAL colorscheme, disable termguicolors
