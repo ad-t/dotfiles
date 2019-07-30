@@ -12,16 +12,18 @@
 ; 
 
 [colors]
-;background = ${xrdb:color0:#222}
-background = #1d1f21
+background = ${xrdb:color0:#222}
+; background = #1d1f21
 background-alt = #444
-;foreground = ${xrdb:color7:#222}
-foreground = #c5c8c6
+foreground = ${xrdb:color7:#222}
+# foreground = #c5c8c6
 foreground-alt = #555
 ;primary = #ffb52a
 primary = #51dfff
 secondary = #e60053
 alert = #bd2c40
+
+yeet = ${xrdb:color6:#00ff00}
 
 item-fore = #81a2be
 item-back = #373b41
@@ -143,7 +145,8 @@ label-empty-padding = 2
 
 [module/xmonad]
 type = custom/script
-exec = tail -f /tmp/xmonad-ws
+exec = tail -f /tmp/xmonad-bar
+# exec = tail -f /tmp/xmonad-ws
 # exec-if = [ -p /tmp/xmonad-ws ]
 tail = true
 

@@ -272,9 +272,11 @@ myLogHook = do
 
   -- workspaces
   let currWs = W.currentTag winset
+  let cws = W.currentTag winset
   -- blocking named scratchpad appearing
   let wss = filter (/= "NSP") $ map W.tag $ W.workspaces winset
   let wsStr = join $ map (fmt currWs) $ sort' wss
+  let cwsStr = cws
 
   -- layout
   let currLt = description . W.layout . W.workspace . W.current $ winset
@@ -282,7 +284,9 @@ myLogHook = do
 
   -- fifo
   io $ appendFile "/tmp/xmonad-ws"     (wsStr ++ "\n")
+  io $ appendFile "/tmp/xmonad-cws"    (cwsStr ++ "\n")
   -- io $ appendFile "/tmp/xmonad-layout" (ltStr ++ "\n")
+  spawnHere "~/.config/dotfiles/xmonad/format_workspaces.py"
 
   where
     fmt currWs ws
@@ -292,9 +296,7 @@ myLogHook = do
       -- this block then depends on +THEME+
       -- | currWs == ws = " %{F"  ++ base00 ++ "}%{T3}[" ++ ws ++ "]%{T-}%{F-} "
       -- | otherwise    = "  %{F" ++ base10 ++ "}%{T4}"  ++ ws ++ "%{T-}%{F-}  "
-      | currWs == ws = " %{F#fff}[" ++ ws ++ "]%{F-} "
-      | otherwise    = ""
-      -- | otherwise    = " %{F#0f0}"  ++ ws ++ "%{F-} "
+      | otherwise    = ws ++ ", "
 
     sort' = sortBy (compare `on` (!! 0))
     layoutParse s  -- pretty printing
@@ -319,6 +321,7 @@ myLogHook = do
 myStartupHook = spawnHere "wal -R"
   >> spawnHere "xrdb -merge ~/.Xresources"
   >> spawn "mkfifo /tmp/xmonad-ws"
+  >> spawn "mkfifo /tmp/xmonad-cws"
 
 ------------------------------------------------------------------------
 -- Keybinding to toggle the gap for the status bar
