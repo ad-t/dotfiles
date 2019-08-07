@@ -318,7 +318,7 @@ myLogHook = do
 --
 -- By default, do nothing.
 -- myStartupHook = return()
-myStartupHook = spawnHere "wal -R"
+myStartupHook = spawnHere "wal -i $HOME/backgrounds/dusty_galaxy.jpg --backend colorthief && feh $HOME/backgrounds/dusty_galaxy.jpg --bg-fill"
   >> spawnHere "xrdb -merge ~/.Xresources"
   >> spawn "mkfifo /tmp/xmonad-ws"
   >> spawn "mkfifo /tmp/xmonad-cws"
