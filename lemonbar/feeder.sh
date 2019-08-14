@@ -1,8 +1,10 @@
 #!/bin/sh
 
+BAR_RUN_DIR="$HOME/.config/dotfiles/lemonbar"
+
 while true
 do
-  BAR=$($HOME/.config/dotfiles/lemonbar/bar.py)
+  BAR=$($BAR_RUN_DIR/bar.py "$BAR_RUN_DIR")
   echo "$BAR"
-  sleep 0.5
+  sleep 0.25
 done

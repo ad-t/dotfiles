@@ -1,3 +1,5 @@
 #!/bin/sh
 
-$HOME/.config/dotfiles/lemonbar/feeder.sh | lemonbar -g 3840x50 -p -f "Inconsolata for Powerline-16"
+killall lemonbar
+
+$HOME/.config/dotfiles/lemonbar/feeder.sh | lemonbar -p -f "Inconsolata for Powerline-13"

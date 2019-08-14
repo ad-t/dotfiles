@@ -318,7 +318,7 @@ myLogHook = do
 --
 -- By default, do nothing.
 -- myStartupHook = return()
-myStartupHook = spawnHere "wal -i $HOME/backgrounds/dusty_galaxy.jpg --backend colorthief && feh $HOME/backgrounds/dusty_galaxy.jpg --bg-fill"
+myStartupHook = spawnHere "wal -i $HOME/backgrounds/galaxy.jpg --backend colorthief && feh $HOME/backgrounds/galaxy.jpg --bg-fill"
   >> spawnHere "xrdb -merge ~/.Xresources"
   >> spawn "mkfifo /tmp/xmonad-ws"
   >> spawn "mkfifo /tmp/xmonad-cws"
@@ -335,7 +335,8 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 -- main = xmonad defaults
 
 main = do
- xmonad =<< statusBar "~/.config/dotfiles/polybar/launch.sh" xmobarPP toggleStrutsKey defaults
+ xmonad =<< statusBar "~/.config/dotfiles/lemonbar/main.sh &" xmobarPP toggleStrutsKey defaults
+ -- xmonad =<< statusBar "~/.config/dotfiles/polybar/launch.sh" xmobarPP toggleStrutsKey defaults
 
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will
