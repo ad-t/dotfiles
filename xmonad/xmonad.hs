@@ -212,7 +212,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = gaps [(U, 15), (R, 15), (L, 15), (D, 15)] $ (tiled ||| Mirror tiled ||| Full)
+myLayout = avoidStruts $ gaps [(U, 15), (R, 15), (L, 15), (D, 15)] $ (tiled ||| Mirror tiled ||| Full)
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
@@ -241,7 +241,7 @@ myLayout = gaps [(U, 15), (R, 15), (L, 15), (D, 15)] $ (tiled ||| Mirror tiled |
 -- To match on the WM_NAME, you can use 'title' in the same way that
 -- 'className' and 'resource' are used below.
 --
-myManageHook = composeAll
+myManageHook = manageDocks <+> composeAll
     [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
     , resource  =? "desktop_window" --> doIgnore
@@ -318,10 +318,11 @@ myLogHook = do
 --
 -- By default, do nothing.
 -- myStartupHook = return()
-myStartupHook = spawnHere "wal -i $HOME/backgrounds/galaxy.jpg --backend colorthief && feh $HOME/backgrounds/galaxy.jpg --bg-fill"
+myStartupHook = spawnHere "wal -i $HOME/backgrounds/background.png --backend haishoku && feh $HOME/backgrounds/background.png --bg-fill"
   >> spawnHere "xrdb -merge ~/.Xresources"
   >> spawn "mkfifo /tmp/xmonad-ws"
   >> spawn "mkfifo /tmp/xmonad-cws"
+  >> spawn "~/.config/dotfiles/lemonbar/main.sh &"
 
 ------------------------------------------------------------------------
 -- Keybinding to toggle the gap for the status bar
@@ -332,10 +333,10 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 -- Run xmonad with the settings you specify. No need to modify this.
 --
--- main = xmonad defaults
+main = xmonad defaults
 
-main = do
- xmonad =<< statusBar "~/.config/dotfiles/lemonbar/main.sh &" xmobarPP toggleStrutsKey defaults
+-- main = do
+--  xmonad =<< statusBar "~/.config/dotfiles/lemonbar/main.sh &" xmobarPP toggleStrutsKey defaults
  -- xmonad =<< statusBar "~/.config/dotfiles/polybar/launch.sh" xmobarPP toggleStrutsKey defaults
 
 -- A structure containing your configuration settings, overriding
