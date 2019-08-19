@@ -32,12 +32,13 @@ import Control.Monad (forM_, join)
 import XMonad.Util.Run (safeSpawn)
 import XMonad.Util.NamedWindows (getName)
 import qualified XMonad.StackSet as W
+import XMonad.Util.SpawnOnce
 
 -- for feh
 import XMonad.Actions.SpawnOn
 
 -- for Xresources
-import System.Cmd
+import System.Process
 
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
@@ -212,7 +213,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = avoidStruts $ gaps [(U, 15), (R, 15), (L, 15), (D, 15)] $ (tiled ||| Mirror tiled ||| Full)
+myLayout = gaps [(U, 15), (R, 15), (L, 15), (D, 15)] $ (tiled ||| Mirror tiled ||| Full)
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
@@ -241,7 +242,7 @@ myLayout = avoidStruts $ gaps [(U, 15), (R, 15), (L, 15), (D, 15)] $ (tiled ||| 
 -- To match on the WM_NAME, you can use 'title' in the same way that
 -- 'className' and 'resource' are used below.
 --
-myManageHook = manageDocks <+> composeAll
+myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
     , resource  =? "desktop_window" --> doIgnore
@@ -266,6 +267,7 @@ myEventHook = mempty
 --
 -- Adding polybar compatibility from https://github.com/polybar/polybar/wiki/User-contributed-modules
 -- myLogHook = return () 
+
 myLogHook = do
   -- from: https://gitlab.com/karetsu/xmonad-aloysius/blob/master/lib/Bus/Events.hs
   winset <- gets windowset
@@ -322,7 +324,7 @@ myStartupHook = spawnHere "wal -i $HOME/backgrounds/background.png --backend hai
   >> spawnHere "xrdb -merge ~/.Xresources"
   >> spawn "mkfifo /tmp/xmonad-ws"
   >> spawn "mkfifo /tmp/xmonad-cws"
-  >> spawn "~/.config/dotfiles/lemonbar/main.sh &"
+  -- >> spawnOnce "~/.config/dotfiles/lemonbar/main.sh &"
 
 ------------------------------------------------------------------------
 -- Keybinding to toggle the gap for the status bar
@@ -333,11 +335,13 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 -- Run xmonad with the settings you specify. No need to modify this.
 --
-main = xmonad defaults
+-- main = xmonad defaults
 
--- main = do
---  xmonad =<< statusBar "~/.config/dotfiles/lemonbar/main.sh &" xmobarPP toggleStrutsKey defaults
- -- xmonad =<< statusBar "~/.config/dotfiles/polybar/launch.sh" xmobarPP toggleStrutsKey defaults
+main = do
+  h <- spawnPipe "~/.config/dotfiles/lemonbar/main.sh &"
+  xmonad $ docks defaults {
+    logHook = dynamicLogWithPP $ def { ppOutput = hPutStrLn h }
+  }
 
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will
@@ -361,9 +365,9 @@ defaults = def {
         mouseBindings      = myMouseBindings,
 
       -- hooks, layouts
-        layoutHook         = myLayout,
-        manageHook         = myManageHook,
-        logHook            = myLogHook,
+        layoutHook         = avoidStruts $ myLayout,
+        manageHook         = myManageHook <+> manageDocks,
+        -- logHook            = myOtherLogHook,
         handleEventHook    = myEventHook,
         startupHook        = myStartupHook
     }
