@@ -39,6 +39,8 @@ import XMonad.Actions.SpawnOn
 
 -- for Xresources
 import System.Process
+import System.Exit (ExitCode)
+import Data.ByteString.Lazy (ByteString)
 
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
@@ -151,7 +153,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
 
     -- Restart xmonad
-    , ((modm              , xK_q     ), spawn "killall polybar; xmonad --recompile; xmonad --restart")
+    , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
 
     -- Run xmessage with a summary of the default keybindings (useful for beginners)
     , ((modm .|. shiftMask, xK_slash ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
@@ -324,7 +326,6 @@ myStartupHook = spawnHere "wal -i $HOME/backgrounds/background.png --backend hai
   >> spawnHere "xrdb -merge ~/.Xresources"
   >> spawn "mkfifo /tmp/xmonad-ws"
   >> spawn "mkfifo /tmp/xmonad-cws"
-  -- >> spawnOnce "~/.config/dotfiles/lemonbar/main.sh &"
 
 ------------------------------------------------------------------------
 -- Keybinding to toggle the gap for the status bar
