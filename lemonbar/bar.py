@@ -65,12 +65,15 @@ def whoami():
     return runShellCommand('whoami')
 
 def main():
+    stdin = input()
+    stdin.rstrip('\n')
     colors = Colors()
     bar = ""
     bar += colors.backgroundColor(colors.color3)
     bar += colors.foregroundColor(colors.color0)
     bar += " "
-    bar += currentWorkspace()
+    bar += " "
+    bar += stdin
     bar += " "
     bar += colors.swapForegroundBackground()
     bar += "{}".format(Glyphs.leftArrow)

@@ -339,7 +339,7 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 -- main = xmonad defaults
 
 main = do
-  h <- spawnPipe "~/.config/dotfiles/lemonbar/main.sh &"
+  h <- spawnPipe "~/.config/dotfiles/lemonbar/main.sh"
   xmonad $ docks defaults {
     logHook = dynamicLogWithPP $ def { ppOutput = hPutStrLn h }
   }
