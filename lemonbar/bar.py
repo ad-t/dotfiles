@@ -3,6 +3,7 @@
 import subprocess
 import time
 import sys
+import re
 
 class Glyphs:
     # from: https://github.com/ryanoasis/powerline-extra-symbols
@@ -64,6 +65,9 @@ def currentWorkspace():
 def whoami():
     return runShellCommand('whoami')
 
+def fixWorkspaceInfoFromXMonad(xmonadWorkspaceString):
+    return re.sub(r': [^:]*$', '', xmonadWorkspaceString)
+
 def main():
     stdin = input()
     stdin.rstrip('\n')
@@ -73,7 +77,7 @@ def main():
     bar += colors.foregroundColor(colors.color0)
     bar += " "
     bar += " "
-    bar += stdin
+    bar += fixWorkspaceInfoFromXMonad(stdin)
     bar += " "
     bar += colors.swapForegroundBackground()
     bar += "{}".format(Glyphs.leftArrow)
