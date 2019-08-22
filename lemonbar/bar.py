@@ -66,6 +66,8 @@ def whoami():
     return runShellCommand('whoami')
 
 def fixWorkspaceInfoFromXMonad(xmonadWorkspaceString):
+    split = xmonadWorkspaceString.split(' : ')
+    return ' : '.join(split[0:2])
     return re.sub(r': [^:]*$', '', xmonadWorkspaceString)
 
 def main():
