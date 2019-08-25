@@ -50,6 +50,7 @@ class Colors:
     def rightAlign(self):
         return "%{r}"
 
+
 def getXresourceValue(cwd, prop):
     string = '{}/get_xresource_value.sh "{}"'.format(cwd, prop)
     return runShellCommand(string)
@@ -63,26 +64,71 @@ def getDate():
 def whoami():
     return runShellCommand('whoami')
 
-def fixWorkspaceInfoFromXMonad(xmonadWorkspaceString):
+def separatorLeft():
+    return "{}".format(\
+                        Glyphs.leftArrow,\
+                      )
+
+def separatorRight():
+    return "{}".format(\
+                         Glyphs.leftArrow,\
+                       )
+
+def formatWorkspaces(workspaceString, focusColor, regularColor):
+    spaces = workspaceString.split(' ')
+    formattedString = ""
+    for space in spaces:
+        if re.match(r'\[', space):
+            space = re.sub('[\[\]]', '', space)
+            formattedString += "{}{}{} {}{} {}{}{}{}".format(\
+                                                    colors.backgroundColor(focusColor),\
+                                                    colors.foregroundColor(colors.color0),\
+                                                    separatorRight(),\
+                                                    space,\
+                                                    colors.foregroundColor(focusColor),\
+                                                    colors.backgroundColor(colors.color0),\
+                                                    separatorLeft(),\
+                                                    colors.backgroundColor(regularColor),\
+                                                    colors.foregroundColor(colors.color0),\
+                                                    )
+        else:
+            space = re.sub('[<>]', '', space)
+            formattedString += "{} {} {}{}{}{}".format(\
+                                                separatorRight(),\
+                                                space,\
+                                                colors.foregroundColor(regularColor) + colors.backgroundColor(colors.color0),\
+                                                separatorLeft(),\
+                                                colors.backgroundColor(regularColor),\
+                                                colors.foregroundColor(colors.color0),\
+                                                )
+    return formattedString
+
+def fixWorkspaceInfoFromXMonad(xmonadWorkspaceString, focusColor, regularColor):
     xmonadWorkspaceString = re.sub(r'\n', '', xmonadWorkspaceString)
     split = xmonadWorkspaceString.split(' : ')
-    return ' : '.join(split[0:2])
+    return "{}{} {}".format(\
+                                    formatWorkspaces(split[0], focusColor, regularColor),\
+                                    colors.backgroundColor(regularColor) + colors.foregroundColor(colors.color0) + separatorRight(),\
+                                    split[1],\
+                                )
     return re.sub(r': [^:]*$', '', xmonadWorkspaceString)
 
-def getWorkspaces(cwd):
+def getWorkspaces(cwd, focusColor, regularColor):
     workspaceString = ""
     with open('{}/workspaces.txt'.format(cwd)) as workspaces:
         for line in workspaces:
             workspaceString += line
-    return fixWorkspaceInfoFromXMonad(workspaceString)
+    return fixWorkspaceInfoFromXMonad(workspaceString, focusColor, regularColor)
+
+colors = Colors()
 
 def main():
-    colors = Colors()
+    focusColor = colors.color7
+    backgroundColor = colors.color5
     bar = ""
-    bar += colors.backgroundColor(colors.color3)
+    bar += colors.backgroundColor(backgroundColor)
     bar += colors.foregroundColor(colors.color0)
-    bar += " "
-    bar += getWorkspaces(cwd)
+    bar += getWorkspaces(cwd, focusColor, backgroundColor)
     bar += " "
     bar += colors.swapForegroundBackground()
     bar += "{}".format(Glyphs.leftArrow)
@@ -98,7 +144,7 @@ def main():
     bar += colors.foregroundColor("-")
     bar += colors.backgroundColor("-")
     bar += "\n"
-    print(bar, file=sys.stderr)
+    # print(bar, file=sys.stderr)
     print(bar)
 
 if __name__ == '__main__':
