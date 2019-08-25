@@ -60,13 +60,11 @@ def runShellCommand(cmd: str):
 def getDate():
     return runShellCommand('date "+%Y-%m-%d %H:%M:%S"')
 
-def currentWorkspace():
-    return runShellCommand('tail -n 1 /tmp/xmonad-cws')
-
 def whoami():
     return runShellCommand('whoami')
 
 def fixWorkspaceInfoFromXMonad(xmonadWorkspaceString):
+    xmonadWorkspaceString = re.sub(r'\n', '', xmonadWorkspaceString)
     split = xmonadWorkspaceString.split(' : ')
     return ' : '.join(split[0:2])
     return re.sub(r': [^:]*$', '', xmonadWorkspaceString)
@@ -84,7 +82,6 @@ def main():
     bar += colors.backgroundColor(colors.color3)
     bar += colors.foregroundColor(colors.color0)
     bar += " "
-    bar += " "
     bar += getWorkspaces(cwd)
     bar += " "
     bar += colors.swapForegroundBackground()
@@ -101,6 +98,7 @@ def main():
     bar += colors.foregroundColor("-")
     bar += colors.backgroundColor("-")
     bar += "\n"
+    print(bar, file=sys.stderr)
     print(bar)
 
 if __name__ == '__main__':
