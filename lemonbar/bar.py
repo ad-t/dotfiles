@@ -5,6 +5,8 @@ import time
 import sys
 import re
 
+cwd = sys.argv[1]
+
 class Glyphs:
     # from: https://github.com/ryanoasis/powerline-extra-symbols
     leftArrow = "\ue0b0"
@@ -14,7 +16,6 @@ class Glyphs:
 
 class Colors:
     def __init__(self):
-        cwd = sys.argv[1]
         self.background = getXresourceValue(cwd, "background")
         self.color0 = getXresourceValue(cwd, "color0")
         self.color1 = getXresourceValue(cwd, "color1")
@@ -59,27 +60,29 @@ def runShellCommand(cmd: str):
 def getDate():
     return runShellCommand('date "+%Y-%m-%d %H:%M:%S"')
 
-def currentWorkspace():
-    return runShellCommand('tail -n 1 /tmp/xmonad-cws')
-
 def whoami():
     return runShellCommand('whoami')
 
 def fixWorkspaceInfoFromXMonad(xmonadWorkspaceString):
+    xmonadWorkspaceString = re.sub(r'\n', '', xmonadWorkspaceString)
     split = xmonadWorkspaceString.split(' : ')
     return ' : '.join(split[0:2])
     return re.sub(r': [^:]*$', '', xmonadWorkspaceString)
 
+def getWorkspaces(cwd):
+    workspaceString = ""
+    with open('{}/workspaces.txt'.format(cwd)) as workspaces:
+        for line in workspaces:
+            workspaceString += line
+    return fixWorkspaceInfoFromXMonad(workspaceString)
+
 def main():
-    stdin = input()
-    stdin.rstrip('\n')
     colors = Colors()
     bar = ""
     bar += colors.backgroundColor(colors.color3)
     bar += colors.foregroundColor(colors.color0)
     bar += " "
-    bar += " "
-    bar += fixWorkspaceInfoFromXMonad(stdin)
+    bar += getWorkspaces(cwd)
     bar += " "
     bar += colors.swapForegroundBackground()
     bar += "{}".format(Glyphs.leftArrow)
@@ -95,6 +98,7 @@ def main():
     bar += colors.foregroundColor("-")
     bar += colors.backgroundColor("-")
     bar += "\n"
+    print(bar, file=sys.stderr)
     print(bar)
 
 if __name__ == '__main__':
