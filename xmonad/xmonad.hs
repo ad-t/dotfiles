@@ -326,6 +326,7 @@ myStartupHook = spawnHere "wal -i $HOME/backgrounds/background.png --backend hai
   >> spawnHere "xrdb -merge ~/.Xresources"
   >> spawn "mkfifo /tmp/xmonad-ws"
   >> spawn "mkfifo /tmp/xmonad-cws"
+  >> spawnHere "~/.config/dotfiles/lemonbar/main.sh"
 
 ------------------------------------------------------------------------
 -- Keybinding to toggle the gap for the status bar
@@ -339,7 +340,7 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 -- main = xmonad defaults
 
 main = do
-  h <- spawnPipe "~/.config/dotfiles/lemonbar/main.sh"
+  h <- spawnPipe "~/.config/dotfiles/lemonbar/workspace_writer.sh"
   xmonad $ docks defaults {
     logHook = dynamicLogWithPP $ def { ppOutput = hPutStrLn h }
   }
