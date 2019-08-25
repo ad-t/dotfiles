@@ -25,6 +25,14 @@ class Colors:
         self.color5 = getXresourceValue(cwd, "color5")
         self.color6 = getXresourceValue(cwd, "color6")
         self.color7 = getXresourceValue(cwd, "color7")
+        self.color8 = getXresourceValue(cwd, "color8")
+        self.color9 = getXresourceValue(cwd, "color9")
+        self.color10 = getXresourceValue(cwd, "color10")
+        self.color11 = getXresourceValue(cwd, "color11")
+        self.color12 = getXresourceValue(cwd, "color12")
+        self.color13 = getXresourceValue(cwd, "color13")
+        self.color14 = getXresourceValue(cwd, "color14")
+        self.color15 = getXresourceValue(cwd, "color15")
 
     def backgroundColor(self, color):
         string = "%{"
@@ -106,7 +114,12 @@ def formatWorkspaces(workspaceString, focusColor, regularColor):
 def fixWorkspaceInfoFromXMonad(xmonadWorkspaceString, focusColor, regularColor):
     xmonadWorkspaceString = re.sub(r'\n', '', xmonadWorkspaceString)
     split = xmonadWorkspaceString.split(' : ')
-    return "{}{} {}".format(\
+    return "{}{}{}{}{}{}{} {}".format(\
+                                    colors.foregroundColor(colors.color4),\
+                                    colors.backgroundColor(colors.color0),\
+                                    separatorLeft(),\
+                                    colors.backgroundColor(regularColor),\
+                                    colors.foregroundColor(colors.color0),\
                                     formatWorkspaces(split[0], focusColor, regularColor),\
                                     colors.backgroundColor(regularColor) + colors.foregroundColor(colors.color0) + separatorRight(),\
                                     split[1],\
