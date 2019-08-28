@@ -69,6 +69,12 @@ def runShellCommand(cmd: str):
 def getDate():
     return runShellCommand('date "+%Y-%m-%d %H:%M:%S"')
 
+def getPrimaryDiskUsage():
+    drive = '/dev/sda1'
+    dfResult = runShellCommand('df {} --output=pcent | tail -n 1'.format(drive)).lstrip()
+    diskUsageString = '/: {}'.format(dfResult)
+    return diskUsageString
+
 def whoami():
     return runShellCommand('whoami')
 
@@ -149,6 +155,10 @@ def main():
     bar += colors.centerAlign()
     bar += getDate()
     bar += colors.rightAlign()
+    bar += "{}".format(Glyphs.rightThinArrow)
+    bar += " "
+    bar += getPrimaryDiskUsage()
+    bar += " "
     bar += "{}".format(Glyphs.rightArrow)
     bar += colors.swapForegroundBackground()
     bar += " "
