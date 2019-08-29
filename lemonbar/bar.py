@@ -77,6 +77,8 @@ def getPrimaryDiskUsage():
 
 def getBatteryStatus():
     rawString = runShellCommand('acpi')
+    if re.search(r'unavailable', rawString):
+        return 'wall powered'
     # filter out battery number
     batteryString = re.sub(r'^[^:]+: ', '', rawString)
     splitString = batteryString.split(', ')
