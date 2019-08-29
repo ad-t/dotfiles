@@ -75,6 +75,23 @@ def getPrimaryDiskUsage():
     diskUsageString = '/: {}'.format(dfResult)
     return diskUsageString
 
+def getBatteryStatus():
+    rawString = runShellCommand('acpi')
+    # filter out battery number
+    batteryString = re.sub(r'^[^:]+: ', '', rawString)
+    splitString = batteryString.split(', ')
+    batteryString = str(splitString)
+    chargingStatus = None
+    if re.match(r'Discharging', splitString[0]):
+        # not charging
+        chargingStatus = 'bat'
+    else:
+        # charging
+        chargingStatus = 'chrg'
+    percentage = splitString[1]
+    timeRemaining = re.sub(r' remaining', '', splitString[2])
+    return '{}: {} ({})'.format(chargingStatus, percentage, timeRemaining)
+
 def whoami():
     return runShellCommand('whoami')
 
@@ -121,7 +138,7 @@ def fixWorkspaceInfoFromXMonad(xmonadWorkspaceString, focusColor, regularColor):
     xmonadWorkspaceString = re.sub(r'\n', '', xmonadWorkspaceString)
     split = xmonadWorkspaceString.split(' : ')
     return "{}{}{}{}{}{}{} {}".format(\
-                                    colors.foregroundColor(colors.color4),\
+                                    colors.foregroundColor(colors.color3),\
                                     colors.backgroundColor(colors.color0),\
                                     separatorLeft(),\
                                     colors.backgroundColor(regularColor),\
@@ -159,11 +176,27 @@ def main():
     bar += " "
     bar += getPrimaryDiskUsage()
     bar += " "
+    bar += colors.swapForegroundBackground()
+    bar += colors.backgroundColor(colors.color3)
+    bar += colors.swapForegroundBackground()
     bar += "{}".format(Glyphs.rightArrow)
     bar += colors.swapForegroundBackground()
     bar += " "
+    bar += getBatteryStatus()
+    bar += " "
+    bar += colors.backgroundColor(colors.color5)
+    bar += colors.swapForegroundBackground()
+    bar += colors.backgroundColor(colors.color3)
+    bar += "{}".format(Glyphs.rightArrow)
+    bar += colors.swapForegroundBackground()
+    bar += " "
+    bar += colors.foregroundColor(colors.color0)
     bar += whoami()
     bar += " "
+    bar += "{}".format(Glyphs.rightArrow)
+    bar += colors.swapForegroundBackground()
+    bar += colors.foregroundColor(colors.color3)
+    bar += "{}".format(Glyphs.rightArrow)
     bar += colors.foregroundColor("-")
     bar += colors.backgroundColor("-")
     bar += "\n"
