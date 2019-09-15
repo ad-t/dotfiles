@@ -26,24 +26,24 @@ Plug 'moll/vim-bbye'
 " Theming & Aesthetics
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'nightsense/office'
+" Plug 'nightsense/office'
 
 " Autocompletion using language servers
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Recommendations
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 
 " Language compatibility
 Plug 'neoclide/vim-jsx-improve'
 Plug 'vim-ruby/vim-ruby'
 
 " Linters
-Plug 'nvie/vim-flake8'
+" Plug 'nvie/vim-flake8'
 
 call plug#end()
 
@@ -58,7 +58,8 @@ set mouse=a
 set ruler
 set shiftwidth=2
 set expandtab
-set number relativenumber
+" set number relativenumber
+set number
 set colorcolumn=100
 set hlsearch
 " When using the WAL colorscheme, disable termguicolors
