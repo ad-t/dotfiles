@@ -41,6 +41,7 @@ import XMonad.Actions.SpawnOn
 import System.Process
 import System.Exit (ExitCode)
 import Data.ByteString.Lazy (ByteString)
+import XMonad.Util.Cursor
 
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
@@ -322,7 +323,8 @@ myLogHook = do
 --
 -- By default, do nothing.
 -- myStartupHook = return()
-myStartupHook = spawnHere "wal -i $HOME/backgrounds/background.png --backend colorthief && feh $HOME/backgrounds/background.png --bg-fill"
+myStartupHook = setDefaultCursor xC_left_ptr
+  >> spawnHere "wal -i $HOME/backgrounds/background.png --backend colorthief && feh $HOME/backgrounds/background.png --bg-fill"
   >> spawnHere "xrdb -merge ~/.Xresources"
   >> spawn "mkfifo /tmp/xmonad-ws"
   >> spawn "mkfifo /tmp/xmonad-cws"

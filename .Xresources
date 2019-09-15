@@ -1,7 +1,8 @@
 Xft.dpi: 200
 polybar.dpi: 100
 Xft.antialias: 1
-Xcursor.size: 48
+Xcursor*theme: Capitaine
+Xcursor*size: 128
 
 *background: #231E18
 *foreground: #CCCCCC
