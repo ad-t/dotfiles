@@ -91,7 +91,10 @@ def getBatteryStatus():
         # charging
         chargingStatus = 'chrg'
     percentage = splitString[1]
-    timeRemaining = re.sub(r' remaining', '', splitString[2])
+    if (len(splitString) > 2):
+        timeRemaining = re.sub(r' remaining', '', splitString[2])
+    else:
+        timeRemaining = "full"
     return '{}: {} ({})'.format(chargingStatus, percentage, timeRemaining)
 
 def whoami():
