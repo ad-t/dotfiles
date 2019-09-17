@@ -20,6 +20,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'ngmy/vim-rubocop'
 Plug 'jamessan/vim-gnupg'
 Plug 'moll/vim-bbye'
+Plug 'airblade/vim-gitgutter'
 " Grammar checker
 " Plug 'rhysd/vim-grammarous'
 
