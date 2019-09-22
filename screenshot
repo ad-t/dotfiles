@@ -1,0 +1,11 @@
+#!/bin/sh -x
+
+EPOCH=`date +%s`
+FILE_NAME="$EPOCH-screenshot.png"
+SCREENSHOTS_DIR="$HOME/.screenshots"
+
+mkdir -p "$SCREENSHOTS_DIR"
+
+import "$SCREENSHOTS_DIR/$FILE_NAME"
+
+cat "$SCREENSHOTS_DIR/$FILE_NAME" | xclip -sel CLIPBOARD -t image/png
