@@ -61,7 +61,7 @@ set shiftwidth=2
 set expandtab
 " set number relativenumber
 set number
-set colorcolumn=100
+" set colorcolumn=100
 set hlsearch
 " When using the WAL colorscheme, disable termguicolors
 "" colorscheme office-dark
