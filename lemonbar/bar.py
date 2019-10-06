@@ -161,19 +161,74 @@ def getWorkspaces(cwd, focusColor, regularColor):
             workspaceString += line
     return fixWorkspaceInfoFromXMonad(workspaceString, focusColor, regularColor)
 
+def getBspwmWorkspaces(cwd, backgroundColor):
+    colors = Colors()
+    ws = ""
+    ws += colors.backgroundColor(backgroundColor)
+    ws += colors.foregroundColor(colors.color0)
+    ws += colors.swapForegroundBackground()
+    rawWorkspaces = runShellCommand("bspc wm -g")
+    for block in rawWorkspaces.split(':'):
+        firstLetter = block[0]
+        desktopName = block[1:]
+        # free
+        if re.match(r'^f', firstLetter):
+            ws += " {} ".format(desktopName)
+        # focussed free
+        elif re.match(r'^F', firstLetter):
+            ws += colors.swapForegroundBackground()
+            ws += " {} ".format(desktopName)
+            ws += colors.swapForegroundBackground()
+        # occupied
+        elif re.match(r'^o', firstLetter):
+            ws += "%{+u}"
+            ws += " {} ".format(desktopName)
+            ws += "%{-u}"
+        # occupied and focused
+        elif re.match(r'^O', firstLetter):
+            ws += colors.swapForegroundBackground()
+            ws += " {} ".format(desktopName)
+            ws += colors.swapForegroundBackground()
+        # urgent
+        elif re.match(r'^u', firstLetter):
+            ws += " [urgent] "
+        # urgent and focussed
+        elif re.match(r'^U', firstLetter):
+            ws += " [focussed&urgent] "
+        # layout
+        elif re.match(r'^L', firstLetter):
+            # tiling
+            if re.match(r'^LT$', block):
+                ws += " tiled ".format(block)
+            # monocle
+            elif re.match(r'^LM$', block):
+                ws += " monocle ".format(block)
+            else:
+                ws += " layout unknown ({}) ".format(block)
+        elif re.match(r'^[LTG]', firstLetter):
+            ws += " [{}] ".format(block)
+        elif re.match(r'^[LTG]', firstLetter):
+            ws += " [{}] ".format(block)
+        else:
+            continue
+    # TODO: Extend this further to allow for a count of windows on a single desktop
+    ws += colors.swapForegroundBackground()
+    return ws
+
 colors = Colors()
 
 def main():
     focusColor = colors.color7
     backgroundColor = colors.color5
     bar = ""
-    bar += colors.backgroundColor(backgroundColor)
-    bar += colors.foregroundColor(colors.color0)
-    bar += getWorkspaces(cwd, focusColor, backgroundColor)
-    bar += " "
+    # bar += colors.backgroundColor(backgroundColor)
+    # bar += colors.foregroundColor(colors.color0)
+    # bar += getWorkspaces(cwd, focusColor, backgroundColor)
+    bar += getBspwmWorkspaces(cwd, backgroundColor)
     bar += colors.swapForegroundBackground()
-    bar += "{}".format(Glyphs.leftArrow)
-    bar += " "
+    # bar += " "
+    # bar += "{}".format(Glyphs.leftArrow)
+    # bar += " "
     bar += colors.centerAlign()
     bar += getDate()
     bar += colors.rightAlign()
