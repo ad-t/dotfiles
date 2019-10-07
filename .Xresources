@@ -21,6 +21,9 @@ URxvt.keysym.Control-0x2d: perl:font-size:decrease
 URxvt.internalBorder: 32
 URxvt.dynamicColors: on
 
+! Rofi config
+rofi.font: mono 16
+
 ! ! *color0:  #191726
 ! *color0:  #231E18
 ! *color1:  #FF5C57

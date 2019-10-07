@@ -15,5 +15,5 @@ do
   done
   echo "$BAR_STRING"
   BAR_STRING=""
-  sleep 0.25
+  sleep 0.1
 done

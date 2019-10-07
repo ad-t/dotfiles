@@ -1,10 +1,23 @@
 #!/bin/sh
 
+# restart sxhkd properly
+killall sxhkd
 sxhkd &
+
+# restart dunst properly
+killall dunst
 
 wal -R
 
+# clean all bar-related processes
+killall lemonbar
+for PID in `ps aux | egrep "lemonbar" | egrep -v "grep" | egrep "\.(sh|py)" | sed -r "s/ +/ /g" | cut -d' ' -f2`
+do
+  kill -SIGTERM "$PID"
+done
 $HOME/.config/dotfiles/lemonbar/main.sh &
+
+xrdb -merge ~/.Xresources
 
 bspc monitor -d "1-web" "2-code" "3-servers" # III IV V VI VII VIII IX X
 

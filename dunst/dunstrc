@@ -1,0 +1,15 @@
+[global]
+  follow = mouse
+  indicate_hidden = yes
+  shrink = no
+  geometry = 600x5-60+100
+  separator_height = 2
+  padding = 20
+  horizontal_padding = 20
+  frame_width = 5
+  font = Inconsolata for Powerline 16
+  align = right
+  markup = full
+  format = "<b>%s<b>\n%b"
+  word_wrap = yes
+  background = "#900000"
