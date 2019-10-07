@@ -8,11 +8,12 @@ alt + shift + Return
 
 # program launcher
 alt + @space
-	dmenu_run
+        rofi -show run
+	# dmenu_run
 
 # make sxhkd reload its configuration files:
 alt + Escape
-	pkill -USR1 -x sxhkd
+	pkill -USR1 -x sxhkd && notify-send "sxhkd restarted"
 
 #
 # bspwm hotkeys
@@ -24,7 +25,7 @@ alt + q
 
 # restart bspwm
 alt + r
-	$HOME/.config/bspwm/bspwmrc
+	$HOME/.config/bspwm/bspwmrc && notify-send "bspwm restarted"
 
 # close and kill
 alt + {_,shift + }w
