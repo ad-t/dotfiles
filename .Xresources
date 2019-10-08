@@ -22,7 +22,9 @@ URxvt.internalBorder: 32
 URxvt.dynamicColors: on
 
 ! Rofi config
-rofi.font: mono 16
+rofi.font: Inconsolata for Powerline 30
+rofi.padding: 35
+rofi.terminal: urxvt
 
 ! ! *color0:  #191726
 ! *color0:  #231E18
