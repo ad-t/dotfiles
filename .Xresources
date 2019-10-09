@@ -1,5 +1,4 @@
 Xft.dpi: 200
-polybar.dpi: 100
 Xft.antialias: 1
 Xcursor*theme: Capitaine
 Xcursor*size: 128

@@ -8,22 +8,21 @@
   padding = 20
   horizontal_padding = 20
   frame_width = 5
-  frame_color = "#536caa"
+  frame_color = FRAME_COLOR_ALL
   font = Inconsolata for Powerline 16
   align = right
   markup = full
-  format = "<b>%s<b>
-%b"
+  format = "<b>%s<b>\n%b"
   word_wrap = yes
 
 [urgency_low]
-  background = "#262720"
-  foreground = "#a5aa93"
+  background = BACKGROUND
+  foreground = LOW_URGENCY_FOREGROUND
 
 [urgency_normal]
-  background = "#262720"
-  foreground = "#83ab91"
+  background = BACKGROUND
+  foreground = NORMAL_URGENCY_FOREGROUND
 
 [urgency_critical]
-  background = "#262720"
-  foreground = "#bfc6a5"
+  background = BACKGROUND
+  foreground = CRITICAL_URGENCY_FOREGROUND
