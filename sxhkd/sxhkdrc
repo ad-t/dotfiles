@@ -86,8 +86,8 @@ alt + {_,shift + }c
 	bspc node -f {next,prev}.local
 
 # focus the next/previous desktop in the current monitor
-alt + bracket{left,right}
-	bspc desktop -f {prev,next}.local
+# alt + bracket{left,right}
+# 	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
 alt + {grave,Tab}
@@ -138,3 +138,11 @@ alt + shift + {h,j,k,l}
 # move a floating window
 alt + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# move focus to another desktop
+alt + bracket{left,right}
+        bspc monitor -f {prev,next}
+
+# move focus to another desktop
+alt + shift + bracket{left,right}
+        bspc node -m {prev,next} -f
