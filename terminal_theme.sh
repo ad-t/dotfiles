@@ -14,7 +14,15 @@ build_segment() {
 
 build_path() {
   PWD_FIXED=$(pwd | sed -r "s/\/home\/[a-z]+/~/g")
-  build_segment "$PWD_FIXED"
+  # shorten path to single character
+  BASENAME=$(basename "$PWD_FIXED")
+  PWD_FIXED=$(echo $PWD_FIXED | sed -r "s/\/[A-Za-z0-9_-]+$//" | sed -r "s/([A-Za-z0-9_])[A-Za-z0-9_]+/\1/g")
+  if test "$BASENAME" = "~"
+  then
+    build_segment "$BASENAME"
+  else
+    build_segment "$PWD_FIXED/$BASENAME"
+  fi
 }
 
 build_git() {
