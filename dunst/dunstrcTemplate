@@ -9,7 +9,7 @@
   horizontal_padding = 20
   frame_width = 5
   frame_color = FRAME_COLOR_ALL
-  font = Inconsolata for Powerline 16
+  font = Space Mono for Powerline 16
   align = right
   markup = full
   format = "<b>%s<b>\n%b"
