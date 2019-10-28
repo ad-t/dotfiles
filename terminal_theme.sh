@@ -12,6 +12,15 @@ build_segment() {
   echo -n "[$CONTENT]"
 }
 
+build_retval() {
+  RETVAL="$?"
+  if test "$RETVAL" -ne 0
+  then
+    color_prompt "red"
+    build_segment "$RETVAL"
+  fi
+}
+
 build_path() {
   PWD_FIXED=$(pwd | sed -r "s/\/home\/[a-z]+/~/g")
   # shorten path to single character
@@ -53,6 +62,7 @@ build_git() {
 }
 
 build_left_prompt() {
+  build_retval
   color_prompt "yellow"
   build_path
   color_prompt "red"

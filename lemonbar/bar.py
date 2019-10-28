@@ -92,7 +92,10 @@ def getBatteryStatus():
         chargingStatus = 'chrg'
     percentage = splitString[1]
     if (len(splitString) > 2):
-        timeRemaining = re.sub(r' remaining', '', splitString[2])
+        if re.search(r'zero rate', splitString[2]):
+            timeRemaining = "zero rate"
+        else:
+            timeRemaining = re.sub(r' remaining', '', splitString[2])
     else:
         timeRemaining = "full"
     return '{}: {} ({})'.format(chargingStatus, percentage, timeRemaining)
