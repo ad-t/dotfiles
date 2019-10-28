@@ -16,7 +16,7 @@ build_path() {
   PWD_FIXED=$(pwd | sed -r "s/\/home\/[a-z]+/~/g")
   # shorten path to single character
   BASENAME=$(basename "$PWD_FIXED")
-  PWD_FIXED=$(echo $PWD_FIXED | sed -r "s/\/[A-Za-z0-9_-]+$//" | sed -r "s/([A-Za-z0-9_])[A-Za-z0-9_]+/\1/g")
+  PWD_FIXED=$(echo $PWD_FIXED | sed -r "s/\/.?[A-Za-z0-9_-]+$//" | sed -r "s/([A-Za-z0-9_])[A-Za-z0-9_]+/\1/g")
   if test "$BASENAME" = "~"
   then
     build_segment "$BASENAME"
@@ -56,6 +56,7 @@ build_left_prompt() {
   color_prompt "yellow"
   build_path
   color_prompt "red"
+  echo -n " "
   build_git
   color_prompt "white"
 }
