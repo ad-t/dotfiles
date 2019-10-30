@@ -9,8 +9,7 @@ alt + shift + Return
 # program launcher
 # alt + @space
 alt + p
-        rofi -show run
-	# dmenu_run
+        rofi -show run -theme ~/.config/dotfiles/rofi/wal.rasi
 
 # make sxhkd reload its configuration files:
 alt + Escape
