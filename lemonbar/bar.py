@@ -230,7 +230,7 @@ def getNetworkTraffic():
     tx_bps = int(after_tx) - int(before_tx)
     rx_kbps = rx_bps / (1024)
     tx_kbps = tx_bps / (1024)
-    networkString = "%s: d-%4.2fk, u-%4.2fk" % (interface, rx_kbps, tx_kbps)
+    networkString = "%s: d-%.2fk, u-%.2fk" % (interface, rx_kbps, tx_kbps)
     finalNetworkString = "%{+u}"
     finalNetworkString += networkString
     finalNetworkString += "%{-u}"
