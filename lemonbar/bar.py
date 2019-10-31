@@ -218,25 +218,39 @@ def getBspwmWorkspaces(cwd, backgroundColor):
     ws += colors.swapForegroundBackground()
     return ws
 
+def getNetworkTraffic():
+    interface = runShellCommand("ip addr | awk '/state UP/ { print $2 }'")
+    interface = re.sub(r':', '', interface.strip())
+    before_rx = runShellCommand("cat /sys/class/net/{}/statistics/rx_bytes".format(interface))
+    before_tx = runShellCommand("cat /sys/class/net/{}/statistics/tx_bytes".format(interface))
+    time.sleep(1)
+    after_rx = runShellCommand("cat /sys/class/net/{}/statistics/rx_bytes".format(interface))
+    after_tx = runShellCommand("cat /sys/class/net/{}/statistics/tx_bytes".format(interface))
+    rx_bps = int(after_rx) - int(before_rx)
+    tx_bps = int(after_tx) - int(before_tx)
+    rx_kbps = rx_bps / (1024)
+    tx_kbps = tx_bps / (1024)
+    networkString = "%s: d-%4.2fk, u-%4.2fk" % (interface, rx_kbps, tx_kbps)
+    finalNetworkString = "%{+u}"
+    finalNetworkString += networkString
+    finalNetworkString += "%{-u}"
+    return finalNetworkString
+
 colors = Colors()
 
 def main():
     focusColor = colors.color7
     backgroundColor = colors.color5
     bar = ""
-    # bar += colors.backgroundColor(backgroundColor)
-    # bar += colors.foregroundColor(colors.color0)
-    # bar += getWorkspaces(cwd, focusColor, backgroundColor)
     bar += getBspwmWorkspaces(cwd, backgroundColor)
     bar += colors.swapForegroundBackground()
-    # bar += " "
-    # bar += "{}".format(Glyphs.leftArrow)
-    # bar += " "
     bar += colors.centerAlign()
     bar += getDate()
     bar += colors.rightAlign()
     bar += " | "
     bar += getPrimaryDiskUsage()
+    bar += " | "
+    bar += getNetworkTraffic()
     bar += " "
     bar += colors.swapForegroundBackground()
     bar += colors.backgroundColor(colors.color3)
