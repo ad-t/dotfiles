@@ -219,15 +219,16 @@ def getBspwmWorkspaces(cwd, backgroundColor):
     return ws
 
 def getNetworkTraffic():
+    samplingTime = 0.5
     interface = runShellCommand("ip addr | awk '/state UP/ { print $2 }'")
     interface = re.sub(r':', '', interface.strip())
     before_rx = runShellCommand("cat /sys/class/net/{}/statistics/rx_bytes".format(interface))
     before_tx = runShellCommand("cat /sys/class/net/{}/statistics/tx_bytes".format(interface))
-    time.sleep(1)
+    time.sleep(samplingTime)
     after_rx = runShellCommand("cat /sys/class/net/{}/statistics/rx_bytes".format(interface))
     after_tx = runShellCommand("cat /sys/class/net/{}/statistics/tx_bytes".format(interface))
-    rx_bps = int(after_rx) - int(before_rx)
-    tx_bps = int(after_tx) - int(before_tx)
+    rx_bps = (int(after_rx) - int(before_rx)) / samplingTime
+    tx_bps = (int(after_tx) - int(before_tx)) / samplingTime
     rx_kbps = rx_bps / (1024)
     tx_kbps = tx_bps / (1024)
     networkString = "%s: d-%.2fk, u-%.2fk" % (interface, rx_kbps, tx_kbps)
