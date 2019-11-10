@@ -21,7 +21,7 @@ URxvt.internalBorder: 32
 URxvt.dynamicColors: on
 
 ! Rofi config
-rofi.font: Inconsolata for Powerline 30
+rofi.font: Iosevka Term SS02 30
 rofi.padding: 35
 rofi.terminal: urxvt
 
