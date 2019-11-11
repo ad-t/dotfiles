@@ -170,4 +170,4 @@ let s:vim_tags = expand('~/.cache/tags')
 let g:gutentags_cache_dir = s:vim_tags
 
 " bring up the neovim terminal
-nnoremap <Leader>` :terminal<CR>A
+nnoremap <Leader>` :vsp <CR> :terminal<CR>A
