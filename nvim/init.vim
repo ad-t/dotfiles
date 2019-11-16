@@ -176,8 +176,6 @@ nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 let s:vim_tags = expand('~/.cache/tags')
 let g:gutentags_cache_dir = s:vim_tags
 
-" bring up the neovim terminal
-nnoremap <Leader>` :terminal<CR>A
 
 " coc settings (https://github.com/neoclide/coc.nvim)
 " set hidden
@@ -206,3 +204,5 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" bring up the neovim terminal
+nnoremap <Leader>` :vsp <CR> :terminal<CR>A

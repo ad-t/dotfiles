@@ -68,7 +68,7 @@ RGBA_LIGHT_GRAY=$(convertColorCodeToRGBA $LIGHT_GRAY)
 # generate dunstrc file
 NEW_ROFI_FILE=`cat $ROFI_WAL_RASI_TEMPLATE |\
   sed -r "s/ SEPARATOR_COLOR/$RGBA_DARK_CYAN/g"\ |
-  sed -r "s/ BACKGROUND/$RGBA_RED/g"\ |
+  sed -r "s/ BACKGROUND/$RGBA_DARK_MAGENTA/g"\ |
   sed -r "s/ FOREGROUND/$RGBA_LIGHT_GRAY/g"\ |
   sed -r "s/ SELECTED_FOREGROUND/$RGBA_LIGHT_GRAY/g"\ |
   sed -r "s/ SELECTED_BACKGROUND/$RGBA_GRAY/g"\
