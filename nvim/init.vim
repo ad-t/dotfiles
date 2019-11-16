@@ -21,30 +21,37 @@ Plug 'ngmy/vim-rubocop'
 Plug 'jamessan/vim-gnupg'
 Plug 'moll/vim-bbye'
 Plug 'airblade/vim-gitgutter'
-" Grammar checker
-" Plug 'rhysd/vim-grammarous'
 
 " Theming & Aesthetics
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'nightsense/office'
 
-" Autocompletion using language servers
-" Plug 'autozimu/LanguageClient-neovim', {
-"     \ 'branch': 'next',
-"     \ 'do': 'bash install.sh',
-"     \ }
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-" Recommendations
-" Plug 'ludovicchabant/vim-gutentags'
+" Generalised completions
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-java', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-lists', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-git', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-yank', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'neoclide/coc-svg', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'neoclide/coc-angular', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'neoclide/coc-vimlsp', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'neoclide/coc-xml', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'neoclide/coc-texlab', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'neoclide/coc-svelte', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'neoclide/coc-flutter', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'neoclide/coc-markdownlint', {'do': 'yarn install --frozen-lockfile'}
 
 " Language compatibility
 Plug 'neoclide/vim-jsx-improve'
 Plug 'vim-ruby/vim-ruby'
-
-" Linters
-" Plug 'nvie/vim-flake8'
 
 call plug#end()
 
@@ -171,3 +178,31 @@ let g:gutentags_cache_dir = s:vim_tags
 
 " bring up the neovim terminal
 nnoremap <Leader>` :terminal<CR>A
+
+" coc settings (https://github.com/neoclide/coc.nvim)
+" set hidden
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
+
+" trigger completion
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
