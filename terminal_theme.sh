@@ -101,7 +101,7 @@ build_prompt() {
 }
 
 build_typing_prompt() {
-  echo "> "
+  echo "$ "
 }
 
 PROMPT='%{%f%b%k%}$(build_prompt)
