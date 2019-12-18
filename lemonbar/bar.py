@@ -90,7 +90,10 @@ def getBatteryStatus():
     else:
         # charging
         chargingStatus = 'chrg'
-    percentage = splitString[1]
+    try:
+        percentage = splitString[1]
+    except:
+        return 'Unavailable'
     if (len(splitString) > 2):
         if re.search(r'zero rate', splitString[2]):
             timeRemaining = "zero rate"

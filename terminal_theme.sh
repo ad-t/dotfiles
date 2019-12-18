@@ -22,7 +22,7 @@ build_retval() {
 }
 
 build_path() {
-  PWD_FIXED=$(pwd | sed -r "s/\/home\/[a-z]+/~/g")
+  PWD_FIXED=$(pwd | sed -r "s/^\/home\/[a-z]+/~/g")
   # shorten path to single character
   BASENAME=$(basename "$PWD_FIXED")
   PWD_FIXED=$(echo $PWD_FIXED | sed -r "s/\/.?[A-Za-z0-9_-]+$//" | sed -r "s/([A-Za-z0-9_])[A-Za-z0-9_]+/\1/g")
