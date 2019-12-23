@@ -99,7 +99,7 @@ noremap <silent><c-l> :nohlsearch<cr>
       \<c-l>
 
 set nofoldenable
-set foldnestmax=1
+" set foldnestmax=1
 set foldmethod=indent
 
 imap kj <esc>
