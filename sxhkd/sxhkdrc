@@ -4,7 +4,7 @@
 
 # terminal emulator
 alt + shift + Return
-	urxvt
+	urxvt -e "fish"
 
 # program launcher
 # alt + @space

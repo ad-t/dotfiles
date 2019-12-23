@@ -1,40 +1,72 @@
-# vim:ft=zsh ts=2 sw=2 sts=2
+#!/bin/sh
 
-CURRENT_BG='NONE'
+# Black        0;30     Dark Gray     1;30
+# Red          0;31     Light Red     1;31
+# Green        0;32     Light Green   1;32
+# Brown/Orange 0;33     Yellow        1;33
+# Blue         0;34     Light Blue    1;34
+# Purple       0;35     Light Purple  1;35
+# Cyan         0;36     Light Cyan    1;36
+# Light Gray   0;37     White         1;37
+# NO COLOR: \033[0m
 
-() {
-  local LC_ALL="" LC_CTYPE="en_US.UTF-8"
-  SEGMENT_SEPARATOR=$'\ue0b0'
+
+set_color() {
+  COLOR="$1"
+  COLOR_CODE=""
+  case $COLOR in
+    BLACK)
+      COLOR_CODE="0;30"
+      ;;
+    RED)
+      COLOR_CODE="0;31"
+      ;;
+    GREEN)
+      COLOR_CODE="0;32"
+      ;;
+    BLUE)
+      COLOR_CODE="0;34"
+      ;;
+  esac
+  printf "\033[${COLOR_CODE}m"
 }
 
-build_segment() {
+reset_color() {
+  printf "\033[0m"
+}
+
+segment_prompt() {
   CONTENT="$1"
   echo -n "[$CONTENT]"
 }
 
-build_retval() {
-  RETVAL="$?"
-  if test "$RETVAL" -ne 0
+prompt_spacer() {
+  echo -n " "
+}
+
+show_retval() {
+  RETVAL="$1"
+  if [ "$RETVAL" -ne 0 ]
   then
-    color_prompt "red"
-    build_segment "$RETVAL"
+    segment_prompt "$RETVAL"
+    prompt_spacer
   fi
 }
 
-build_path() {
-  PWD_FIXED=$(pwd | sed -r "s/^\/home\/[a-z]+/~/g")
+get_path() {
+  PWD_FIXED=$(pwd | sed -r "s/\/home\/[a-z]+/~/g")
   # shorten path to single character
   BASENAME=$(basename "$PWD_FIXED")
   PWD_FIXED=$(echo $PWD_FIXED | sed -r "s/\/.?[A-Za-z0-9_-]+$//" | sed -r "s/([A-Za-z0-9_])[A-Za-z0-9_]+/\1/g")
   if test "$BASENAME" = "~"
   then
-    build_segment "$BASENAME"
+    echo "$BASENAME"
   else
-    build_segment "$PWD_FIXED/$BASENAME"
+    echo "$PWD_FIXED/$BASENAME"
   fi
 }
 
-build_git() {
+get_git() {
   # test if in git repo
   if git status > /dev/null 2>&1
   then
@@ -57,28 +89,25 @@ build_git() {
     then
       GIT_ADDED="+"
     fi
-    build_segment "$GIT_BRANCH$GIT_UNTRACKED$GIT_UNSTAGED$GIT_ADDED"
+    prompt_spacer
+    segment_prompt "$GIT_BRANCH$GIT_UNTRACKED$GIT_UNSTAGED$GIT_ADDED"
   fi
 }
 
-build_left_prompt() {
-  build_retval
-  color_prompt "yellow"
-  build_path
-  color_prompt "red"
-  echo -n " "
-  build_git
-  color_prompt "white"
+info_prompt() {
+  RETVAL="$1"
+  set_color "GREEN"
+  show_retval "$RETVAL"
+  set_color "BLUE"
+  segment_prompt "$(get_path)"
+  set_color "RED"
+  get_git
+  reset_color
+  echo
 }
 
-color_prompt() {
-  echo -n "%{%F{$1}%}"
-}
-
-build_right_prompt() {
-  color_prompt "cyan"
-  build_segment "$(date +%T)"
-  color_prompt "white"
+typing_prompt() {
+  echo "$ "
 }
 
 output_spaces() {
@@ -88,21 +117,23 @@ output_spaces() {
   done
 }
 
-build_prompt() {
-  LEFT="$(build_left_prompt)"
-  LEFT_CHARACTERS=$(echo $LEFT | sed -r 's/%\{%[A-Z]\{[a-z]+\}%\}//g' | wc -m)
-  RIGHT="$(build_right_prompt)"
-  RIGHT_CHARACTERS=$(echo $RIGHT | sed -r 's/%\{%[A-Z]\{[a-z]+\}%\}//g' | wc -m)
+right_prompt() {
+  RIGHT_PROMPT="$(segment_prompt $(date +%T))"
+  RIGHT_PROMPT_LENGTH="$(echo $RIGHT_PROMPT | wc -m)"
   COLUMNS=$(tput cols)
-  SPACES=$(expr $COLUMNS - $RIGHT_CHARACTERS - $LEFT_CHARACTERS + 1)
-  echo -n "$LEFT"
-  output_spaces "$SPACES"
-  echo -n "$RIGHT"
+  SPACES=$(expr $COLUMNS - $RIGHT_PROMPT_LENGTH)
+  output_spaces $SPACES
+  set_color "RED"
+  printf "$RIGHT_PROMPT"
+  echo -n "\r"
 }
 
-build_typing_prompt() {
-  echo "$ "
+main() {
+  RETVAL="$1"
+  right_prompt
+  info_prompt "$RETVAL"
+  typing_prompt
 }
 
-PROMPT='%{%f%b%k%}$(build_prompt)
-$(build_typing_prompt)'
+RETVAL="$1"
+main "$RETVAL"
