@@ -111,10 +111,11 @@ typing_prompt() {
 }
 
 output_spaces() {
-  for i in $(seq 0 $1)
+  COMMAND="for i in \$(seq 0 $1)
   do
-    echo -n " "
-  done
+    printf '\u2500'
+  done"
+  bash -c "$COMMAND"
 }
 
 right_prompt() {
@@ -122,8 +123,8 @@ right_prompt() {
   RIGHT_PROMPT_LENGTH="$(echo $RIGHT_PROMPT | wc -m)"
   COLUMNS=$(tput cols)
   SPACES=$(expr $COLUMNS - $RIGHT_PROMPT_LENGTH)
-  output_spaces $SPACES
   set_color "RED"
+  output_spaces $SPACES
   printf "$RIGHT_PROMPT"
   echo -n "\r"
 }
