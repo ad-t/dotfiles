@@ -74,6 +74,7 @@ set hlsearch
 "" colorscheme office-dark
 " colorscheme gruvbox
 "colorscheme wal
+colorscheme colors-wal
 set background=dark
 set cursorline
 set wildmenu

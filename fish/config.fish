@@ -8,3 +8,7 @@ set -x GPG_TTY (tty)
 # set autocompletion for gopass
 gopass completion fish | source
 source ~/.config/dotfiles/aliases
+
+function fish_greeting
+  echo -n ""
+end
