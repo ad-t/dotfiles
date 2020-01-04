@@ -223,18 +223,22 @@ def getBspwmWorkspaces(cwd, backgroundColor):
     return ws
 
 def getNetworkTraffic():
-    interface = "wlp6s0"
-    pathName = os.path.expanduser(f"~/.config/dotfiles/utils/{interface}")
-    with open(f"{pathName}.rx.data") as rx_file:
-        rx = int(rx_file.read())
-    with open(f"{pathName}.tx.data") as tx_file:
-        tx = int(tx_file.read())
-    rx_KBps = rx / 1024
-    tx_KBps = tx / 1024
-    networkString = "%s: d-%.2fk, u-%.2fk" % (interface, rx_KBps, tx_KBps)
-    finalNetworkString = "%{+u}"
-    finalNetworkString += networkString
-    finalNetworkString += "%{-u}"
+    pathName = os.path.expanduser(f"~/.config/dotfiles/utils/")
+    interfaces = set([ re.sub(r'\.[rt]x\.data', '', file) for file in os.listdir(pathName) if os.path.isfile(os.path.join(pathName, file)) and re.search(r'[a-z0-9]+\.[rt]x\.data', file) ])
+    # filter out duplicates
+    finalNetworkString = ""
+    for interface in interfaces:
+        pathName = os.path.expanduser(f"~/.config/dotfiles/utils/{interface}")
+        with open(f"{pathName}.rx.data") as rx_file:
+            rx = int(rx_file.read())
+        with open(f"{pathName}.tx.data") as tx_file:
+            tx = int(tx_file.read())
+        rx_KBps = rx / 1024
+        tx_KBps = tx / 1024
+        networkString = "%s: d-%.2fk, u-%.2fk" % (interface, rx_KBps, tx_KBps)
+        finalNetworkString += "%{+u}"
+        finalNetworkString += networkString
+        finalNetworkString += "%{-u}"
     return finalNetworkString
 
 colors = Colors()
