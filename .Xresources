@@ -22,7 +22,7 @@ URxvt.dynamicColors: on
 
 ! Rofi config
 # rofi.font: Iosevka Term SS02 30
-rofi.font: ProggyCleanTT 30
+rofi.font: Inconsolata 30
 rofi.padding: 35
 rofi.terminal: urxvt
 
