@@ -145,3 +145,7 @@ alt + bracket{left,right}
 # move focus to another desktop
 alt + shift + bracket{left,right}
         bspc node -m {prev,next} -f
+
+# emoji picker
+alt + e
+        $HOME/.config/dotfiles/emojis/emoji-picker.sh
