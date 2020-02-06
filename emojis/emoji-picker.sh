@@ -17,7 +17,7 @@ EMOJI_SELECTOR_OUTPUT=$(egrep -v "^[# ]" $EMOJI_FILE \
   | sed -r "s/^ *//g" \
   | sed -r "s/ +/ /g" \
   | sed -r "s/#/-/g" \
-  | sed -r "s/E[0-9]\.[0-9] +\[[0-9]+\] //g" \
+  | sed -r "s/E[0-9]+\.[0-9] +\[[0-9]+\] //g" \
   | sed -r "s/[()]//g" \
   | sed -r "s/(.*) - (.*)/\2 - \1/g" \
   | sed -r "s/\..* -/ -/g" \
