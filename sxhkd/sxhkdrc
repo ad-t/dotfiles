@@ -149,3 +149,7 @@ alt + shift + bracket{left,right}
 # emoji picker
 alt + e
         $HOME/.config/dotfiles/emojis/emoji-picker.sh
+
+# open web browser
+alt + z
+        web
