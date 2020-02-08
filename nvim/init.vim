@@ -19,10 +19,14 @@ Plug 'vim-airline/vim-airline-themes'
 
 " functionality
 Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sirver/ultisnips'
 Plug 'jamessan/vim-gnupg'
 Plug 'moll/vim-bbye'
+Plug 'tomtom/tcomment_vim'
+
+" git
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
