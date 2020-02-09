@@ -18,7 +18,7 @@ $HOME/.config/dotfiles/lemonbar/main.sh &
 xrdb -merge ~/.Xresources
 
 BORDER_COLOR=`$HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color4`
-PRESEL_COLOR=`$HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color5`
+PRESEL_COLOR=`$HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color4`
 
 bspc monitor -d "1" "2" "3" "4" "5" # III IV V VI VII VIII IX X
 
