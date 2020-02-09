@@ -236,44 +236,36 @@ def getNetworkTraffic():
         rx_KBps = rx / 1024
         tx_KBps = tx / 1024
         networkString = "%s: d-%.2fk, u-%.2fk" % (interface, rx_KBps, tx_KBps)
-        finalNetworkString += "%{+u}"
+        # finalNetworkString += "%{+u}"
         finalNetworkString += networkString
-        finalNetworkString += "%{-u}"
+        # finalNetworkString += "%{-u}"
     return finalNetworkString
 
 colors = Colors()
 
 def main():
-    focusColor = colors.color7
-    backgroundColor = colors.color5
+    accentColor = colors.color4
     bar = ""
-    bar += getBspwmWorkspaces(cwd, backgroundColor)
+    bar += getBspwmWorkspaces(cwd, accentColor)
     bar += colors.swapForegroundBackground()
     bar += colors.centerAlign()
     bar += getDate()
     bar += colors.rightAlign()
-    bar += " | "
+    bar += " "
     bar += getPrimaryDiskUsage()
-    bar += " | "
-    bar += getNetworkTraffic()
     bar += " "
     bar += colors.swapForegroundBackground()
-    bar += colors.backgroundColor(colors.color3)
-    bar += colors.swapForegroundBackground()
+    bar += " "
+    bar += getNetworkTraffic()
+    bar += " "
     bar += colors.swapForegroundBackground()
     bar += " "
     bar += getBatteryStatus()
     bar += " "
-    bar += colors.backgroundColor(colors.color5)
-    bar += colors.swapForegroundBackground()
-    bar += colors.backgroundColor(colors.color3)
     bar += colors.swapForegroundBackground()
     bar += " "
-    bar += colors.foregroundColor(colors.color0)
     bar += whoami()
     bar += " "
-    bar += colors.swapForegroundBackground()
-    bar += colors.foregroundColor(colors.color3)
     bar += colors.foregroundColor("-")
     bar += colors.backgroundColor("-")
     bar += "\n"

@@ -4,7 +4,9 @@
 killall sxhkd
 sxhkd &
 
-wal -R
+BACKGROUND_IMAGE_FILE="$HOME/backgrounds/geometric.jpg"
+
+feh --bg-fill $BACKGROUND_IMAGE_FILE
 
 # clean all bar-related processes
 for PID in `ps aux | egrep "lemonbar" | egrep -v "grep" | egrep "\.(sh|py)" | sed -r "s/ +/ /g" | cut -d' ' -f2`
@@ -15,7 +17,7 @@ $HOME/.config/dotfiles/lemonbar/main.sh &
 
 xrdb -merge ~/.Xresources
 
-BORDER_COLOR=`$HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color5`
+BORDER_COLOR=`$HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color4`
 PRESEL_COLOR=`$HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color5`
 
 bspc monitor -d "1" "2" "3" "4" "5" # III IV V VI VII VIII IX X

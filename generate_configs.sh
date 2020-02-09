@@ -31,7 +31,7 @@ LOW_URGENCY_TEXT_COLOR=`$XRESOURCE_COMMAND color7`
 
 # generate dunstrc file
 NEW_DUNST_FILE=`cat $DUNSTRC_TEMPLATE |\
-  sed -r "s/FRAME_COLOR_ALL/\"$MAGENTA\"/g"\ |
+  sed -r "s/FRAME_COLOR_ALL/\"$DARK_BLUE\"/g"\ |
   sed -r "s/BACKGROUND/\"$BLACK\"/g"\ |
   sed -r "s/LOW_URGENCY_FOREGROUND/\"$DARK_GREEN\"/g"\ |
   sed -r "s/NORMAL_URGENCY_FOREGROUND/\"$DARK_YELLOW\"/g"\ |
@@ -68,10 +68,10 @@ RGBA_LIGHT_GRAY=$(convertColorCodeToRGBA $LIGHT_GRAY)
 # generate dunstrc file
 NEW_ROFI_FILE=`cat $ROFI_WAL_RASI_TEMPLATE |\
   sed -r "s/ SEPARATOR_COLOR/$RGBA_DARK_CYAN/g"\ |
-  sed -r "s/ BACKGROUND/$RGBA_DARK_YELLOW/g"\ |
-  sed -r "s/ FOREGROUND/$RGBA_LIGHT_GRAY/g"\ |
+  sed -r "s/ BACKGROUND/$RGBA_DARK_BLUE/g"\ |
+  sed -r "s/ FOREGROUND/$RGBA_BLACK/g"\ |
   sed -r "s/ SELECTED_FOREGROUND/$RGBA_LIGHT_GRAY/g"\ |
-  sed -r "s/ SELECTED_BACKGROUND/$RGBA_GRAY/g"\
+  sed -r "s/ SELECTED_BACKGROUND/$RGBA_BLACK/g"\
   `
 
 echo "$NEW_ROFI_FILE" > $ROFI_WAL_RASI

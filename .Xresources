@@ -3,9 +3,6 @@ Xft.antialias: 1
 Xcursor*theme: Capitaine
 Xcursor*size: 128
 
-*background: #231E18
-*foreground: #CCCCCC
-
 URxvt*termName: rxvt-unicode
 
 URxvt*font: xft:Inconsolata:size=10:antialias=true, xft:DejaVu Sans:size=5:antialias=true, xft:FontAwesome:size=3:antialias=true, xft:Icons:size=5:antialias=true, xft:unifont:size=7:antialias=true
@@ -18,29 +15,11 @@ URxvt.keysym.Control-0x2b: perl:font-size:increase
 URxvt.keysym.Control-0x2d: perl:font-size:decrease
 ! pixels
 URxvt.internalBorder: 32
-URxvt.dynamicColors: on
+! URxvt.dynamicColors: on
 
 ! Rofi config
-# rofi.font: Iosevka Term SS02 30
 rofi.font: Inconsolata 30
 rofi.padding: 35
 rofi.terminal: urxvt
 
-! ! *color0:  #191726
-! *color0:  #231E18
-! *color1:  #FF5C57
-! *color2:  #FFB536
-! *color3:  #F3F99D
-! *color4:  #5AF78E
-! *color5:  #9AEDFE
-! *color6:  #57C7FF
-! *color7:  #FFFFFF
-! ! *color8:  #191726
-! *color8:  #231E18
-! *color9:  #FF5C57
-! *color10: #FFB536
-! *color11: #F3F99D
-! *color12: #5AF78E
-! *color13: #9AEDFE
-! *color14: #57C7FF
-! *color15: #FFFFFF
+#include ".config/dotfiles/themes/Xresources-themes/base16-default-dark-256.Xresources"

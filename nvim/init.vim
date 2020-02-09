@@ -12,10 +12,13 @@ Plug 'junegunn/fzf.vim'
 
 " colourschemes
 Plug 'dylanaraps/wal.vim'
+Plug 'w0ng/vim-hybrid'
+Plug 'kristijanhusak/vim-hybrid-material'
 
 " aesthetics
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'sheerun/vim-polyglot'
 
 " functionality
 Plug 'scrooloose/nerdtree'
@@ -33,6 +36,9 @@ call plug#end()
 filetype plugin indent on
 filetype plugin on
 
+" True gui colors in terminal
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
 set autoindent
 set mouse=a
 set ruler
@@ -40,16 +46,18 @@ set shiftwidth=2
 set expandtab
 set number relativenumber
 set hlsearch
-set background=dark
 set cursorline
 set wildmenu
 " set the cursor to the traditional vim cursor
 set guicursor=
 set modeline
-set t_Co=16
+set t_Co=256
+set background=dark
+colorscheme hybrid_material
+
+let g:hybrid_custom_term_colors = 1
 
 syntax on
-colorscheme wal_custom
 
 setlocal foldmethod=syntax
 noremap <silent><c-l> :nohlsearch<cr>
