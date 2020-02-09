@@ -22,4 +22,4 @@ rofi.font: Inconsolata 30
 rofi.padding: 35
 rofi.terminal: urxvt
 
-#include ".config/dotfiles/themes/Xresources-themes/base16-default-dark-256.Xresources"
+#include ".config/dotfiles/themes/Xresources-themes/base16-seti-256.Xresources"
