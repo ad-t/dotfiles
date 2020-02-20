@@ -1,7 +1,7 @@
 Xft.dpi: 200
 Xft.antialias: 1
 Xcursor*theme: Capitaine
-Xcursor*size: 128
+! Xcursor*size: 128
 
 URxvt*termName: rxvt-unicode
 
