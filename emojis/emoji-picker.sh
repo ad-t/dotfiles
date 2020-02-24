@@ -23,4 +23,4 @@ EMOJI_SELECTOR_OUTPUT=$(egrep -v "^[# ]" $EMOJI_FILE \
   | sed -r "s/\..* -/ -/g" \
   | rofi -dmenu)
 
-echo "$EMOJI_SELECTOR_OUTPUT" | sed "s/ -.*//g" | xclip -sel CLIPBOARD
+echo "$EMOJI_SELECTOR_OUTPUT" | sed "s/ -.*//g" | tr "\n" " " | sed "s/ //g" | xclip -sel CLIPBOARD
