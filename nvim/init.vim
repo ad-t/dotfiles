@@ -53,11 +53,14 @@ set guicursor=
 set modeline
 set t_Co=256
 set background=dark
+set scrolloff=50
 colorscheme hybrid_material
-
-let g:hybrid_custom_term_colors = 1
+" let g:hybrid_custom_term_colors = 1
 
 syntax on
+" This line below needs to be after syntax on, otherwise the theme overrides
+" the setting
+highlight Normal ctermbg=NONE
 
 setlocal foldmethod=syntax
 noremap <silent><c-l> :nohlsearch<cr>

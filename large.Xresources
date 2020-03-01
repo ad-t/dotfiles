@@ -3,7 +3,7 @@ Xcursor*theme: Capitaine
 ! Xcursor*size: 128
 
 ! Rofi config
-rofi.font: Iosevka 30
+rofi.font: Monaco 24
 
 #include ".config/dotfiles/shared.Xresources"
 
