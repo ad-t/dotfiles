@@ -9,7 +9,7 @@
   horizontal_padding = 20
   frame_width = 5
   frame_color = FRAME_COLOR_ALL
-  font = Monaco 12
+  font = DejaVu Sans Mono 12
   align = right
   markup = no
   format = "<b>%s</b>\\n%b"
