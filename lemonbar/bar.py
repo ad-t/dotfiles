@@ -245,7 +245,7 @@ def getNetworkTraffic():
 colors = Colors()
 
 def main():
-    accentColor = colors.color4
+    accentColor = colors.color7
     bar = ""
     bar += getBspwmWorkspaces(cwd, accentColor)
     bar += colors.swapForegroundBackground()
