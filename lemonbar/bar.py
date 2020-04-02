@@ -71,9 +71,13 @@ def getDate():
     return runShellCommand('date "+%Y-%m-%d %H:%M:%S"')
 
 def getPrimaryDiskUsage():
-    drive = '/dev/sda1'
-    dfResult = runShellCommand('df {} --output=pcent | tail -n 1'.format(drive)).lstrip()
-    diskUsageString = '/: {}'.format(dfResult)
+    drives = runShellCommand('lsblk -o name -n -s -l | egrep "[0-9]+"').split('\n')
+    diskUsageString = ''
+    for drive in drives:
+        drive = f"/dev/{drive}"
+        diskUsageString += f"{drive}: "
+        diskUsageString += runShellCommand('df {} --output=pcent | tail -n 1'.format(drive)).lstrip()
+        diskUsageString += f" "
     return diskUsageString
 
 def getBatteryStatus():

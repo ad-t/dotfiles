@@ -11,7 +11,7 @@
   frame_color = FRAME_COLOR_ALL
   font = DejaVu Sans Mono 12
   align = right
-  markup = no
+  markup = none
   format = "<b>%s</b>\\n%b"
   word_wrap = yes
 
