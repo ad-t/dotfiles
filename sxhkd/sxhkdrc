@@ -69,7 +69,7 @@ alt + ctrl + {m,x,y,z}
 # alt + shift + {h,j,k,l}
 # 	bspc node --swap {west,south,north,east}
 
-alt + shift + {j, k}
+alt + bracket{left,right}
 	bspc node --swap {next, prev}
 
 # focus the node in a cycle
@@ -139,8 +139,8 @@ alt + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 # move focus to another desktop
-alt + bracket{left,right}
-        bspc monitor -f {prev,next}
+# alt + bracket{left,right}
+#         bspc monitor -f {prev,next}
 
 # move focus to another desktop
 alt + shift + bracket{left,right}
@@ -153,3 +153,9 @@ alt + e
 # open web browser
 alt + z
         web
+
+ctrl + Up
+        dunstify "Volume" "$(pactl set-sink-volume $(pactl list short | grep "bluez_sink" | grep "RUNNING" | grep -o "^[0-9]*") +5% && echo "Raised")"
+
+ctrl + Down
+        dunstify "Volume" "$(pactl set-sink-volume $(pactl list short | grep "bluez_sink" | grep "RUNNING" | grep -o "^[0-9]*") -5% && echo "Lowered")"

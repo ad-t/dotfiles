@@ -1,2 +1,2 @@
 alias cp="rsync -har --progress"
-alias edit="$EDITOR"
+alias vi="$EDITOR"
