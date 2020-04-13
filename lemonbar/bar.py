@@ -71,7 +71,7 @@ def getDate():
     return runShellCommand('date "+%Y-%m-%d %H:%M:%S"')
 
 def getPrimaryDiskUsage():
-    drives = runShellCommand('lsblk -o name -n -s -l | egrep "[0-9]+"').split('\n')
+    drives = runShellCommand('lsblk -o name -n -s -l | egrep "[0-9]+" | sort | uniq').split('\n')
     diskUsageString = ''
     for drive in drives:
         drive = f"/dev/{drive}"

@@ -15,6 +15,7 @@ Plug 'dylanaraps/wal.vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
 
 " aesthetics
 Plug 'vim-airline/vim-airline'
@@ -55,7 +56,7 @@ set modeline
 set t_Co=256
 set background=dark
 set scrolloff=50
-colorscheme gruvbox
+colorscheme onedark
 " let g:hybrid_custom_term_colors = 1
 
 syntax on
