@@ -18,9 +18,8 @@ Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
 
 " aesthetics
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'sheerun/vim-polyglot'
+Plug 'itchyny/lightline.vim'
 
 " functionality
 Plug 'scrooloose/nerdtree'
@@ -70,9 +69,11 @@ noremap <silent><c-l> :nohlsearch<cr>
       \:syntax sync fromstart<cr>
       \<c-l>
 
-" airline
-let g:airline_powerline_fonts = 0
-let g:airline_theme='base16'
+" lightline
+let g:lightline = {
+      \ 'colorscheme': 'one',
+      \ }
+set noshowmode
 
 set nofoldenable
 set foldmethod=indent
