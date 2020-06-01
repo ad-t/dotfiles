@@ -6,6 +6,8 @@ then
   $SCREEN_LAYOUT_SCRIPT
 fi
 
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 # restart sxhkd properly
 killall sxhkd
 sxhkd &

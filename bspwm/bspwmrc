@@ -4,6 +4,8 @@
 killall sxhkd
 sxhkd &
 
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 BACKGROUND_IMAGE_FILE="$HOME/backgrounds/background"
 
 feh --bg-fill $BACKGROUND_IMAGE_FILE
@@ -43,6 +45,8 @@ killall dunst
 # generate the stylings for other programs
 $HOME/.config/dotfiles/generate_configs.sh
 
+bspc rule -a "qemu-system-x86_64" state=floating
+
 # re-get time
 # sudo ntpd -gq
 
@@ -51,3 +55,8 @@ $HOME/.config/dotfiles/generate_configs.sh
 # bspc rule -a mplayer2 state=floating
 # bspc rule -a Kupfer.py focus=on
 # bspc rule -a Screenkey manage=off
+
+# kill any existing compositor
+killall picom
+# start the compositor
+`sleep 1 && $HOME/build_repos/ibhagwan-picom/build/src/picom --experimental-backends -b --config $HOME/.config/dotfiles/picom.conf` &

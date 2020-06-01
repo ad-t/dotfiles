@@ -4,6 +4,8 @@ end
 
 # set gpg pinentry
 set -x GPG_TTY (tty)
+set -x COMPOSE_DOCKER_CLI_BUILD 1
+set -x DOCKER_BUILDKIT 1
 
 # set autocompletion for gopass
 gopass completion fish | source

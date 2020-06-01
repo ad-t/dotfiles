@@ -11,11 +11,11 @@ URxvt.keysym.Control-0x2d: perl:font-size:decrease
 ! URxvt*inheritPixmap: true
 ! URxvt*transparent: true
 ! URxvt*shading: 0 to 99 darkens, 101 to 200 lightens
-! URxvt*shading: 80
+! URxvt*shading: 150
 ! URxvt*blurRadius: 10
 ! pixels
 URxvt.internalBorder: 32
 ! URxvt.dynamicColors: on
 rofi.padding: 35
 rofi.terminal: urxvt
-#include "themes/Xresources-themes/base16-onedark-256.Xresources"
+#include "themes/Xresources-themes/base16-dracula-256.Xresources"

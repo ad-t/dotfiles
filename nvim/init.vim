@@ -18,6 +18,7 @@ Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
 
 " aesthetics
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 
@@ -54,7 +55,7 @@ set guicursor=
 set modeline
 set t_Co=256
 set background=dark
-set scrolloff=50
+set scrolloff=8
 colorscheme onedark
 " let g:hybrid_custom_term_colors = 1
 
@@ -134,3 +135,6 @@ let g:ale_fixers = {
 
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
+
+" use vim-jsx-pretty over polyglot 
+let g:polyglot_disabled = ['jsx']

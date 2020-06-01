@@ -69,7 +69,7 @@ alt + ctrl + {m,x,y,z}
 # alt + shift + {h,j,k,l}
 # 	bspc node --swap {west,south,north,east}
 
-alt + bracket{left,right}
+alt + bracket{right,left}
 	bspc node --swap {next, prev}
 
 # focus the node in a cycle
