@@ -4,7 +4,7 @@
 
 # terminal emulator
 alt + shift + Return
-	urxvt -e "fish"
+	alacritty -e "tmux"
 
 # program launcher
 # alt + @space

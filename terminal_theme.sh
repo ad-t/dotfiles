@@ -31,13 +31,37 @@ set_color() {
   printf "\033[${COLOR_CODE}m"
 }
 
+set_background() {
+  COLOR="$1"
+  COLOR_CODE=""
+  case $COLOR in
+    BLACK)
+      COLOR_CODE="40"
+      ;;
+    RED)
+      COLOR_CODE="41"
+      ;;
+    GREEN)
+      COLOR_CODE="42"
+      ;;
+    BLUE)
+      COLOR_CODE="44"
+      ;;
+  esac
+  printf %b "\e[${COLOR_CODE}m"
+}
+
 reset_color() {
   printf "\033[0m"
 }
 
+reset_background() {
+  printf %b "\e[m]"
+}
+
 segment_prompt() {
   CONTENT="$1"
-  echo -n "[$CONTENT]"
+  echo -n " $CONTENT "
 }
 
 prompt_spacer() {
@@ -49,7 +73,7 @@ show_retval() {
   if [ "$RETVAL" -ne 0 ]
   then
     segment_prompt "$RETVAL"
-    prompt_spacer
+    # prompt_spacer
   fi
 }
 
@@ -89,18 +113,18 @@ get_git() {
     then
       GIT_ADDED="+"
     fi
-    prompt_spacer
+    # prompt_spacer
     segment_prompt "$GIT_BRANCH$GIT_UNTRACKED$GIT_UNSTAGED$GIT_ADDED"
   fi
 }
 
 info_prompt() {
   RETVAL="$1"
-  set_color "GREEN"
+  set_background "GREEN"
   show_retval "$RETVAL"
-  set_color "BLUE"
+  set_background "BLUE"
   segment_prompt "$(get_path)"
-  set_color "RED"
+  set_background "RED"
   get_git
   reset_color
   echo
@@ -113,7 +137,8 @@ typing_prompt() {
 output_spaces() {
   COMMAND="for i in \$(seq 0 $1)
   do
-    printf '\u2500'
+    # printf '\u2500'
+    printf ' '
   done"
   bash -c "$COMMAND"
 }
@@ -122,9 +147,10 @@ right_prompt() {
   RIGHT_PROMPT="$(segment_prompt $(date +%T))"
   RIGHT_PROMPT_LENGTH="$(echo $RIGHT_PROMPT | wc -m)"
   COLUMNS=$(tput cols)
-  SPACES=$(expr $COLUMNS - $RIGHT_PROMPT_LENGTH)
-  set_color "RED"
+  SPACES=$(expr $COLUMNS - $RIGHT_PROMPT_LENGTH - 2)
   output_spaces $SPACES
+  set_color "BLACK"
+  set_background "RED"
   printf "$RIGHT_PROMPT"
   echo -n "\r"
 }
