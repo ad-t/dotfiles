@@ -1,6 +1,6 @@
 Xft.dpi: 175
 
 ! Rofi config
-rofi.font: DejaVu Sans Mono 24
+rofi.font: FiraCode 24
 
 #include ".config/dotfiles/shared.Xresources"
