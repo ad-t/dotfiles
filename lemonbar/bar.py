@@ -71,7 +71,7 @@ def getDate():
     return runShellCommand('date "+%Y-%m-%d %H:%M:%S"')
 
 def getPrimaryDiskUsage():
-    drives = runShellCommand('lsblk -o name -n -s -l | egrep "[0-9]+" | sort | uniq').split('\n')
+    drives = runShellCommand('lsblk -o name -n -s -l | egrep "[0-9]+" | egrep -v "loop" | egrep -v "vgubuntu" | egrep -v "nvme0n1$" | egrep -v "nvme0n1p1$" | sort | uniq').split('\n')
     diskUsageString = ''
     for drive in drives:
         drive = f"/dev/{drive}"
@@ -235,9 +235,15 @@ def getNetworkTraffic():
     for interface in interfaces:
         pathName = os.path.expanduser(f"~/.config/dotfiles/utils/{interface}")
         with open(f"{pathName}.rx.data") as rx_file:
-            rx = int(rx_file.read())
+            try:
+                rx = int(rx_file.read())
+            except: 
+                rx = "error"
         with open(f"{pathName}.tx.data") as tx_file:
-            tx = int(tx_file.read())
+            try:
+                tx = int(tx_file.read())
+            except: 
+                tx = "error"
         rx_KBps = rx / 1024
         tx_KBps = tx / 1024
         networkString = "%s: d-%.2fk, u-%.2fk" % (interface, rx_KBps, tx_KBps)
