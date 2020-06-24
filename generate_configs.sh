@@ -7,6 +7,9 @@ XRESOURCE_COMMAND="$HOME/.config/dotfiles/lemonbar/get_xresource_value.sh"
 ROFI_WAL_RASI="$HOME/.config/dotfiles/rofi/wal.rasi"
 ROFI_WAL_RASI_TEMPLATE="$HOME/.config/dotfiles/rofi/wal.template.rasi"
 
+ALACRITTY_TEMPLATE="$HOME/.config/dotfiles/alacritty/template.alacritty.yml"
+ALACRITTY="$HOME/.config/dotfiles/alacritty/alacritty.yml"
+
 BLACK=`$XRESOURCE_COMMAND color0`
 DARK_RED=`$XRESOURCE_COMMAND color1`
 DARK_GREEN=`$XRESOURCE_COMMAND color2`
@@ -14,7 +17,7 @@ DARK_YELLOW=`$XRESOURCE_COMMAND color3`
 DARK_BLUE=`$XRESOURCE_COMMAND color4`
 DARK_MAGENTA=`$XRESOURCE_COMMAND color5`
 DARK_CYAN=`$XRESOURCE_COMMAND color6`
-LIGHT_GRAY=`$XRESOURCE_COMMAND color7`
+BRIGHT_BLACK=`$XRESOURCE_COMMAND color7`
 GRAY=`$XRESOURCE_COMMAND color8`
 RED=`$XRESOURCE_COMMAND color9`
 GREEN=`$XRESOURCE_COMMAND color10`
@@ -55,7 +58,7 @@ RGBA_DARK_YELLOW=$(convertColorCodeToRGBA $DARK_YELLOW)
 RGBA_DARK_BLUE=$(convertColorCodeToRGBA $DARK_BLUE)
 RGBA_DARK_MAGENTA=$(convertColorCodeToRGBA $DARK_MAGENTA)
 RGBA_DARK_CYAN=$(convertColorCodeToRGBA $DARK_CYAN)
-RGBA_LIGHT_GRAY=$(convertColorCodeToRGBA $LIGHT_GRAY)
+RGBA_BRIGHT_BLACK=$(convertColorCodeToRGBA $BRIGHT_BLACK)
 RGBA_GRAY=$(convertColorCodeToRGBA $GRAY)
 RGBA_RED=$(convertColorCodeToRGBA $RED)
 RGBA_GREEN=$(convertColorCodeToRGBA $GREEN)
@@ -76,3 +79,46 @@ NEW_ROFI_FILE=`cat $ROFI_WAL_RASI_TEMPLATE |\
 
 echo "$NEW_ROFI_FILE" > $ROFI_WAL_RASI
 
+convertColorCodeToHex() {
+  RGB=$(echo $1 | sed "s/^#//g")
+  printf "$RGB"
+}
+
+HEX_BLACK=$(convertColorCodeToHex $BLACK)
+HEX_DARK_RED=$(convertColorCodeToHex $DARK_RED)
+HEX_DARK_GREEN=$(convertColorCodeToHex $DARK_GREEN)
+HEX_DARK_YELLOW=$(convertColorCodeToHex $DARK_YELLOW)
+HEX_DARK_BLUE=$(convertColorCodeToHex $DARK_BLUE)
+HEX_DARK_MAGENTA=$(convertColorCodeToHex $DARK_MAGENTA)
+HEX_DARK_CYAN=$(convertColorCodeToHex $DARK_CYAN)
+HEX_BRIGHT_BLACK=$(convertColorCodeToHex $BRIGHT_BLACK)
+HEX_GRAY=$(convertColorCodeToHex $GRAY)
+HEX_RED=$(convertColorCodeToHex $RED)
+HEX_GREEN=$(convertColorCodeToHex $GREEN)
+HEX_YELLOW=$(convertColorCodeToHex $YELLOW)
+HEX_BLUE=$(convertColorCodeToHex $BLUE)
+HEX_MAGENTA=$(convertColorCodeToHex $MAGENTA)
+HEX_CYAN=$(convertColorCodeToHex $CYAN)
+HEX_LIGHT_GRAY=$(convertColorCodeToHex $LIGHT_GRAY)
+
+# generate alacritty file'
+NEW_ALACRITTY_FILE=`cat $ALACRITTY_TEMPLATE |\
+  sed -r "s/HEX_BLACK/'0x$HEX_BLACK'/g"\ |
+  sed -r "s/HEX_DARK_RED/'0x$HEX_DARK_RED'/g"\ |
+  sed -r "s/HEX_DARK_GREEN/'0x$HEX_DARK_GREEN'/g"\ |
+  sed -r "s/HEX_DARK_YELLOW/'0x$HEX_DARK_YELLOW'/g"\ |
+  sed -r "s/HEX_DARK_BLUE/'0x$HEX_DARK_BLUE'/g"\ |
+  sed -r "s/HEX_DARK_MAGENTA/'0x$HEX_DARK_MAGENTA'/g"\ |
+  sed -r "s/HEX_DARK_CYAN/'0x$HEX_DARK_CYAN'/g"\ |
+  sed -r "s/HEX_BRIGHT_BLACK/'0x$HEX_BRIGHT_BLACK'/g"\ |
+  sed -r "s/HEX_GRAY/'0x$HEX_GRAY'/g"\ |
+  sed -r "s/HEX_RED/'0x$HEX_RED'/g"\ |
+  sed -r "s/HEX_GREEN/'0x$HEX_GREEN'/g"\ |
+  sed -r "s/HEX_YELLOW/'0x$HEX_YELLOW'/g"\ |
+  sed -r "s/HEX_BLUE/'0x$HEX_BLUE'/g"\ |
+  sed -r "s/HEX_MAGENTA/'0x$HEX_MAGENTA'/g"\ |
+  sed -r "s/HEX_CYAN/'0x$HEX_CYAN'/g"\ |
+  sed -r "s/HEX_LIGHT_GRAY/'0x$HEX_LIGHT_GRAY'/g"\
+  `
+
+echo "$NEW_ALACRITTY_FILE" > $ALACRITTY

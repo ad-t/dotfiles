@@ -32,8 +32,8 @@ live_config_reload: true
 colors:
   # Default colours
   primary:
-    background: '0x282936'
-    foreground: '0xe9e9f4'
+    background: HEX_BLACK
+    foreground: HEX_BRIGHT_BLACK
 
   # Colors that should be used to draw the terminal cursor. If these are unset,
   # the cursor colour will be the inverse of the cell colour.
@@ -44,25 +44,25 @@ colors:
 
   # Normal colors
   normal:
-    black:   '0x282936'
-    red:     '0xea51b2'
-    green:   '0xebff87'
-    yellow:  '0x00f769'
-    blue:    '0x62d6e8'
-    magenta: '0xb45bcf'
-    cyan:    '0xa1efe4'
-    white:   '0xf7f7fb'
+    black:   HEX_BLACK
+    red:     HEX_DARK_RED
+    green:   HEX_DARK_GREEN
+    yellow:  HEX_DARK_YELLOW
+    blue:    HEX_DARK_BLUE
+    magenta: HEX_DARK_MAGENTA
+    cyan:    HEX_DARK_CYAN
+    white:   HEX_LIGHT_GRAY
 
   # Bright colors
   bright:
-    black:   '0xe9e9f4'
-    red:     '0xea51b2'
-    green:   '0xebff87'
-    yellow:  '0x00f769'
-    blue:    '0x62d6e8'
-    magenta: '0xb45bcf'
-    cyan:    '0xa1efe4'
-    white:   '0x626483'
+    black:   HEX_BRIGHT_BLACK
+    red:     HEX_RED
+    green:   HEX_GREEN
+    yellow:  HEX_YELLOW
+    blue:    HEX_BLUE
+    magenta: HEX_MAGENTA
+    cyan:    HEX_CYAN
+    white:   HEX_GRAY
 
   # Dim colors (Optional)
   # dim:
