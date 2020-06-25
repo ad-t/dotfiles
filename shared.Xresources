@@ -18,4 +18,4 @@ URxvt.internalBorder: 32
 ! URxvt.dynamicColors: on
 rofi.padding: 35
 rofi.terminal: urxvt
-#include "themes/Xresources-themes/base16-dracula-256.Xresources"
+#include "themes/Xresources-themes/base16-darktooth-256.Xresources"

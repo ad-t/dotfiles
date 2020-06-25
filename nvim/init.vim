@@ -16,6 +16,7 @@ Plug 'w0ng/vim-hybrid'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
+Plug 'chriskempson/base16-vim'
 
 " aesthetics
 Plug 'maxmellon/vim-jsx-pretty'
@@ -39,7 +40,7 @@ filetype plugin indent on
 filetype plugin on
 
 " True gui colors in terminal
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 set autoindent
 set mouse=a
@@ -53,17 +54,28 @@ set wildmenu
 " set the cursor to the traditional vim cursor
 set guicursor=
 set modeline
-set t_Co=256
-set background=dark
+set t_Co=16
 set scrolloff=8
-colorscheme onedark
+colorscheme base16-darktooth
+set termguicolors
+" let base16colorspace=256  " Access colors present in 256 colorspace
 " let g:hybrid_custom_term_colors = 1
 
-syntax on
+syntax enable
 " This line below needs to be after syntax on, otherwise the theme overrides
 " the setting
-highlight Normal ctermbg=NONE
+" set background=dark
+highlight clear LineNr
+highlight Normal ctermbg=0
 highlight clear SignColumn
+" an added line
+highlight clear GitGutterAdd
+" a changed line
+highlight clear GitGutterChange
+" at least one removed line
+highlight clear GitGutterDelete
+" a changed line followed by at least one removed line
+highlight clear GitGutterChangeDelete
 
 setlocal foldmethod=syntax
 noremap <silent><c-l> :nohlsearch<cr>
