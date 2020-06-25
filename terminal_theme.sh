@@ -15,6 +15,9 @@ set_color() {
   COLOR="$1"
   COLOR_CODE=""
   case $COLOR in
+    WHITE)
+      COLOR_CODE="0;37"
+      ;;
     BLACK)
       COLOR_CODE="0;30"
       ;;
