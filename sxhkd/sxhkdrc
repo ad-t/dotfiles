@@ -4,7 +4,7 @@
 
 # terminal emulator
 alt + shift + Return
-	$PREFERRED_TERMINAL -e "tmux"
+	$PREFERRED_TERMINAL -e "fish"
 
 # program launcher
 # alt + @space

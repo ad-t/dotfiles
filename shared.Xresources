@@ -15,7 +15,7 @@ URxvt.keysym.Control-0x2d: perl:font-size:decrease
 ! URxvt*blurRadius: 10
 ! pixels
 URxvt.internalBorder: 32
-! URxvt.dynamicColors: on
+URxvt.dynamicColors: on
 rofi.padding: 35
 rofi.terminal: urxvt
 #include "themes/Xresources-themes/base16-darktooth-256.Xresources"

@@ -40,7 +40,7 @@ filetype plugin indent on
 filetype plugin on
 
 " True gui colors in terminal
-" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 set autoindent
 set mouse=a
@@ -56,26 +56,30 @@ set guicursor=
 set modeline
 set t_Co=16
 set scrolloff=8
-colorscheme base16-darktooth
-set termguicolors
+colorscheme gruvbox
+" set termguicolors
 " let base16colorspace=256  " Access colors present in 256 colorspace
 " let g:hybrid_custom_term_colors = 1
 
 syntax enable
 " This line below needs to be after syntax on, otherwise the theme overrides
 " the setting
-" set background=dark
-highlight clear LineNr
+set background=dark
+" highlight clear LineNr
 highlight Normal ctermbg=0
 highlight clear SignColumn
 " an added line
 highlight clear GitGutterAdd
+highlight GitGutterAdd ctermbg=0
 " a changed line
 highlight clear GitGutterChange
+highlight GitGutterChange ctermbg=0
 " at least one removed line
 highlight clear GitGutterDelete
+highlight GitGutterDelete ctermbg=0
 " a changed line followed by at least one removed line
 highlight clear GitGutterChangeDelete
+highlight GitGutterChangeDelete ctermbg=0
 
 setlocal foldmethod=syntax
 noremap <silent><c-l> :nohlsearch<cr>
