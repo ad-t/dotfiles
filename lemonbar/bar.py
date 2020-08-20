@@ -74,9 +74,13 @@ def getPrimaryDiskUsage():
     drives = runShellCommand('lsblk -o name -n -s -l | egrep "[0-9]+" | egrep -v "loop" | egrep -v "vgubuntu" | egrep -v "nvme0n1$" | egrep -v "nvme0n1p1$" | sort | uniq').split('\n')
     diskUsageString = ''
     for drive in drives:
-        drive = f"/dev/{drive}"
+        driveString = f"/dev/{drive}"
+        percentage = runShellCommand('df {} --output=pcent | tail -n 1'.format(driveString)).lstrip()
+        if int(re.sub(r'%', '', percentage)) == 0:
+            continue
+
         diskUsageString += f"{drive}: "
-        diskUsageString += runShellCommand('df {} --output=pcent | tail -n 1'.format(drive)).lstrip()
+        diskUsageString += f"{percentage}"
         diskUsageString += f" "
     return diskUsageString
 
