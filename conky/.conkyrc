@@ -4,11 +4,60 @@ conky.config = {
    update_interval = 1, 
 }
 
-conky.text = [[
-%{l}\
- ${exec bspc wm -g | $HOME/.config/dotfiles/lemonbar/workspaces.py}\
-%{c}\
-${time %H:%M:%S %a %-d %b}\
-%{r}\
-${uid_name 1000} 
-]]
+bgcolor0 = "%{B${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color0}}"
+bgcolor1 = "%{B${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color1}}"
+bgcolor2 = "%{B${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color2}}"
+bgcolor3 = "%{B${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color3}}"
+bgcolor4 = "%{B${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color4}}"
+bgcolor5 = "%{B${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color5}}"
+bgcolor6 = "%{B${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color6}}"
+bgcolor7 = "%{B${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color7}}"
+bgcolor8 = "%{B${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color8}}"
+bgcolor9 = "%{B${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color9}}"
+bgcolor10 = "%{B${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color10}}"
+bgcolor11 = "%{B${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color11}}"
+bgcolor12 = "%{B${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color12}}"
+bgcolor13 = "%{B${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color13}}"
+bgcolor14 = "%{B${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color14}}"
+bgcolor15 = "%{B${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color15}}"
+
+fgcolor0 = "%{F${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color0}}"
+fgcolor1 = "%{F${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color1}}"
+fgcolor2 = "%{F${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color2}}"
+fgcolor3 = "%{F${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color3}}"
+fgcolor4 = "%{F${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color4}}"
+fgcolor5 = "%{F${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color5}}"
+fgcolor6 = "%{F${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color6}}"
+fgcolor7 = "%{F${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color7}}"
+fgcolor8 = "%{F${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color8}}"
+fgcolor9 = "%{F${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color9}}"
+fgcolor10 = "%{F${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color10}}"
+fgcolor11 = "%{F${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color11}}"
+fgcolor12 = "%{F${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color12}}"
+fgcolor13 = "%{F${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color13}}"
+fgcolor14 = "%{F${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color14}}"
+fgcolor15 = "%{F${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color15}}"
+
+conky.text = ''
+.. bgcolor0
+.. fgcolor15
+.. "%{l}"
+.. " ${exec bspc wm -g | $HOME/.config/dotfiles/lemonbar/workspaces.py}"
+.. "%{c}"
+.. bgcolor6
+.. fgcolor0
+.. " ${time %H:%M:%S %a %-d %b} "
+.. "%{r}"
+.. bgcolor7
+.. fgcolor0
+.. " ${fs_used /} / ${fs_size /} (${fs_used_perc}%) "
+.. bgcolor4
+.. fgcolor0
+.. " CPU: ${cpu}% @ ${freq_g}GHz "
+.. bgcolor7
+.. fgcolor0
+.. " NET: ${downspeedf wlp6s0} KiB "
+.. bgcolor4
+.. fgcolor0
+.. " ${uid_name 1000} "
+.. bgcolor0
