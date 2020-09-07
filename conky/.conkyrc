@@ -40,12 +40,12 @@ fgcolor15 = "%{F${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh co
 
 conky.text = ''
 .. bgcolor2
-.. fgcolor8
+.. fgcolor0
 .. "%{l}"
 .. " ${exec bspc wm -g | $HOME/.config/dotfiles/lemonbar/workspaces.py}"
 .. "%{c}"
 .. bgcolor6
-.. fgcolor7
+.. fgcolor0
 .. " ${time %H:%M:%S %a %-d %b} "
 .. "%{r}"
 .. bgcolor3
