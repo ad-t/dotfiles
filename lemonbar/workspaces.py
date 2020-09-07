@@ -16,6 +16,9 @@ for segment in splitString:
         workspaceString += focussed_and_window
     elif segment.startswith("o") or segment.startswith("f"):
         workspaceString += not_focussed_no_window
+    else:
+        # account for just omitting something without adding more space
+        continue
     
     workspaceString += " "
 

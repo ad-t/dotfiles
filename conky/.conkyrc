@@ -39,25 +39,25 @@ fgcolor14 = "%{F${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh co
 fgcolor15 = "%{F${exec $HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color15}}"
 
 conky.text = ''
-.. bgcolor0
-.. fgcolor15
+.. bgcolor2
+.. fgcolor8
 .. "%{l}"
 .. " ${exec bspc wm -g | $HOME/.config/dotfiles/lemonbar/workspaces.py}"
 .. "%{c}"
 .. bgcolor6
-.. fgcolor0
+.. fgcolor7
 .. " ${time %H:%M:%S %a %-d %b} "
 .. "%{r}"
-.. bgcolor7
+.. bgcolor3
 .. fgcolor0
 .. " ${fs_used /} / ${fs_size /} (${fs_used_perc}%) "
 .. bgcolor4
 .. fgcolor0
 .. " CPU: ${cpu}% @ ${freq_g}GHz "
-.. bgcolor7
+.. bgcolor6
 .. fgcolor0
 .. " NET: ${downspeedf wlp6s0} KiB "
-.. bgcolor4
+.. bgcolor7
 .. fgcolor0
 .. " ${uid_name 1000} "
-.. bgcolor0
+.. bgcolor8
