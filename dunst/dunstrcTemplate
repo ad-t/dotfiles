@@ -9,7 +9,7 @@
   horizontal_padding = 20
   frame_width = 5
   frame_color = FRAME_COLOR_ALL
-  font = FiraCode 12
+  font = Deja Vu Sans Mono 12
   align = right
   markup = none
   format = "<b>%s</b>\\n%b"
