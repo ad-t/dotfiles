@@ -56,7 +56,10 @@ conky.text = ''
 .. " CPU: ${cpu}% @ ${freq_g}GHz "
 .. bgcolor6
 .. fgcolor0
-.. " NET: ${downspeedf wlp6s0} KiB "
+.. " DOWN: ${downspeedf wlp6s0} KiB "
+.. bgcolor9
+.. fgcolor0
+.. " UP: ${upspeedf wlp6s0} KiB "
 .. bgcolor7
 .. fgcolor0
 .. " ${uid_name 1000} "
