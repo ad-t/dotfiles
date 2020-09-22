@@ -60,3 +60,8 @@ $HOME/.config/dotfiles/generate_configs.sh
 # bspc rule -a mplayer2 state=floating
 # bspc rule -a Kupfer.py focus=on
 # bspc rule -a Screenkey manage=off
+
+# kill any existing compositor
+killall picom
+# start the compositor
+`sleep 1 && $HOME/build_repos/ibhagwan-picom/build/src/picom --experimental-backends -b --config $HOME/.config/dotfiles/picom.conf` &

@@ -2,15 +2,15 @@
 
 font:
   normal:
-    family: FiraCode
+    family: Iosevka Term SS02
     style: Regular
 
   bold:
-    family: FiraCode
+    family: Iosevka Term SS02
     style: Bold
 
   italic:
-    family: FiraCode
+    family: Iosevka Term SS02
     style: Italic
 
 env:
@@ -18,14 +18,14 @@ env:
 
 window:
   padding:
-    x: 15
-    y: 10
+    x: 10
+    y: 9
   dynamic_padding: true
 
 scrolling:
   history: 1000
 
-draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors: true
 
 live_config_reload: true
 

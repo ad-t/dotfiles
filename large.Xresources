@@ -3,7 +3,7 @@ Xcursor*theme: Capitaine
 ! Xcursor*size: 128
 
 ! Rofi config
-rofi.font: Deja Vu Sans Mono 24
+rofi.font: Iosevka Term SS02 24
 
 #include ".config/dotfiles/shared.Xresources"
 
