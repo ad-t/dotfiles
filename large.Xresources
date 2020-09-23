@@ -3,7 +3,7 @@ Xcursor*theme: Capitaine
 ! Xcursor*size: 128
 
 ! Rofi config
-rofi.font: Iosevka Term SS02 24
+rofi.font: Iosevka Fixed Extended 24
 
 #include ".config/dotfiles/shared.Xresources"
 

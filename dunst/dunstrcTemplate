@@ -9,7 +9,7 @@
   horizontal_padding = 20
   frame_width = 5
   frame_color = FRAME_COLOR_ALL
-  font = Iosevka Term SS02 12
+  font = Iosevka Fixed Extended 12
   align = right
   markup = none
   format = "<b>%s</b>\\n%b"

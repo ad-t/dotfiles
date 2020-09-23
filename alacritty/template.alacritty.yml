@@ -2,15 +2,15 @@
 
 font:
   normal:
-    family: Iosevka Term SS02
+    family: Iosevka Fixed Extended
     style: Regular
 
   bold:
-    family: Iosevka Term SS02
+    family: Iosevka Fixed Extended
     style: Bold
 
   italic:
-    family: Iosevka Term SS02
+    family: Iosevka Fixed Extended
     style: Italic
 
 env:

@@ -11,4 +11,4 @@ $NETMON_PATH/network-monitor.py &
 ACCENT_COLOR="`$HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color7`" && 
 COLOR="`$HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color0`" && 
 # $HOME/.config/dotfiles/lemonbar/feeder.sh | $HOME/build_repos/lemonbar-xft/lemonbar -p -f "FiraCode-10" -B "$COLOR" -u 3 -U "$ACCENT_COLOR"
-conky | $HOME/build_repos/lemonbar-xft/lemonbar -p -f "Iosevka Term SS02:Bold:size=10" -B "$COLOR" -u 3 -U "$ACCENT_COLOR"
+conky | $HOME/build_repos/lemonbar-xft/lemonbar -p -f "Iosevka Fixed Extended:Bold:size=10" -B "$COLOR" -u 3 -U "$ACCENT_COLOR"
