@@ -1,12 +1,12 @@
 #!/bin/sh
 
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 SCREEN_LAYOUT_SCRIPT=~/.screenlayout/current
 if [ -e "$SCREEN_LAYOUT_SCRIPT" ]
 then
   $SCREEN_LAYOUT_SCRIPT
 fi
-
-export _JAVA_AWT_WM_NONREPARENTING=1
 
 # restart sxhkd properly
 killall sxhkd
