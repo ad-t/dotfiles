@@ -16,13 +16,6 @@ BACKGROUND_IMAGE_FILE="$HOME/backgrounds/background"
 
 feh --bg-fill $BACKGROUND_IMAGE_FILE
 
-# clean all bar-related processes
-for PID in `ps aux | egrep "lemonbar" | egrep -v "grep" | egrep "\.(sh|py)" | sed -r "s/ +/ /g" | cut -d' ' -f2`
-do
-  kill -TERM "$PID"
-done
-$HOME/.config/dotfiles/lemonbar/main.sh &
-
 xrdb -merge ~/.Xresources
 
 BORDER_COLOR=`$HOME/.config/dotfiles/lemonbar/get_xresource_value.sh color7`
@@ -65,3 +58,10 @@ $HOME/.config/dotfiles/generate_configs.sh
 killall picom
 # start the compositor
 `sleep 1 && $HOME/build_repos/ibhagwan-picom/build/src/picom --experimental-backends -b --config $HOME/.config/dotfiles/picom.conf` &
+
+# clean all bar-related processes
+for PID in `ps aux | egrep "lemonbar" | egrep -v "grep" | egrep "\.(sh|py)" | sed -r "s/ +/ /g" | cut -d' ' -f2`
+do
+  kill -TERM "$PID"
+done
+$HOME/.config/dotfiles/lemonbar/main.sh &

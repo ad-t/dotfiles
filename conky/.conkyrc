@@ -45,20 +45,20 @@ conky.text = ''
 .. " ${exec bspc wm -g | $HOME/.config/dotfiles/lemonbar/workspaces.py}"
 .. "%{c}"
 .. bgcolor6
-.. fgcolor0
+.. fgcolor7
 .. " ${time %H:%M:%S %a %-d %b} "
 .. "%{r}"
-.. bgcolor3
-.. fgcolor0
+.. bgcolor13
+.. fgcolor7
 .. " ${fs_used /} / ${fs_size /} (${fs_used_perc}%) "
 .. bgcolor4
-.. fgcolor0
+.. fgcolor7
 .. " CPU: ${cpu}% @ ${freq_g}GHz "
 .. bgcolor6
-.. fgcolor0
+.. fgcolor7
 .. " DOWN: ${downspeedf enp5s0} KiB "
-.. bgcolor9
-.. fgcolor0
+.. bgcolor11
+.. fgcolor7
 .. " UP: ${upspeedf enp5s0} KiB "
 .. bgcolor7
 .. fgcolor0
