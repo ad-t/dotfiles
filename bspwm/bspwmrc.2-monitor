@@ -8,6 +8,13 @@ then
   $SCREEN_LAYOUT_SCRIPT
 fi
 
+# clean all bar-related processes
+for PID in `ps aux | egrep "lemonbar" | egrep -v "grep" | egrep "\.(sh|py)" | sed -r "s/ +/ /g" | cut -d' ' -f2`
+do
+  kill -TERM "$PID"
+done
+$HOME/.config/dotfiles/lemonbar/main.sh &
+
 # restart sxhkd properly
 killall sxhkd
 sxhkd &
@@ -58,10 +65,3 @@ $HOME/.config/dotfiles/generate_configs.sh
 killall picom
 # start the compositor
 `sleep 1 && $HOME/build_repos/ibhagwan-picom/build/src/picom --experimental-backends -b --config $HOME/.config/dotfiles/picom.conf` &
-
-# clean all bar-related processes
-for PID in `ps aux | egrep "lemonbar" | egrep -v "grep" | egrep "\.(sh|py)" | sed -r "s/ +/ /g" | cut -d' ' -f2`
-do
-  kill -TERM "$PID"
-done
-$HOME/.config/dotfiles/lemonbar/main.sh &

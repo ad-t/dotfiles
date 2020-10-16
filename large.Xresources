@@ -1,6 +1,6 @@
 Xft.dpi: 200
 Xcursor*theme: Capitaine
-! Xcursor*size: 128
+Xcursor*size: 128
 
 ! Rofi config
 rofi.font: Iosevka Fixed Extended 24

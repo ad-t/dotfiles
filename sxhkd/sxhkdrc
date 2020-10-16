@@ -25,7 +25,7 @@ alt + q
 
 # restart bspwm
 alt + r
-	(($HOME/.config/bspwm/bspwmrc && sleep 3 && $HOME/.config/bspwm/bspwmrc) &); sleep 1 && dunstify "bspwm" "restarted"
+	($HOME/.config/bspwm/bspwmrc &); sleep 1 && dunstify "bspwm" "restarted"
 
 # close and kill
 alt + {_,shift + }w
