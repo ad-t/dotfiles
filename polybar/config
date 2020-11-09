@@ -12,32 +12,41 @@
 ; 
 
 [colors]
-background = ${xrdb:color0:#222}
-; background = #1d1f21
-background-alt = #444
-foreground = ${xrdb:color7:#222}
-# foreground = #c5c8c6
-foreground-alt = #555
-;primary = #ffb52a
-primary = #51dfff
-secondary = #e60053
-alert = #bd2c40
+grey = ${xrdb:color0:#222}
+orange = ${xrdb:color1:#222}
+green = ${xrdb:color2:#222}
+yellow = ${xrdb:color3:#222}
+cyan = ${xrdb:color4:#222}
+magenta = ${xrdb:color5:#222}
+blue = ${xrdb:color6:#222}
+white = ${xrdb:color7:#222}
 
-yeet = ${xrdb:color6:#00ff00}
+light-grey = ${xrdb:color8:#222}
+light-orange = ${xrdb:color9:#222}
+light-green = ${xrdb:color10:#222}
+light-yellow = ${xrdb:color11:#222}
+light-cyan = ${xrdb:color12:#222}
+light-magenta = ${xrdb:color13:#222}
+light-blue = ${xrdb:color14:#222}
+light-white = ${xrdb:color15:#222}
 
-item-fore = #81a2be
-item-back = #373b41
+background = ${colors.grey}
+background-alt = ${colors.light-grey}
+foreground = ${colors.light-white}
+foreground-alt = ${colors.white}
+primary = ${colors.cyan}
+secondary = ${colors.blue}
+alert = ${colors.magenta}
 
 [bar/example]
 monitor = ${env:MONITOR:}
 width = 100%
 dpi = ${xrdb:polybar.dpi:100}
-;height = 27
-height = 50
+height = 45
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 3.0
-fixed-center = false
+fixed-center = true
 bottom = false
 
 background = ${colors.background}
@@ -46,23 +55,24 @@ foreground = ${colors.foreground}
 line-size = 0
 line-color = #f00
 
-border-size = 0
-border-color = #00000000
+border-size = 5
+border-color = ${colors.background}
 
 padding-left = 0
-padding-right = 2
+padding-right = 0
 
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = "Inconsolata for Powerline:pixelsize=22;1"
-; font-0 = fixed:pixelsize=18;1
-font-1 = "unifont:fontformat=truetype:size=22:antialias=false;1"
-font-2 = "Siji:pixelsize=22;1"
+font-0 = "Iosevka Fixed Extended:style=bold:pixelsize=22;4"
+font-1 = "unifont:style=Regular:antialias=false:pixelsize=22;7"
+font-2 = "Siji:pixelsize=22;5"
+font-3 = "FontAwesome:pixelsize=20:style=Regular;4"
+font-4 = "Icons:pixelsize=20:style=Regular"
 
-modules-left = xmonad
+modules-left = bspwm
 modules-center = date 
-modules-right = filesystem Separator alsa Separator memory Separator cpu Separator eth Separator temperature
+modules-right = filesystem memory cpu
 
 tray-position = right
 tray-padding = 1
@@ -117,12 +127,13 @@ label-indicator-underline = ${colors.secondary}
 type = internal/fs
 interval = 25
 
-mount-0 = /
-# mount-1 = /home/adam/expansion
+format-background = ${colors.blue}
+format-foreground = ${colors.foreground}
 
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+mount-0 = /
+
+label-mounted = " %mountpoint%: %percentage_used%%"
 label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
 
 [module/bspwm]
 type = internal/bspwm
@@ -130,113 +141,35 @@ type = internal/bspwm
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
-label-focused-padding = 2
+label-focused-padding = 1
 
 label-occupied = %index%
-label-occupied-padding = 2
+label-occupied-padding = 1
+label-occupied-foreground = ${colors.foreground}
 
 label-urgent = %index%!
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
+label-urgent-padding = 1
 
 label-empty = %index%
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
-
-[module/xmonad]
-type = custom/script
-exec = tail -f /tmp/xmonad-bar
-# exec = tail -f /tmp/xmonad-ws
-# exec-if = [ -p /tmp/xmonad-ws ]
-tail = true
-
-format ="<label>"
-label = "%output%"
-
-[module/i3]
-type = internal/i3
-format = <label-state> <label-mode>
-index-sort = true
-wrapping-scroll = false
-
-; Only show workspaces on the same output as the bar
-pin-workspaces = true
-
-label-mode-padding = 2
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
-
-; focused = Active workspace on focused monitor
-label-focused = %index%
-label-focused-background = ${module/bspwm.label-focused-background}
-label-focused-underline = ${module/bspwm.label-focused-underline}
-label-focused-padding = ${module/bspwm.label-focused-padding}
-
-; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
-label-unfocused-padding = ${module/bspwm.label-occupied-padding}
-
-; visible = Active workspace on unfocused monitor
-label-visible = %index%
-label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = ${self.label-focused-padding}
-
-; urgent = Workspace with urgency hint set
-label-urgent = %index%
-label-urgent-background = ${module/bspwm.label-urgent-background}
-label-urgent-padding = ${module/bspwm.label-urgent-padding}
-
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
-
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
-label-song-maxlen = 25
-label-song-ellipsis = true
-
-[module/xbacklight]
-type = internal/xbacklight
-
-format = <label> <bar>
-label = BL
-
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #ff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
-
-[module/backlight-acpi]
-inherit = module/xbacklight
-type = internal/backlight
-card = intel_backlight
+# label-empty-foreground = ${colors.foreground-alt}
+label-empty-foreground = ${colors.background-alt}
+label-empty-padding = 1
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "cpu: "
-format-prefix-foreground = ${colors.foreground}
-format-underline = #f90000
-label = %percentage%%
+label = "  %percentage%% "
+format-background = ${colors.green}
+format-foreground = ${colors.foreground}
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "ram: "
-format-prefix-foreground = ${colors.foreground}
 format-underline = #4bffdc
-label = %percentage_used%%
+label = "  %percentage_used%% "
+format-background = ${colors.magenta}
+format-foreground = ${colors.foreground}
 
 [module/wlan]
 type = internal/network
@@ -263,7 +196,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 [module/eth]
 type = internal/network
 # interface = enp4s0
-interface = enp0s3
+interface = enp5s0
 interval = 3.0
 
 format-connected-underline = #55aa55
@@ -271,7 +204,7 @@ format-connected-underline = #55aa55
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = ip: %local_ip%
 
-format-disconnected =
+; format-disconnected =
 ;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
@@ -279,17 +212,18 @@ format-disconnected =
 
 [module/date]
 type = internal/date
-interval = 5
+interval = 1
 
-date = "%Y-%m-%d"
-date-alt = " %Y-%m-%d"
+date = "  %Y-%m-%d "
+date-alt = " %Y-%m-%d "
 
-time = %H:%M
+time = " %H:%M:%S "
 time-alt = %H:%M:%S
 
 # format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
+format-background = ${colors.cyan}
+format-foreground = ${colors.foreground}
 
 label = %date% %time%
 
@@ -340,33 +274,6 @@ ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
 
-[module/powermenu]
-type = custom/menu
-
-format-spacing = 1
-
-label-open = 
-label-open-foreground = ${colors.secondary}
-label-close =  cancel
-label-close-foreground = ${colors.secondary}
-label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
-
-menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
-
 [settings]
 screenchange-reload = true
 ;compositing-background = xor
@@ -381,6 +288,6 @@ screenchange-reload = true
 
 [global/wm]
 margin-top = 5
-margin-bottom = 5
+margin-bottom = 0
 
 ; vim:ft=dosini
