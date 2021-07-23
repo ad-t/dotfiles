@@ -29,6 +29,8 @@ Plug 'sirver/ultisnips'
 Plug 'jamessan/vim-gnupg'
 Plug 'moll/vim-bbye'
 Plug 'tomtom/tcomment_vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'lervag/vimtex'
 
 " git
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -154,3 +156,8 @@ let g:ale_sign_warning = '--'
 
 " use vim-jsx-pretty over polyglot 
 let g:polyglot_disabled = ['jsx']
+
+" coc linter system
+let g:coc_global_extensions = [
+  \ 'coc-tsserver'
+  \ ]

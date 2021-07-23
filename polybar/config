@@ -41,7 +41,7 @@ alert = ${colors.magenta}
 [bar/example]
 monitor = ${env:MONITOR:}
 width = 100%
-dpi = ${xrdb:polybar.dpi:100}
+dpi = 100
 height = 45
 ;offset-x = 1%
 ;offset-y = 1%
@@ -75,9 +75,10 @@ modules-center = date
 modules-right = filesystem memory cpu
 
 tray-position = right
-tray-padding = 1
+tray-padding = 15
 ;tray-transparent = true
 ;tray-background = #0063ff
+tray-maxsize = 1000
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -137,6 +138,7 @@ label-unmounted = %mountpoint% not mounted
 
 [module/bspwm]
 type = internal/bspwm
+pin-workspaces = true 
 
 label-focused = %index%
 label-focused-background = ${colors.background-alt}

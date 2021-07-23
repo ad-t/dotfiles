@@ -11,6 +11,10 @@ alt + shift + Return
 alt + p
         rofi -show run -theme ~/.config/dotfiles/rofi/wal.rasi
 
+# program launcher with sudo
+alt + Return
+        SUDO_ASKPASS=$HOME/.local/bin/askpass-rofi rofi -show run -theme ~/.config/dotfiles/rofi/wal.rasi "sudo -A \{cmd\}"
+
 # make sxhkd reload its configuration files:
 alt + Escape
 	pkill -USR1 -x sxhkd && dunstify "sxhkd" "restarted"
@@ -99,8 +103,14 @@ alt + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
-alt + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+# alt + {_,shift + }{1-9,0}
+# 	bspc {desktop -f,node -d} '^{1-9,10}'
+
+alt + {1-2}; {1,2,3,4}
+  desktop_swapper.sh focus "{DP-0,HDMI-0}" "{1,2,3,4}"
+
+alt + shift + {1-2}; {1,2,3,4}
+  desktop_swapper.sh move "{DP-0,HDMI-0}" "{1,2,3,4}"
 
 #
 # preselect
