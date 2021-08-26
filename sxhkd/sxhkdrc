@@ -23,8 +23,8 @@ alt + Escape
 # bspwm hotkeys
 #
 
-# quit bspwm
-alt + q
+# quit bspwm (Make this more difficult to accidentally hit)
+alt + shift + q
 	bspc quit
 
 # restart bspwm

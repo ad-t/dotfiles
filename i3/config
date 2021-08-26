@@ -34,10 +34,7 @@ font pango:Menlo for powerline 10
 floating_modifier $mod
 
 # start a terminal
-# bindsym $mod+Return exec i3-sensible-terminal
-# bindsym $mod+Return exec xfce4-terminal
-bindsym $mod+Return exec rxvt-unicode -e sh -c "tmux -2"
-bindsym $mod+Shift+Return exec konsole -e "~/.local/scripts/login_to_cse.sh"
+bindsym $mod+shift+Return exec alacritty -e "fish"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -81,9 +78,10 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split
+bindsym $mod+w layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -96,31 +94,6 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
-
-# # replaced by below!
-# # switch to workspace
-# bindsym $mod+1 workspace 1
-# bindsym $mod+2 workspace 2
-# bindsym $mod+3 workspace 3
-# bindsym $mod+4 workspace 4
-# bindsym $mod+5 workspace 5
-# bindsym $mod+6 workspace 6
-# bindsym $mod+7 workspace 7
-# bindsym $mod+8 workspace 8
-# bindsym $mod+9 workspace 9
-# bindsym $mod+0 workspace 10
-# 
-# # move focused container to workspace
-# bindsym $mod+Shift+1 move container to workspace 1
-# bindsym $mod+Shift+2 move container to workspace 2
-# bindsym $mod+Shift+3 move container to workspace 3
-# bindsym $mod+Shift+4 move container to workspace 4
-# bindsym $mod+Shift+5 move container to workspace 5
-# bindsym $mod+Shift+6 move container to workspace 6
-# bindsym $mod+Shift+7 move container to workspace 7
-# bindsym $mod+Shift+8 move container to workspace 8
-# bindsym $mod+Shift+9 move container to workspace 9
-# bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -154,59 +127,103 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-bindsym $mod+Shift+f exec "firefox"
-bindsym $mod+Shift+o exec "opera"
-bindsym $mod+Shift+s exec "subl3"
-bindsym $mod+q exec "qutebrowser"
-bindsym $mod+Shift+t exec "~/.config/i3/lock_screen.sh"
+bindsym $mod+z exec "web"
+bindsym $mod+Shift+t exec "slock"
+
+# workspace selection
+set $mode_primary_screen_select Primary [1] [2] [3] [4]
+bindsym $mod+1 mode "$mode_primary_screen_select"
+mode "$mode_primary_screen_select" {
+  bindsym 1 workspace $WS1; mode "default"
+  bindsym 2 workspace $WS2; mode "default"
+  bindsym 3 workspace $WS3; mode "default"
+  bindsym 4 workspace $WS4; mode "default"
+
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+}
+
+set $mode_secondary_screen_select Secondary [1] [2] [3] [4]
+bindsym $mod+2 mode "$mode_secondary_screen_select"
+mode "$mode_secondary_screen_select" {
+  bindsym 1 workspace $WS5; mode "default" 
+  bindsym 2 workspace $WS6; mode "default"
+  bindsym 3 workspace $WS7; mode "default"
+  bindsym 4 workspace $WS8; mode "default"
+
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+}
+
+set $mode_primary_screen_move Move Primary
+bindsym $mod+Shift+1 mode "$mode_primary_screen_move"
+mode "$mode_primary_screen_move" {
+  bindsym 1 move container to workspace $WS1; mode "default"
+  bindsym 2 move container to workspace $WS2; mode "default"
+  bindsym 3 move container to workspace $WS3; mode "default"
+  bindsym 4 move container to workspace $WS4; mode "default"
+
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+}
+
+set $mode_secondary_screen_move Move Secondary
+bindsym $mod+Shift+2 mode "$mode_secondary_screen_move"
+mode "$mode_secondary_screen_move" {
+  bindsym 1 move container to workspace $WS5; mode "default"
+  bindsym 2 move container to workspace $WS6; mode "default"
+  bindsym 3 move container to workspace $WS7; mode "default"
+  bindsym 4 move container to workspace $WS8; mode "default"
+
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+}
 
 # setting workspace names
-set $WS1 "1:www"
-set $WS2 "2:unsw"
-set $WS3 "3:code"
-set $WS4 "4:extra"
-set $WS5 "5:extra"
-set $WS6 "6:extra"
-set $WS7 "7:extra"
-set $WS8 "8:extra"
-set $WS9 "9:extra"
-set $WS10 "10:settings"
+set $WS1 "1"
+set $WS2 "2"
+set $WS3 "3"
+set $WS4 "4"
+set $WS5 "5"
+set $WS6 "6"
+set $WS7 "7"
+set $WS8 "8"
+# set $WS9 "9:extra"
+# set $WS10 "10:settings"
 
+# set the screens they live on
+workspace $WS1 output DP-0 
+workspace $WS2 output DP-0 
+workspace $WS3 output DP-0
+workspace $WS4 output DP-0
+workspace $WS5 output HDMI-0
+workspace $WS6 output HDMI-0
+workspace $WS7 output HDMI-0
+workspace $WS8 output HDMI-0
 
 # Switch To Workspace
-bindsym $mod+1 workspace $WS1
-bindsym $mod+2 workspace $WS2
-bindsym $mod+3 workspace $WS3
-bindsym $mod+4 workspace $WS4
-bindsym $mod+5 workspace $WS5
-bindsym $mod+6 workspace $WS6
-bindsym $mod+7 workspace $WS7
-bindsym $mod+8 workspace $WS8
-bindsym $mod+9 workspace $WS9
-bindsym $mod+0 workspace $WS10
+# bindsym $mod+1 workspace $WS1
+# bindsym $mod+2 workspace $WS2
+# bindsym $mod+3 workspace $WS3
+# bindsym $mod+4 workspace $WS4
+# bindsym $mod+5 workspace $WS5
+# bindsym $mod+6 workspace $WS6
+# bindsym $mod+7 workspace $WS7
+# bindsym $mod+8 workspace $WS8
+# bindsym $mod+9 workspace $WS9
+# bindsym $mod+0 workspace $WS10
 
 # Move Focused Container To Workspace
-bindsym $mod+Shift+1 move container to workspace $WS1
-bindsym $mod+Shift+2 move container to workspace $WS2
-bindsym $mod+Shift+3 move container to workspace $WS3
-bindsym $mod+Shift+4 move container to workspace $WS4
-bindsym $mod+Shift+5 move container to workspace $WS5
-bindsym $mod+Shift+6 move container to workspace $WS6
-bindsym $mod+Shift+7 move container to workspace $WS7
-bindsym $mod+Shift+8 move container to workspace $WS8
-bindsym $mod+Shift+9 move container to workspace $WS9
-bindsym $mod+Shift+0 move container to workspace $WS10
-
-#workspaces
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# bar {
-#         status_command polybar example
-#         # status_command i3blocks -c ~/.config/i3/i3blocks.conf
-# 	position top
-#         workspace_buttons yes
-# }
+# bindsym $mod+Shift+1 move container to workspace $WS1
+# bindsym $mod+Shift+2 move container to workspace $WS2
+# bindsym $mod+Shift+3 move container to workspace $WS3
+# bindsym $mod+Shift+4 move container to workspace $WS4
+# bindsym $mod+Shift+5 move container to workspace $WS5
+# bindsym $mod+Shift+6 move container to workspace $WS6
+# bindsym $mod+Shift+7 move container to workspace $WS7
+# bindsym $mod+Shift+8 move container to workspace $WS8
+# bindsym $mod+Shift+9 move container to workspace $WS9
+# bindsym $mod+Shift+0 move container to workspace $WS10
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #FAE5BC #285577 #ffffff #8e8f8d     #8e8f8d
@@ -232,12 +249,20 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 # 
 # client.background       $bg
 
-# PROTIP: You can also dynamically set dmenu's colors this way:
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
-# -nb "$dark" -nf "$fg" -sb "$bg" -sf "$dark"
+########### KEYBINDINGS ############
 
+# rofi
+bindsym $mod+p exec "rofi -show run -terminal xterm -no-parse-known-hosts -no-sort -disable-history -theme ~/.config/dotfiles/rofi/wal.rasi"
+
+# rofi-based emoji picker
+bindsym $mod+e exec "$HOME/.config/dotfiles/emojis/emoji-picker.sh"
+
+# program launcher using sudo
+bindsym $mod+Return exec "SUDO_ASKPASS=$HOME/.local/bin/askpass-rofi rofi -show run -theme ~/.config/dotfiles/rofi/wal.rasi"
+
+# all windows have a border of this size
 for_window [class="^.*"] border pixel 2
-# for_window [class="cad"] floating enable
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec "feh --bg-fill --restore ~/backgrounds/blue.png"
+
+# start the wm agnostic startup commands
+exec_always --no-startup-id "$HOME/.config/dotfiles/startup.sh"
+

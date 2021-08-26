@@ -11,7 +11,6 @@ set -x DOCKER_BUILDKIT 1
 set -x TERM "xterm"
 
 # set autocompletion for gopass
-gopass completion fish | source
 source ~/.config/dotfiles/aliases
 
 function fish_greeting

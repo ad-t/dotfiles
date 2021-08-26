@@ -41,8 +41,8 @@ alert = ${colors.magenta}
 [bar/example]
 monitor = ${env:MONITOR:}
 width = 100%
-dpi = 100
-height = 45
+dpi = 64
+height = 30
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 3.0
@@ -70,7 +70,7 @@ font-2 = "Siji:pixelsize=22;5"
 font-3 = "FontAwesome:pixelsize=20:style=Regular;4"
 font-4 = "Icons:pixelsize=20:style=Regular"
 
-modules-left = bspwm
+modules-left = i3
 modules-center = date 
 modules-right = filesystem memory cpu
 
@@ -135,6 +135,10 @@ mount-0 = /
 
 label-mounted = " %mountpoint%: %percentage_used%%"
 label-unmounted = %mountpoint% not mounted
+
+[module/i3]
+type = internal/i3
+pin-workspaces = true
 
 [module/bspwm]
 type = internal/bspwm

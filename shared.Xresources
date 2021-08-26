@@ -16,6 +16,10 @@ URxvt.keysym.Control-0x2d: perl:font-size:decrease
 ! pixels
 URxvt.internalBorder: 32
 URxvt.dynamicColors: on
+URxvt.keysym.M-Down:        \033[1;3B
+URxvt.keysym.M-Up:          \033[1;3A
+URxvt.keysym.M-Left:        \033[1;3D
+URxvt.keysym.M-Right:       \033[1;3C
 rofi.padding: 35
 rofi.terminal: urxvt
 #include "themes/Xresources-themes/base16-tomorrow-night-256.Xresources"
