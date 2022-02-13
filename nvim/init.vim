@@ -7,8 +7,7 @@ function! DoRemote(arg)
 endfunction
 
 " searching
-Plug '~/.fzf'
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 " colourschemes
 Plug 'dylanaraps/wal.vim'
@@ -49,7 +48,7 @@ set mouse=a
 set ruler
 set shiftwidth=2
 set expandtab
-set number relativenumber
+set number
 set hlsearch
 set cursorline
 set wildmenu
@@ -115,7 +114,7 @@ autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 
 " fzf fuzzy searching
-nnoremap <C-p> :Files .<Cr>
+nnoremap <c-p> :FZF .<Cr>
 nmap ; :Buffers<CR>
 
 " Vimtex config

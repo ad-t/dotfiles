@@ -17,7 +17,7 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Menlo for powerline 10
+font pango:Fira Code Medium 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -34,7 +34,7 @@ font pango:Menlo for powerline 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+shift+Return exec alacritty -e "fish"
+bindsym $mod+shift+Return exec alacritty -e "zsh"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -128,7 +128,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 bindsym $mod+z exec "web"
-bindsym $mod+Shift+t exec "slock"
+bindsym $mod+Shift+t exec "i3lock --ignore-empty-password --tiling --color=000000"
 
 # workspace selection
 set $mode_primary_screen_select Primary [1] [2] [3] [4]
@@ -192,10 +192,10 @@ set $WS8 "8"
 # set $WS10 "10:settings"
 
 # set the screens they live on
-workspace $WS1 output DP-0 
-workspace $WS2 output DP-0 
-workspace $WS3 output DP-0
-workspace $WS4 output DP-0
+workspace $WS1 output HDMI-0 
+workspace $WS2 output HDMI-0 
+workspace $WS3 output HDMI-0
+workspace $WS4 output HDMI-0
 workspace $WS5 output HDMI-0
 workspace $WS6 output HDMI-0
 workspace $WS7 output HDMI-0
@@ -252,7 +252,7 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 ########### KEYBINDINGS ############
 
 # rofi
-bindsym $mod+p exec "rofi -show run -terminal xterm -no-parse-known-hosts -no-sort -disable-history -theme ~/.config/dotfiles/rofi/wal.rasi"
+bindsym $mod+p exec "rofi -show run -terminal xterm -no-parse-known-hosts -theme ~/.config/dotfiles/rofi/wal.rasi"
 
 # rofi-based emoji picker
 bindsym $mod+e exec "$HOME/.config/dotfiles/emojis/emoji-picker.sh"

@@ -2,15 +2,15 @@
 
 font:
   normal:
-    family: Iosevka Fixed Extended
+    family: Fira Code
     style: Regular
 
   bold:
-    family: Iosevka Fixed Extended
+    family: Fira Code
     style: Bold
 
   italic:
-    family: Iosevka Fixed Extended
+    family: Fira Code
     style: Italic
 
 env:

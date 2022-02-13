@@ -1,9 +1,9 @@
-Xft.dpi: 128
-Xcursor*theme: Capitaine
+Xft.dpi: 92
+Xcursor*theme: Capitaine Cursors
 Xcursor.size: 48
 
 ! Rofi config
-rofi.font: Iosevka Fixed Extended 16
+rofi.font: Fira Code 12
 
 #include ".config/dotfiles/shared.Xresources"
 

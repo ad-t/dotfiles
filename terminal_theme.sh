@@ -124,7 +124,7 @@ get_git() {
 info_prompt() {
   RETVAL="$1"
   set_background "GREEN"
-  show_retval "$RETVAL"
+  # show_retval "$RETVAL"
   set_background "BLUE"
   segment_prompt "$(get_path)"
   set_background "RED"
@@ -149,7 +149,7 @@ output_spaces() {
 right_prompt() {
   RIGHT_PROMPT="$(segment_prompt $(date +%T))"
   RIGHT_PROMPT_LENGTH="$(echo $RIGHT_PROMPT | wc -m)"
-  COLUMNS=$(tput cols)
+  COLUMNS="$(tput cols)"
   SPACES=$(expr $COLUMNS - $RIGHT_PROMPT_LENGTH - 2)
   output_spaces $SPACES
   set_color "BLACK"
