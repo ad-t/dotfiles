@@ -10,6 +10,9 @@ ROFI_WAL_RASI_TEMPLATE="$HOME/.config/dotfiles/rofi/wal.template.rasi"
 ALACRITTY_TEMPLATE="$HOME/.config/dotfiles/alacritty/template.alacritty.yml"
 ALACRITTY="$HOME/.config/dotfiles/alacritty/alacritty.yml"
 
+KITTY_TEMPLATE="$HOME/.config/dotfiles/kitty/kitty.conf.template"
+KITTY="$HOME/.config/dotfiles/kitty/kitty.conf"
+
 BLACK=`$XRESOURCE_COMMAND color0`
 DARK_RED=`$XRESOURCE_COMMAND color1`
 DARK_GREEN=`$XRESOURCE_COMMAND color2`
@@ -122,3 +125,25 @@ NEW_ALACRITTY_FILE=`cat $ALACRITTY_TEMPLATE |\
   `
 
 echo "$NEW_ALACRITTY_FILE" > $ALACRITTY
+
+# generate kitty file'
+NEW_KITTY_FILE=`cat $KITTY_TEMPLATE |\
+  sed -r "s/BLACK/$BLACK/g"\ |
+  sed -r "s/DARK_RED/$DARK_RED/g"\ |
+  sed -r "s/DARK_GREEN/$DARK_GREEN/g"\ |
+  sed -r "s/DARK_YELLOW/$DARK_YELLOW/g"\ |
+  sed -r "s/DARK_BLUE/$DARK_BLUE/g"\ |
+  sed -r "s/DARK_MAGENTA/$DARK_MAGENTA/g"\ |
+  sed -r "s/DARK_CYAN/$DARK_CYAN/g"\ |
+  sed -r "s/BRIGHT_BLACK/$BRIGHT_BLACK/g"\ |
+  sed -r "s/GRAY/$GRAY/g"\ |
+  sed -r "s/RED/$RED/g"\ |
+  sed -r "s/GREEN/$GREEN/g"\ |
+  sed -r "s/YELLOW/$YELLOW/g"\ |
+  sed -r "s/BLUE/$BLUE/g"\ |
+  sed -r "s/MAGENTA/$MAGENTA/g"\ |
+  sed -r "s/CYAN/$CYAN/g"\ |
+  sed -r "s/WHITE/$LIGHT_GRAY/g"\
+  `
+
+echo "$NEW_KITTY_FILE" > $KITTY

@@ -35,8 +35,8 @@ background = ${colors.black}
 background-alt = ${colors.black}
 foreground = ${colors.black}
 foreground-alt = ${colors.white}
-primary = ${colors.blue}
-secondary = ${colors.green}
+primary = ${colors.cyan}
+secondary = ${colors.blue}
 alert = ${colors.magenta}
 
 [bar/example]

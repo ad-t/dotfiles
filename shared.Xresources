@@ -22,5 +22,5 @@ URxvt.keysym.M-Left:        \033[1;3D
 URxvt.keysym.M-Right:       \033[1;3C
 rofi.padding: 35
 rofi.terminal: urxvt
-! #include "themes/Xresources-themes/base16-gruvbox-dark-hard-256.Xresources"
-#include "themes/gruvbox-material.Xresources"
+! #include "themes/gruvbox-material.Xresources"
+#include "themes/Xresources-themes/base16-tomorrow-night-256.Xresources"

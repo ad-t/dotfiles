@@ -19,6 +19,10 @@ Plug 'chriskempson/base16-vim'
 
 " aesthetics
 Plug 'maxmellon/vim-jsx-pretty'
+
+" use vim-jsx-pretty over polyglot 
+let g:polyglot_disabled = ['jsx']
+
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 
@@ -55,12 +59,13 @@ set wildmenu
 " set the cursor to the traditional vim cursor
 set guicursor=
 set modeline
-set t_Co=16
+set t_Co=256
 set scrolloff=8
-colorscheme gruvbox
-" set termguicolors
-" let base16colorspace=256  " Access colors present in 256 colorspace
-" let g:hybrid_custom_term_colors = 1
+colorscheme base16-tomorrow-night
+set showtabline=2
+set termguicolors
+let base16colorspace=256  " Access colors present in 256 colorspace
+let g:hybrid_custom_term_colors = 1
 
 syntax enable
 " This line below needs to be after syntax on, otherwise the theme overrides
@@ -106,15 +111,15 @@ noremap <RIGHT> <NOP>
 nnoremap K :tabprevious<CR>
 nnoremap J :tabnext<CR>
 
-nnoremap E :NERDTreeToggle<CR>
-
-" NERDTree Config
-let g:NERDTreeWinPos = "left"
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
+" nnoremap E :NERDTreeToggle<CR>
+" 
+" " NERDTree Config
+" let g:NERDTreeWinPos = "left"
+" autocmd VimEnter * NERDTree
+" autocmd VimEnter * wincmd p
 
 " fzf fuzzy searching
-nnoremap <c-p> :FZF .<Cr>
+nnoremap <c-p> :call OpenInFreshWindowOrNewTab()<cr>
 nmap ; :Buffers<CR>
 
 " Vimtex config
@@ -153,10 +158,21 @@ let g:ale_fixers = {
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
 
-" use vim-jsx-pretty over polyglot 
-let g:polyglot_disabled = ['jsx']
-
 " coc linter system
 let g:coc_global_extensions = [
   \ 'coc-tsserver'
   \ ]
+
+" Make FZF open in a new tab every time
+function! OpenInFreshWindowOrNewTab()
+    if bufname('%') == '' && getbufvar('%', "&modified") == 0
+        FZF
+    else
+        tabnew
+        FZF
+        " Close the new tab if the find was cancelled.
+        if bufname('%') == ''
+            tabclose
+        endif
+    endif
+endfunction

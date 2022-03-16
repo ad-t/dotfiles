@@ -134,7 +134,7 @@ info_prompt() {
 }
 
 typing_prompt() {
-  echo "$ "
+  echo "-> "
 }
 
 output_spaces() {

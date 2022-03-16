@@ -34,7 +34,8 @@ font pango:Fira Code Medium 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+shift+Return exec alacritty -e "zsh"
+bindsym $mod+shift+Return split v exec kitty -e "zsh"
+bindsym $mod+Return split h exec kitty -e "zsh"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -258,7 +259,7 @@ bindsym $mod+p exec "rofi -show run -terminal xterm -no-parse-known-hosts -theme
 bindsym $mod+e exec "$HOME/.config/dotfiles/emojis/emoji-picker.sh"
 
 # program launcher using sudo
-bindsym $mod+Return exec "SUDO_ASKPASS=$HOME/.local/bin/askpass-rofi rofi -show run -theme ~/.config/dotfiles/rofi/wal.rasi"
+# bindsym $mod+Return exec "SUDO_ASKPASS=$HOME/.local/bin/askpass-rofi rofi -show run -theme ~/.config/dotfiles/rofi/wal.rasi"
 
 # all windows have a border of this size
 for_window [class="^.*"] border pixel 2
