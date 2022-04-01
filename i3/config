@@ -259,7 +259,7 @@ bindsym $mod+p exec "rofi -show run -terminal xterm -no-parse-known-hosts -theme
 bindsym $mod+e exec "$HOME/.config/dotfiles/emojis/emoji-picker.sh"
 
 # program launcher using sudo
-# bindsym $mod+Return exec "SUDO_ASKPASS=$HOME/.local/bin/askpass-rofi rofi -show run -theme ~/.config/dotfiles/rofi/wal.rasi"
+bindsym $mod+shift+p exec "SUDO_ASKPASS=$HOME/.local/bin/askpass-rofi rofi -show run -theme ~/.config/dotfiles/rofi/wal.rasi"
 
 # all windows have a border of this size
 for_window [class="^.*"] border pixel 2
