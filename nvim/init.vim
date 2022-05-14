@@ -160,7 +160,12 @@ let g:ale_sign_warning = '--'
 
 " coc linter system
 let g:coc_global_extensions = [
-  \ 'coc-tsserver'
+  \ 'coc-tsserver',
+  \ 'coc-json',
+  \ 'coc-git',
+  \ 'coc-eslint',
+  \ 'coc-sh',
+  \ 'coc-vimlsp'
   \ ]
 
 " Make FZF open in a new tab every time

@@ -34,8 +34,8 @@ font pango:Fira Code Medium 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+shift+Return split v exec kitty -e "zsh"
-bindsym $mod+Return split h exec kitty -e "zsh"
+bindsym $mod+shift+Return split v exec kitty -e "fish"
+bindsym $mod+Return split h exec kitty -e "fish"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -132,53 +132,64 @@ bindsym $mod+z exec "web"
 bindsym $mod+Shift+t exec "i3lock --ignore-empty-password --tiling --color=000000"
 
 # workspace selection
-set $mode_primary_screen_select Primary [1] [2] [3] [4]
-bindsym $mod+1 mode "$mode_primary_screen_select"
-mode "$mode_primary_screen_select" {
-  bindsym 1 workspace $WS1; mode "default"
-  bindsym 2 workspace $WS2; mode "default"
-  bindsym 3 workspace $WS3; mode "default"
-  bindsym 4 workspace $WS4; mode "default"
+bindsym $mod+1 workspace $WS1
+bindsym $mod+2 workspace $WS2
+bindsym $mod+3 workspace $WS3
+bindsym $mod+4 workspace $WS4
 
-  bindsym Escape mode "default"
-  bindsym Return mode "default"
-}
+# dual monitor setup
+# set $mode_primary_screen_select Primary [1] [2] [3] [4]
+# bindsym $mod+1 mode "$mode_primary_screen_select"
+# mode "$mode_primary_screen_select" {
+#   bindsym 1 workspace $WS1; mode "default"
+#   bindsym 2 workspace $WS2; mode "default"
+#   bindsym 3 workspace $WS3; mode "default"
+#   bindsym 4 workspace $WS4; mode "default"
+#
+#   bindsym Escape mode "default"
+#   bindsym Return mode "default"
+# }
+#
+# set $mode_secondary_screen_select Secondary [1] [2] [3] [4]
+# bindsym $mod+2 mode "$mode_secondary_screen_select"
+# mode "$mode_secondary_screen_select" {
+#   bindsym 1 workspace $WS5; mode "default" 
+#   bindsym 2 workspace $WS6; mode "default"
+#   bindsym 3 workspace $WS7; mode "default"
+#   bindsym 4 workspace $WS8; mode "default"
+#
+#   bindsym Escape mode "default"
+#   bindsym Return mode "default"
+# }
 
-set $mode_secondary_screen_select Secondary [1] [2] [3] [4]
-bindsym $mod+2 mode "$mode_secondary_screen_select"
-mode "$mode_secondary_screen_select" {
-  bindsym 1 workspace $WS5; mode "default" 
-  bindsym 2 workspace $WS6; mode "default"
-  bindsym 3 workspace $WS7; mode "default"
-  bindsym 4 workspace $WS8; mode "default"
+bindsym $mod+Shift+1 move container to workspace $WS1
+bindsym $mod+Shift+2 move container to workspace $WS2
+bindsym $mod+Shift+3 move container to workspace $WS3
+bindsym $mod+Shift+4 move container to workspace $WS4
 
-  bindsym Escape mode "default"
-  bindsym Return mode "default"
-}
-
-set $mode_primary_screen_move Move Primary
-bindsym $mod+Shift+1 mode "$mode_primary_screen_move"
-mode "$mode_primary_screen_move" {
-  bindsym 1 move container to workspace $WS1; mode "default"
-  bindsym 2 move container to workspace $WS2; mode "default"
-  bindsym 3 move container to workspace $WS3; mode "default"
-  bindsym 4 move container to workspace $WS4; mode "default"
-
-  bindsym Escape mode "default"
-  bindsym Return mode "default"
-}
-
-set $mode_secondary_screen_move Move Secondary
-bindsym $mod+Shift+2 mode "$mode_secondary_screen_move"
-mode "$mode_secondary_screen_move" {
-  bindsym 1 move container to workspace $WS5; mode "default"
-  bindsym 2 move container to workspace $WS6; mode "default"
-  bindsym 3 move container to workspace $WS7; mode "default"
-  bindsym 4 move container to workspace $WS8; mode "default"
-
-  bindsym Escape mode "default"
-  bindsym Return mode "default"
-}
+# set $mode_primary_screen_move Move Primary
+# bindsym $mod+Shift+1 mode "$mode_primary_screen_move"
+# mode "$mode_primary_screen_move" {
+#   bindsym 1 move container to workspace $WS1; mode "default"
+#   bindsym 2 move container to workspace $WS2; mode "default"
+#   bindsym 3 move container to workspace $WS3; mode "default"
+#   bindsym 4 move container to workspace $WS4; mode "default"
+#
+#   bindsym Escape mode "default"
+#   bindsym Return mode "default"
+# }
+#
+# set $mode_secondary_screen_move Move Secondary
+# bindsym $mod+Shift+2 mode "$mode_secondary_screen_move"
+# mode "$mode_secondary_screen_move" {
+#   bindsym 1 move container to workspace $WS5; mode "default"
+#   bindsym 2 move container to workspace $WS6; mode "default"
+#   bindsym 3 move container to workspace $WS7; mode "default"
+#   bindsym 4 move container to workspace $WS8; mode "default"
+#
+#   bindsym Escape mode "default"
+#   bindsym Return mode "default"
+# }
 
 # setting workspace names
 set $WS1 "1"

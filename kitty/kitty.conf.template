@@ -41,7 +41,7 @@ background_opacity 0.1
 
 # terminal colors
 foreground WHITE
-background WHITE
+background BLACK
 
 
 # black

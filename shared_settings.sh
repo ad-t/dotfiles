@@ -12,4 +12,4 @@ export TERM="xterm"
 export EDITOR="nvim"
 
 # set fzf default options
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore node_modules --ignore ".git" -g "."'
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore node_modules --ignore ".next" --ignore ".git" -g "."'

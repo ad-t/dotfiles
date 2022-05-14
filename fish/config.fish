@@ -1,5 +1,14 @@
+set __fish_git_prompt_show_informative_status
+set __fish_git_prompt_showdirtystate
+set __fish_git_prompt_showuntrackedfiles
+set __fish_git_prompt_char_stateseparator ' '
+
 function fish_prompt
-  eval $HOME/.config/dotfiles/terminal_theme.sh "$status"
+  eval $HOME/.config/dotfiles/fish/theme.fish "$status" "GIT" \"(fish_git_prompt)\"
+end
+
+function fish_right_prompt
+  eval $HOME/.config/dotfiles/fish/theme.fish "$status" "RIGHT"
 end
 
 # set gpg pinentry

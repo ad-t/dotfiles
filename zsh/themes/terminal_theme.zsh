@@ -193,13 +193,13 @@ info_prompt() {
   segment_prompt "$(get_path)" "BLACK" "BLUE"
   separator "right" "BLUE" "CYAN"
   get_git "BLACK" "CYAN"
-  separator "right" "CYAN" "WHITE"
+  separator "right" "CYAN" "BLACK"
   echo
 }
 
 typing_prompt() {
   segment_prompt '$' "BLACK" "BLUE"
-  separator "right" "BLUE" "WHITE"
+  separator "right" "BLUE" "BLACK"
   set_color "WHITE"
   echo -n ' '
 }
@@ -220,7 +220,7 @@ right_prompt() {
   COLUMNS="$(tput cols)"
   SPACES=$(expr $COLUMNS - $RIGHT_PROMPT_LENGTH - 3)
   output_spaces $SPACES
-  separator "left" "$SECONDARY" "WHITE"
+  separator "left" "$SECONDARY" "BLACK"
   segment_prompt "$RIGHT_PROMPT" "BLACK" "$PRIMARY"
   echo -n "\r"
 }
