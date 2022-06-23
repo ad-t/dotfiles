@@ -34,8 +34,8 @@ font pango:Fira Code Medium 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+shift+Return split v exec kitty -e "fish"
-bindsym $mod+Return split h exec kitty -e "fish"
+bindsym $mod+shift+Return split v exec kitty -e "tmux"
+bindsym $mod+Return split h exec kitty -e "tmux"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -238,7 +238,7 @@ workspace $WS8 output HDMI-0
 # bindsym $mod+Shift+0 move container to workspace $WS10
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #FAE5BC #285577 #ffffff #8e8f8d     #8e8f8d
+client.focused          #FAE5BC #285577 #ffffff #81a2be   #81a2be
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
@@ -254,12 +254,14 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 # class                 border  backgr. text indicator child_border
 # client.focused          $bg     $bg     $fg  $bg       $bg
-# client.focused_inactive $dark     $bg     $fg  $dark       $dark
-# client.unfocused        $dark     $bg     $fg  $dark       $dark
+# client.focused_inactive $dark   $bg     $fg  $dark     $dark
+# client.unfocused        $dark   $bg     $fg  $dark     $dark
 # client.urgent           $bg     $bg     $fg  $bg       $bg
 # client.placeholder      $bg     $bg     $fg  $bg       $bg
 # 
 # client.background       $bg
+
+hide_edge_borders smart
 
 ########### KEYBINDINGS ############
 
@@ -273,7 +275,7 @@ bindsym $mod+e exec "$HOME/.config/dotfiles/emojis/emoji-picker.sh"
 bindsym $mod+shift+p exec "SUDO_ASKPASS=$HOME/.local/bin/askpass-rofi rofi -show run -theme ~/.config/dotfiles/rofi/wal.rasi"
 
 # all windows have a border of this size
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 5
 
 # start the wm agnostic startup commands
 exec_always --no-startup-id "$HOME/.config/dotfiles/startup.sh"

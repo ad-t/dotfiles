@@ -72,20 +72,20 @@ syntax enable
 " the setting
 set background=dark
 " highlight clear LineNr
-highlight Normal ctermbg=0
+highlight Normal guibg=0
 highlight clear SignColumn
 " an added line
 highlight clear GitGutterAdd
-highlight GitGutterAdd ctermbg=0
+highlight GitGutterAdd guibg=0
 " a changed line
 highlight clear GitGutterChange
-highlight GitGutterChange ctermbg=0
+highlight GitGutterChange guibg=0
 " at least one removed line
 highlight clear GitGutterDelete
-highlight GitGutterDelete ctermbg=0
+highlight GitGutterDelete guibg=0
 " a changed line followed by at least one removed line
 highlight clear GitGutterChangeDelete
-highlight GitGutterChangeDelete ctermbg=0
+highlight GitGutterChangeDelete guibg=0
 
 setlocal foldmethod=syntax
 noremap <silent><c-l> :nohlsearch<cr>
@@ -181,3 +181,13 @@ function! OpenInFreshWindowOrNewTab()
         endif
     endif
 endfunction
+
+" coc keybindings
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+" nnoremap <silent> K :call ShowDocumentation()<CR>

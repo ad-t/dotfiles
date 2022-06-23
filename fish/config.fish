@@ -3,12 +3,22 @@ set __fish_git_prompt_showdirtystate
 set __fish_git_prompt_showuntrackedfiles
 set __fish_git_prompt_char_stateseparator ' '
 
+# prevent underline on paths
+set fish_color_valid_path
+
+source $HOME/.config/dotfiles/fish/theme.fish
+
 function fish_prompt
-  eval $HOME/.config/dotfiles/fish/theme.fish "$status" "GIT" \"(fish_git_prompt)\"
+  status_segment $status
+  path_segment (prompt_pwd)
+  git_segment (fish_git_prompt)
+  set_color normal
+  echo -n " "
 end
 
 function fish_right_prompt
-  eval $HOME/.config/dotfiles/fish/theme.fish "$status" "RIGHT"
+  right_prompt
+  set_color normal
 end
 
 # set gpg pinentry

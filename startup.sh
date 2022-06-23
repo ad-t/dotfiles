@@ -39,4 +39,4 @@ feh --bg-fill $HOME/backgrounds/background
 
 # start up picom
 killall picom 
-sleep 1 && picom --experimental-backends --vsync --config $HOME/.config/dotfiles/picom/picom.conf &
+# sleep 1 && picom --experimental-backends --vsync --config $HOME/.config/dotfiles/picom/picom.conf &
