@@ -141,7 +141,7 @@ show_retval() {
   if [ "$RETVAL" -ne 0 ]
   then
     segment_prompt "$RETVAL" "$PRIMARY" "$SECONDARY"
-    separator "right" "$SECONDARY" "BLUE"
+    # separator "right" "$SECONDARY" "BLUE"
   fi
 }
 
@@ -191,16 +191,16 @@ info_prompt() {
   RETVAL="$1"
   show_retval "$RETVAL" "BLACK" "RED"
   segment_prompt "$(get_path)" "BLACK" "BLUE"
-  separator "right" "BLUE" "CYAN"
-  get_git "BLACK" "CYAN"
-  separator "right" "CYAN" "BLACK"
-  echo
+  # separator "right" "BLUE" "CYAN"
+  get_git "BLACK" "MAGENTA"
+  # separator "right" "CYAN" "BLACK"
+  # echo
 }
 
 typing_prompt() {
-  segment_prompt '$' "BLACK" "BLUE"
-  separator "right" "BLUE" "BLACK"
-  set_color "WHITE"
+  # segment_prompt '$' "BLACK" "BLUE"
+  # separator "right" "BLUE" "BLACK"
+  # set_color "WHITE"
   echo -n ' '
 }
 
@@ -218,16 +218,16 @@ right_prompt() {
   RIGHT_PROMPT="$(date +%T)"
   RIGHT_PROMPT_LENGTH="$(echo $RIGHT_PROMPT | wc -m)"
   COLUMNS="$(tput cols)"
-  SPACES=$(expr $COLUMNS - $RIGHT_PROMPT_LENGTH - 3)
+  SPACES=$(expr $COLUMNS - $RIGHT_PROMPT_LENGTH - 1)
   output_spaces $SPACES
-  separator "left" "$SECONDARY" "BLACK"
-  segment_prompt "$RIGHT_PROMPT" "BLACK" "$PRIMARY"
+  # separator "left" "$SECONDARY" "BLACK"
+  segment_prompt "$RIGHT_PROMPT" "$PRIMARY" "$SECONDARY"
   echo -n "\r"
 }
 
 main() {
   RETVAL="$1"
-  right_prompt "BLACK" "BLUE"
+  # right_prompt "BLACK" "GREEN"
   info_prompt "$RETVAL"
   typing_prompt
 }

@@ -50,6 +50,9 @@ set_background() {
     BLUE)
       COLOR_CODE="44"
       ;;
+    MAGENTA)
+      COLOR_CODE="45"
+      ;;
   esac
   printf %b "\e[${COLOR_CODE}m"
 }
@@ -127,14 +130,14 @@ info_prompt() {
   # show_retval "$RETVAL"
   set_background "BLUE"
   segment_prompt "$(get_path)"
-  set_background "RED"
+  set_background "MAGENTA"
   get_git
   reset_color
-  echo
+  # echo
 }
 
 typing_prompt() {
-  echo "-> "
+  echo " "
 }
 
 output_spaces() {
@@ -153,7 +156,7 @@ right_prompt() {
   SPACES=$(expr $COLUMNS - $RIGHT_PROMPT_LENGTH - 2)
   output_spaces $SPACES
   set_color "BLACK"
-  set_background "RED"
+  set_background "GREEN"
   printf "$RIGHT_PROMPT"
   echo -n "\r"
 }

@@ -36,6 +36,11 @@ source ~/.config/dotfiles/aliases
 # set fzf default options
 set -x FZF_DEFAULT_COMMAND 'ag --hidden --ignore node_modules -g "."'
 
+function nvm
+  set -x NVM_DIR "$HOME/.nvm"
+  bass source $NVM_DIR/nvm.sh --no-use ';' nvm $argv
+end
+
 function fish_greeting
   echo -n ""
 end
