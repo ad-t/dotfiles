@@ -280,3 +280,5 @@ for_window [class="^.*"] border pixel 5
 # start the wm agnostic startup commands
 exec_always --no-startup-id "$HOME/.config/dotfiles/startup.sh"
 
+# start imwheel in the background to speed up mouse scrolling (~/.imwheelrc)
+exec_always --no-startup-id "imwheel"

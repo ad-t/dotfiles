@@ -20,6 +20,7 @@ blue = ${xrdb:color4:#222}
 magenta = ${xrdb:color5:#222}
 cyan = ${xrdb:color6:#222}
 white = ${xrdb:color7:#222}
+gray = #333333
 
 light-black = ${xrdb:color8:#222}
 light-orange = ${xrdb:color9:#222}
@@ -43,7 +44,7 @@ alert = ${colors.magenta}
 monitor = ${env:MONITOR:}
 width = 100%
 dpi = 48
-height = 30
+height = 27
 ;offset-x = 1%
 ;offset-y = 1%
 ;radius = 5.0
@@ -66,14 +67,14 @@ module-margin-left = 1
 module-margin-right = 1
 
 ; font-0 = "Iosevka Fixed Extended:style=bold:pixelsize=22;4"
-font-0 = "Fira Code Medium:style=bold:pixelsize=22;4"
-font-1 = "unifont:style=Regular:antialias=false:pixelsize=22;7"
-font-2 = "Siji:pixelsize=22;5"
-font-3 = "FontAwesome:pixelsize=20:style=Regular;4"
+font-0 = "Fira Code Medium:style=bold:pixelsize=22;3"
+font-1 = "unifont:style=Regular:antialias=false:pixelsize=22;3"
+font-2 = "Siji:pixelsize=22;1"
+font-3 = "FontAwesome:pixelsize=20:style=Regular;3"
 font-4 = "Icons:pixelsize=20:style=Regular"
 
 modules-left = i3
-modules-center = date 
+modules-center = date time
 modules-right = filesystem memory cpu Separator
 
 tray-position = right
@@ -132,23 +133,33 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = "  %mountpoint%: %percentage_used%% "
+format-mounted-prefix = "  "
+format-mounted-prefix-foreground = ${colors.foreground}
+format-mounted-prefix-background = ${colors.cyan}
+
+format-mounted = <label-mounted>
+label-mounted = " %mountpoint%: %percentage_used%% "
 label-unmounted = %mountpoint% not mounted
 
-format-mounted-background = ${colors.cyan}
-format-mounted-foreground = ${colors.foreground}
+label-mounted-background = ${colors.gray}
+label-mounted-foreground = ${colors.white}
 
 [module/i3]
 type = internal/i3
 pin-workspaces = true
 
+label-separator = " "
+label-separator-padding = 0
+label-separator-foreground = #ffb52a
+
 label-focused = "%index%"
 label-focused-padding = 1
-label-focused-background = ${colors.primary}
+label-focused-background = ${colors.blue}
 
 label-unfocused = %index%
 label-unfocused-padding = 1
-label-unfocused-background = ${colors.secondary}
+label-unfocused-background = ${colors.gray}
+label-unfocused-foreground = ${colors.white}
 
 label-visible = %index%
 label-visible-padding = 1
@@ -183,17 +194,23 @@ label-empty-padding = 1
 [module/cpu]
 type = internal/cpu
 interval = 2
-label = "  %percentage%% "
-format-background = ${colors.green}
-format-foreground = ${colors.foreground}
+format-prefix = "  "
+label = " %percentage%% "
+format-prefix-background = ${colors.green}
+format-prefix-foreground = ${colors.foreground}
+format-background = ${colors.gray}
+format-foreground = ${colors.foreground-alt}
 
 [module/memory]
 type = internal/memory
 interval = 2
 format-underline = #4bffdc
-label = "  %percentage_used%% "
-format-background = ${colors.magenta}
-format-foreground = ${colors.foreground}
+format-prefix = "  "
+label = " %percentage_used%% "
+format-background = ${colors.gray}
+format-foreground = ${colors.foreground-alt}
+format-prefix-background = ${colors.magenta}
+format-prefix-foreground = ${colors.foreground}
 
 [module/wlan]
 type = internal/network
@@ -238,18 +255,33 @@ label-connected = ip: %local_ip%
 type = internal/date
 interval = 1
 
-date = "  %Y-%m-%d "
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground}
+format-prefix-background = ${colors.blue}
+
+date = " %Y-%m-%d "
 date-alt = " %Y-%m-%d "
 
-time = " %H:%M:%S "
+format-background = ${colors.gray}
+format-foreground = ${colors.foreground-alt}
+
+label = %date%
+
+[module/time]
+type = internal/date
+interval = 1
+
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground}
+format-prefix-background = ${colors.blue}
+
+time = " %H:%M:%S "
 time-alt = %H:%M:%S
 
-# format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
-format-background = ${colors.blue}
-format-foreground = ${colors.foreground}
+format-background = ${colors.gray}
+format-foreground = ${colors.foreground-alt}
 
-label = %date% %time%
+label = %time%
 
 [module/alsa]
 type = internal/alsa

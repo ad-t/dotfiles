@@ -1,7 +1,7 @@
 #!/bin/sh
 
 EMOJI_FILE="$HOME/.config/dotfiles/emojis/emoji-list.txt"
-EMOJI_FILE_URL="https://unicode.org/Public/emoji/13.0/emoji-test.txt"
+EMOJI_FILE_URL="https://unicode.org/Public/emoji/15.0/emoji-test.txt"
 
 # find if one exists
 if [ ! -f "$EMOJI_FILE" ]

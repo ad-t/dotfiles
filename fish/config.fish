@@ -36,6 +36,11 @@ source ~/.config/dotfiles/aliases
 # set fzf default options
 set -x FZF_DEFAULT_COMMAND 'ag --hidden --ignore node_modules -g "."'
 
+# set up android-studio paths
+set -x ANDROID_HOME "$HOME/Android/Sdk"
+fish_add_path "$ANDROID_HOME/platform-tools"
+fish_add_path "$HOME/.yarn/bin"
+
 function nvm
   set -x NVM_DIR "$HOME/.nvm"
   bass source $NVM_DIR/nvm.sh --no-use ';' nvm $argv
