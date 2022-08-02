@@ -13,14 +13,14 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'dylanaraps/wal.vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 Plug 'joshdick/onedark.vim'
 Plug 'chriskempson/base16-vim'
 
 " aesthetics
 Plug 'maxmellon/vim-jsx-pretty'
 
-" use vim-jsx-pretty over polyglot 
+" use vim-jsx-pretty over polyglot
 let g:polyglot_disabled = ['jsx']
 
 Plug 'sheerun/vim-polyglot'
@@ -61,31 +61,22 @@ set guicursor=
 set modeline
 set t_Co=256
 set scrolloff=8
-colorscheme base16-tomorrow-night
 set showtabline=2
 set termguicolors
-let base16colorspace=256  " Access colors present in 256 colorspace
+" let base16colorspace=256  " Access colors present in 256 colorspace
 let g:hybrid_custom_term_colors = 1
 
 syntax enable
 " This line below needs to be after syntax on, otherwise the theme overrides
 " the setting
 set background=dark
-" highlight clear LineNr
-highlight Normal guibg=0
+" fix the comments formatting being wrong
+let g:gruvbox_italic=1
+colorscheme gruvbox-material
 highlight clear SignColumn
-" an added line
-highlight clear GitGutterAdd
-highlight GitGutterAdd guibg=0
-" a changed line
-highlight clear GitGutterChange
-highlight GitGutterChange guibg=0
-" at least one removed line
-highlight clear GitGutterDelete
-highlight GitGutterDelete guibg=0
-" a changed line followed by at least one removed line
-highlight clear GitGutterChangeDelete
-highlight GitGutterChangeDelete guibg=0
+
+highlight clear Comment
+highlight Comment guifg=#928374 guibg=None
 
 setlocal foldmethod=syntax
 noremap <silent><c-l> :nohlsearch<cr>
@@ -93,9 +84,7 @@ noremap <silent><c-l> :nohlsearch<cr>
       \<c-l>
 
 " lightline
-let g:lightline = {
-      \ 'colorscheme': 'one',
-      \ }
+let g:lightline = {'colorscheme' : 'gruvbox_material'}
 set noshowmode
 
 set nofoldenable

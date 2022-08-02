@@ -75,7 +75,7 @@ RGBA_LIGHT_GRAY=$(convertColorCodeToRGBA $LIGHT_GRAY)
 NEW_ROFI_FILE=`cat $ROFI_WAL_RASI_TEMPLATE |\
   sed -r "s/ SEPARATOR_COLOR/$RGBA_DARK_CYAN/g"\ |
   sed -r "s/ BACKGROUND/$RGBA_BLACK/g"\ |
-  sed -r "s/ FOREGROUND/$RGBA_LIGHT_GRAY/g"\ |
+  sed -r "s/ FOREGROUND/$RGBA_GRAY/g"\ |
   sed -r "s/ SELECTED_FOREGROUND/$RGBA_BLACK/g"\ |
   sed -r "s/ SELECTED_BACKGROUND/$RGBA_GRAY/g"\
   `
