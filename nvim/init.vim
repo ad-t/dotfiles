@@ -78,6 +78,10 @@ highlight clear SignColumn
 highlight clear Comment
 highlight Comment guifg=#928374 guibg=None
 
+" clear normal so we can get tmux inactive working
+highlight clear Normal
+highlight Normal guibg=None
+
 setlocal foldmethod=syntax
 noremap <silent><c-l> :nohlsearch<cr>
       \:syntax sync fromstart<cr>
