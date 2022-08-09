@@ -9,7 +9,7 @@
   horizontal_padding = 20
   frame_width = 5
   frame_color = FRAME_COLOR_ALL
-  font = Iosevka Fixed Extended 12
+  font = Fira Code Medium 16
   align = right
   markup = none
   format = "<b>%s</b>\\n%b"
