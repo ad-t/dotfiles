@@ -40,6 +40,7 @@ set -x FZF_DEFAULT_COMMAND 'ag --hidden --ignore node_modules -g "."'
 set -x ANDROID_HOME "$HOME/Android/Sdk"
 fish_add_path "$ANDROID_HOME/platform-tools"
 fish_add_path "$HOME/.yarn/bin"
+fish_add_path "$HOME/.nvm/versions/node/v16.16.0/bin"
 
 function nvm
   set -x NVM_DIR "$HOME/.nvm"

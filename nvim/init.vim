@@ -158,7 +158,8 @@ let g:coc_global_extensions = [
   \ 'coc-git',
   \ 'coc-eslint',
   \ 'coc-sh',
-  \ 'coc-vimlsp'
+  \ 'coc-vimlsp',
+  \ 'coc-vetur',
   \ ]
 
 " Make FZF open in a new tab every time

@@ -34,8 +34,8 @@ font pango:Fira Code Medium 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+shift+Return split v exec kitty -e "tmux"
-bindsym $mod+Return split h exec kitty -e "tmux"
+bindsym $mod+shift+Return split v exec alacritty
+bindsym $mod+Return split h exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
