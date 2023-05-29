@@ -11,39 +11,10 @@
 ; 
 ; 
 
-[colors]
-black = ${xrdb:color0:#222}
-red = ${xrdb:color1:#222}
-green = ${xrdb:color2:#222}
-yellow = ${xrdb:color3:#222}
-blue = ${xrdb:color4:#222}
-magenta = ${xrdb:color5:#222}
-cyan = ${xrdb:color6:#222}
-white = ${xrdb:color7:#222}
-gray = #333333
-
-light-black = ${xrdb:color8:#222}
-light-orange = ${xrdb:color9:#222}
-light-green = ${xrdb:color10:#222}
-light-yellow = ${xrdb:color11:#222}
-light-blue = ${xrdb:color12:#222}
-light-magenta = ${xrdb:color13:#222}
-light-cyan = ${xrdb:color14:#222}
-light-white = ${xrdb:color15:#222}
-
-# background = #00 
-background = ${colors.black}
-background-alt = ${colors.black}
-foreground = ${colors.black}
-foreground-alt = ${colors.white}
-primary = ${colors.cyan}
-secondary = ${colors.blue}
-alert = ${colors.magenta}
-
 [bar/example]
 monitor = ${env:MONITOR:}
 width = 100%
-dpi = 48
+dpi = 60
 height = 27
 ;offset-x = 1%
 ;offset-y = 1%
@@ -51,14 +22,14 @@ height = 27
 fixed-center = true
 bottom = false
 
-background = ${colors.background}
+background = ${colors.base}
 foreground = ${colors.foreground}
 
 line-size = 0
 line-color = #f00
 
-border-size = 5
-border-color = ${colors.background}
+border-size = 10
+border-color = ${colors.base}
 
 padding-left = 0
 padding-right = 0
@@ -67,7 +38,7 @@ module-margin-left = 1
 module-margin-right = 1
 
 ; font-0 = "Iosevka Fixed Extended:style=bold:pixelsize=22;4"
-font-0 = "Fira Code Medium:style=bold:pixelsize=22;3"
+font-0 = "Fira Code:style=Bold:pixelsize=22;3"
 font-1 = "unifont:style=Regular:antialias=false:pixelsize=22;3"
 font-2 = "Siji:pixelsize=22;1"
 font-3 = "FontAwesome:pixelsize=20:style=Regular;3"
@@ -134,15 +105,15 @@ interval = 25
 mount-0 = /
 
 format-mounted-prefix = "  "
-format-mounted-prefix-foreground = ${colors.foreground}
-format-mounted-prefix-background = ${colors.cyan}
+format-mounted-prefix-foreground = ${colors.mantle}
+format-mounted-prefix-background = ${colors.sky}
 
 format-mounted = <label-mounted>
 label-mounted = " %mountpoint%: %percentage_used%% "
 label-unmounted = %mountpoint% not mounted
 
-label-mounted-background = ${colors.gray}
-label-mounted-foreground = ${colors.white}
+label-mounted-background = ${colors.surface0}
+label-mounted-foreground = ${colors.text}
 
 [module/i3]
 type = internal/i3
@@ -154,12 +125,13 @@ label-separator-foreground = #ffb52a
 
 label-focused = "%index%"
 label-focused-padding = 1
+label-focused-foreground = ${colors.mantle}
 label-focused-background = ${colors.blue}
 
 label-unfocused = %index%
 label-unfocused-padding = 1
-label-unfocused-background = ${colors.gray}
-label-unfocused-foreground = ${colors.white}
+label-unfocused-background = ${colors.surface0}
+label-unfocused-foreground = ${colors.text}
 
 label-visible = %index%
 label-visible-padding = 1
@@ -167,6 +139,7 @@ label-visible-background = ${colors.secondary}
 
 label-urgent = %index%
 label-urgent-background = ${colors.red}
+label-urgent-foreground = ${colors.mantle}
 label-urgent-padding = 1
 
 [module/bspwm]
@@ -197,9 +170,9 @@ interval = 2
 format-prefix = "  "
 label = " %percentage%% "
 format-prefix-background = ${colors.green}
-format-prefix-foreground = ${colors.foreground}
-format-background = ${colors.gray}
-format-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colors.mantle}
+format-background = ${colors.surface0}
+format-foreground = ${colors.text}
 
 [module/memory]
 type = internal/memory
@@ -207,10 +180,10 @@ interval = 2
 format-underline = #4bffdc
 format-prefix = "  "
 label = " %percentage_used%% "
-format-background = ${colors.gray}
-format-foreground = ${colors.foreground-alt}
-format-prefix-background = ${colors.magenta}
-format-prefix-foreground = ${colors.foreground}
+format-prefix-background = ${colors.flamingo}
+format-prefix-foreground = ${colors.mantle}
+format-background = ${colors.surface0}
+format-foreground = ${colors.text}
 
 [module/wlan]
 type = internal/network
@@ -256,14 +229,14 @@ type = internal/date
 interval = 1
 
 format-prefix = "  "
-format-prefix-foreground = ${colors.foreground}
+format-prefix-foreground = ${colors.mantle}
 format-prefix-background = ${colors.blue}
 
 date = " %Y-%m-%d "
 date-alt = " %Y-%m-%d "
 
-format-background = ${colors.gray}
-format-foreground = ${colors.foreground-alt}
+format-background = ${colors.surface0}
+format-foreground = ${colors.text}
 
 label = %date%
 
@@ -272,14 +245,14 @@ type = internal/date
 interval = 1
 
 format-prefix = "  "
-format-prefix-foreground = ${colors.foreground}
+format-prefix-foreground = ${colors.mantle}
 format-prefix-background = ${colors.blue}
 
 time = " %H:%M:%S "
 time-alt = %H:%M:%S
 
-format-background = ${colors.gray}
-format-foreground = ${colors.foreground-alt}
+format-background = ${colors.surface0}
+format-foreground = ${colors.text}
 
 label = %time%
 
@@ -345,5 +318,6 @@ screenchange-reload = true
 [global/wm]
 margin-top = 5
 margin-bottom = 0
+include-file = ./colors.ini
 
 ; vim:ft=dosini

@@ -1,9 +1,9 @@
-Xft.dpi: 80
+Xft.dpi: 100
 Xcursor*theme: Capitaine Cursors
 Xcursor.size: 48
 
 ! Rofi config
-rofi.font: Fira Code 12
+rofi.font: FiraCode Nerd Font Mono 12
 
 #include ".config/dotfiles/shared.Xresources"
 

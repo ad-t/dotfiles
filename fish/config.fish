@@ -27,14 +27,21 @@ set -x COMPOSE_DOCKER_CLI_BUILD 1
 set -x DOCKER_BUILDKIT 1
 
 # set the right terminal type
-set -x TERM "xterm"
+set -x TERM "xterm-256color"
 set -x EDITOR "nvim"
 
 # set autocompletion for gopass
 source ~/.config/dotfiles/aliases
 
 # set fzf default options
-set -x FZF_DEFAULT_COMMAND 'ag --hidden --ignore node_modules -g "."'
+set -x FZF_DEFAULT_COMMAND 'ag --hidden --ignore node_modules --ignore .next -g "."'
+set -Ux FZF_DEFAULT_OPTS "\
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+
+# set java version
+set -x JAVA_HOME "/usr/lib/jvm/java-11-openjdk-amd64"
 
 # set up android-studio paths
 set -x ANDROID_HOME "$HOME/Android/Sdk"

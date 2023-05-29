@@ -8,9 +8,6 @@ xsetroot -cursor_name left_ptr
 # set the Xresources content
 xrdb -merge /home/adam/.Xresources
 
-# generate relevant configs
-$HOME/.config/dotfiles/generate_configs.sh
-
 # start the polybar instances
 $HOME/.config/polybar/launch.sh
 
@@ -32,11 +29,7 @@ xmodmap -e "keycode 122 = F11" &&
 xmodmap -e "keycode 123 = F12"
 
 # set the xrandr screen layout
-$HOME/.screenlayout/current
+# $HOME/.screenlayout/current
 
 # set the background image
 feh --bg-fill $HOME/backgrounds/background
-
-# start up picom
-killall picom 
-# sleep 1 && picom --experimental-backends --vsync --config $HOME/.config/dotfiles/picom/picom.conf &

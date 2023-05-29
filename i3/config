@@ -34,8 +34,8 @@ font pango:Fira Code Medium 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+shift+Return split v exec alacritty
-bindsym $mod+Return split h exec alacritty
+bindsym $mod+shift+Return split v exec kitty tmux
+bindsym $mod+Return split h exec kitty tmux
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -262,6 +262,9 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 # client.background       $bg
 
 hide_edge_borders smart
+# gaps inner 5px
+# gaps outer 5px
+# smart_gaps on
 
 ########### KEYBINDINGS ############
 
