@@ -14,22 +14,22 @@
 [bar/example]
 monitor = ${env:MONITOR:}
 width = 100%
-dpi = 60
-height = 27
+dpi = 48
+height = 25
 ;offset-x = 1%
 ;offset-y = 1%
 ;radius = 5.0
 fixed-center = true
 bottom = false
 
-background = ${colors.base}
+background = ${colors.bg}
 foreground = ${colors.foreground}
 
 line-size = 0
 line-color = #f00
 
-border-size = 10
-border-color = ${colors.base}
+border-size = 5
+border-color = ${colors.bg}
 
 padding-left = 0
 padding-right = 0
@@ -38,7 +38,8 @@ module-margin-left = 1
 module-margin-right = 1
 
 ; font-0 = "Iosevka Fixed Extended:style=bold:pixelsize=22;4"
-font-0 = "Fira Code:style=Bold:pixelsize=22;3"
+; font-0 = "Fira Code:style=Bold:pixelsize=22;3"
+font-0 = "JetBrainsMono Nerd Font Mono:style=bold:pixelsize=26;4"
 font-1 = "unifont:style=Regular:antialias=false:pixelsize=22;3"
 font-2 = "Siji:pixelsize=22;1"
 font-3 = "FontAwesome:pixelsize=20:style=Regular;3"
@@ -105,14 +106,14 @@ interval = 25
 mount-0 = /
 
 format-mounted-prefix = "  "
-format-mounted-prefix-foreground = ${colors.mantle}
-format-mounted-prefix-background = ${colors.sky}
+format-mounted-prefix-foreground = ${colors.text}
+format-mounted-prefix-background = ${colors.green}
 
 format-mounted = <label-mounted>
 label-mounted = " %mountpoint%: %percentage_used%% "
 label-unmounted = %mountpoint% not mounted
 
-label-mounted-background = ${colors.surface0}
+label-mounted-background = ${colors.bg-alt}
 label-mounted-foreground = ${colors.text}
 
 [module/i3]
@@ -126,11 +127,11 @@ label-separator-foreground = #ffb52a
 label-focused = "%index%"
 label-focused-padding = 1
 label-focused-foreground = ${colors.mantle}
-label-focused-background = ${colors.blue}
+label-focused-background = ${colors.bg-blue}
 
 label-unfocused = %index%
 label-unfocused-padding = 1
-label-unfocused-background = ${colors.surface0}
+label-unfocused-background = ${colors.bg-alt}
 label-unfocused-foreground = ${colors.text}
 
 label-visible = %index%
@@ -139,7 +140,7 @@ label-visible-background = ${colors.secondary}
 
 label-urgent = %index%
 label-urgent-background = ${colors.red}
-label-urgent-foreground = ${colors.mantle}
+label-urgent-foreground = ${colors.text}
 label-urgent-padding = 1
 
 [module/bspwm]
@@ -169,9 +170,9 @@ type = internal/cpu
 interval = 2
 format-prefix = "  "
 label = " %percentage%% "
-format-prefix-background = ${colors.green}
-format-prefix-foreground = ${colors.mantle}
-format-background = ${colors.surface0}
+format-prefix-background = ${colors.bg-purple}
+format-prefix-foreground = ${colors.text}
+format-background = ${colors.bg-alt}
 format-foreground = ${colors.text}
 
 [module/memory]
@@ -180,9 +181,9 @@ interval = 2
 format-underline = #4bffdc
 format-prefix = "  "
 label = " %percentage_used%% "
-format-prefix-background = ${colors.flamingo}
-format-prefix-foreground = ${colors.mantle}
-format-background = ${colors.surface0}
+format-prefix-background = ${colors.yellow}
+format-prefix-foreground = ${colors.text}
+format-background = ${colors.bg-alt}
 format-foreground = ${colors.text}
 
 [module/wlan]
@@ -229,13 +230,13 @@ type = internal/date
 interval = 1
 
 format-prefix = "  "
-format-prefix-foreground = ${colors.mantle}
-format-prefix-background = ${colors.blue}
+format-prefix-foreground = ${colors.text}
+format-prefix-background = ${colors.bg-blue}
 
 date = " %Y-%m-%d "
 date-alt = " %Y-%m-%d "
 
-format-background = ${colors.surface0}
+format-background = ${colors.bg-alt}
 format-foreground = ${colors.text}
 
 label = %date%
@@ -245,13 +246,13 @@ type = internal/date
 interval = 1
 
 format-prefix = "  "
-format-prefix-foreground = ${colors.mantle}
-format-prefix-background = ${colors.blue}
+format-prefix-foreground = ${colors.text}
+format-prefix-background = ${colors.bg-blue}
 
 time = " %H:%M:%S "
 time-alt = %H:%M:%S
 
-format-background = ${colors.surface0}
+format-background = ${colors.bg-alt}
 format-foreground = ${colors.text}
 
 label = %time%

@@ -33,3 +33,8 @@ xmodmap -e "keycode 123 = F12"
 
 # set the background image
 feh --bg-fill $HOME/backgrounds/background
+
+# set the mouse to move quicker
+# xinput --set-prop "Logitech M570" "Coordinate Transformation Matrix" 1 0 0 0 1 0 0 0 1
+xinput --set-prop "Logitech M570" "Device Accel Profile" 2
+xinput --set-prop "Logitech M570" "Device Accel Velocity Scaling" 15

@@ -3,7 +3,8 @@ Xcursor*theme: Capitaine Cursors
 Xcursor.size: 48
 
 ! Rofi config
-rofi.font: FiraCode Nerd Font Mono 12
+! rofi.font: FiraCode Nerd Font Mono 12
+rofi.font: JetBrainsMono Nerd Font Mono 12
 
 #include ".config/dotfiles/shared.Xresources"
 
