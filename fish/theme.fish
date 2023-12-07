@@ -15,7 +15,7 @@ end
 function git_segment 
   set GIT "$argv[1]"
   set_color black
-  set_color -b purple
+  set_color -b yellow
   if [ "$GIT" != "" ]
     segment (echo $GIT | string replace '(' ' ' | string replace ')' ' ' | string trim --left --right)
   end
@@ -23,7 +23,7 @@ end
 
 function right_prompt
   set_color black
-  set_color -b green
+  set_color -b yellow
   segment (date +%T)
 end
 
