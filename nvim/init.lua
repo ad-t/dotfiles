@@ -552,6 +552,18 @@ end
 local servers = {
   tsserver = {},
   bashls = {},
+  dockerls = {},
+  docker_compose_language_service = {},
+  eslint = {},
+  html = {},
+  jsonls = {},
+  openscad_lsp = {},
+  pylsp = {},
+  tailwindcss = {},
+  terraformls = {},
+  tflint = {},
+  vimls = {},
+  yamlls = {},
 
   lua_ls = {
     Lua = {
