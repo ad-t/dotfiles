@@ -274,6 +274,7 @@ require('lazy').setup({
         palette_overrides = {},
         overrides = {
           SignColumn = { bg = "None" },
+          IblIndent = { fg = "#32302F" },
           DiagnosticSignError = { fg = "#CC241D", bg = "None" },
           DiagnosticSignWarn = { fg = "#FABD2F", bg = "None" },
           DiagnosticSignInfo = { fg = "#689D6A", bg = "None" },

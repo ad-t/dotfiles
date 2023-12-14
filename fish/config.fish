@@ -44,6 +44,7 @@ source ~/.config/dotfiles/aliases
 # set fzf default options
 set -x FZF_DEFAULT_COMMAND 'ag --hidden --ignore node_modules --ignore .next -g "."'
 
+set TERMINAL_BACKGROUND "#282828"
 set DARK0 "#0D0E0F"
 set DARK "#0D0E0F"
 set BACKGROUND_DARK "#171A1A"
@@ -70,10 +71,11 @@ set LIGHT_BLUE "#7FA2AC"
 
 set -x FZF_DEFAULT_OPTS "\
 --color=fg:$FOREGROUND \
---color=bg:$BACKGROUND \
+--color=bg:$TERMINAL_BACKGROUND \
 --color=hl:$BRIGHT_YELLOW \
---color=fg+:bold:$FOREGROUND \
---color=bg+:$COMMENT \
+--color=fg+:bold:$GRAY \
+--color=bg+:$MEDIUM_GRAY \
+--color=gutter:$TERMINAL_BACKGROUND \
 --color=hl+:$BRIGHT_YELLOW \
 --color=info:$ORANGE \
 --color=prompt:$LIGHT_BLUE \
