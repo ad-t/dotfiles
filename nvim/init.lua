@@ -557,7 +557,6 @@ local servers = {
   eslint = {},
   html = {},
   jsonls = {},
-  openscad_lsp = {},
   pylsp = {},
   tailwindcss = {},
   terraformls = {},

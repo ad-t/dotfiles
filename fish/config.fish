@@ -2,6 +2,11 @@ set __fish_git_prompt_show_informative_status
 set __fish_git_prompt_showdirtystate
 set __fish_git_prompt_showuntrackedfiles
 set __fish_git_prompt_char_stateseparator ' '
+set __fish_git_prompt_char_cleanstate '✓'
+set __fish_git_prompt_char_dirtystate '+'
+set __fish_git_prompt_char_invalidstate '✕'
+set __fish_git_prompt_char_stagedstate '●'
+set __fish_git_prompt_char_untrackedfiles '⋯'
 
 # prevent underline on paths
 set fish_color_valid_path
