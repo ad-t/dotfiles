@@ -248,8 +248,11 @@ bindsym $mod+Shift+5 move container to workspace $WS5
 # bindsym $mod+Shift+9 move container to workspace $WS9
 # bindsym $mod+Shift+0 move container to workspace $WS10
 
+# all windows have a border of this size
+for_window [class="^.*"] border pixel 5
+
 # class                 border  backgr. text    indicator child_border
-client.focused          #FAE5BC #285577 #ffffff #81a2be   #81a2be
+client.focused          #FAE5BC #285577 #ffffff #81a2be   #458588
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
@@ -287,9 +290,6 @@ bindsym $mod+e exec "$HOME/.config/dotfiles/emojis/emoji-picker.sh"
 
 # program launcher using sudo
 bindsym $mod+shift+p exec "SUDO_ASKPASS=$HOME/.local/bin/askpass-rofi rofi -show run -theme ~/.config/dotfiles/rofi/wal.rasi"
-
-# all windows have a border of this size
-for_window [class="^.*"] border pixel 5
 
 # start the wm agnostic startup commands
 exec_always --no-startup-id "$HOME/.config/dotfiles/startup.sh"

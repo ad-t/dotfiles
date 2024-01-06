@@ -318,10 +318,16 @@ require('lazy').setup({
 -- See `:help vim.o`
 
 -- Set highlight on search
-vim.o.hlsearch = false
+vim.o.hlsearch = true
 
 -- Make line numbers default
 vim.wo.number = true
+
+-- soft word wrap
+vim.wo.wrap = true
+vim.wo.linebreak = true
+vim.wo.list = false
+vim.opt.formatoptions:remove({ 't' })
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
