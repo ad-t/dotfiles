@@ -1,6 +1,6 @@
 set __fish_git_prompt_show_informative_status
-set __fish_git_prompt_showdirtystate
-set __fish_git_prompt_showuntrackedfiles
+set __fish_git_prompt_showdirtystate true
+set __fish_git_prompt_showuntrackedfiles true
 set __fish_git_prompt_char_stateseparator ' '
 set __fish_git_prompt_char_cleanstate '✓'
 set __fish_git_prompt_char_dirtystate '+'
@@ -36,7 +36,11 @@ set -x TERM "xterm-256color"
 set -x EDITOR "nvim"
 
 # set GTK scaling
-set -x GDK_DPI_SCALE 1.25
+# set -x GDK_DPI_SCALE 1.25
+
+# set cursor details
+set -x XCURSOR_SIZE 64
+set -x XCURSOR_THEME "Capitaine Cursors"
 
 # set autocompletion for gopass
 source ~/.config/dotfiles/aliases

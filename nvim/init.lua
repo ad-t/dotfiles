@@ -295,7 +295,7 @@ require('lazy').setup({
       vim.opt.termguicolors = true
       require 'colorizer'.setup()
     end,
-  }
+  },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.

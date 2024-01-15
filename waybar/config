@@ -1,0 +1,48 @@
+{
+  "font": "JetBrains Nerd Font Mono",
+  "height": 35,
+  "spacing": 15,
+  "modules-left": [
+    "sway/workspaces",
+    "sway/mode",
+  ],
+  "modules-center": [
+    "clock#date",
+    "clock#time",
+  ],
+  "modules-right": [
+    "network",
+    "cpu",
+    "memory",
+    "disk",
+  ],
+  "cpu": {
+    "interval": 1,
+    "format": " {usage}%",
+  },
+  "memory": {
+    "interval": 1,
+    "format": " {percentage}%",
+  },
+  "clock#date": {
+    "interval": 60,
+    "format": "<b>{:%d %B %Y}</b>",
+  },
+  "clock#time": {
+    "interval": 1,
+    "format": "<b>{:%H:%M:%S}</b>",
+  },
+  "sway/workspaces": {
+    "format": "<b>{name}</b>",
+  },
+  "disk": {
+    "format": " {percentage_used}%",
+    "path": "/home",
+  },
+  "network": {
+    "interval": 1,
+    "interface": "enp14s0",
+    "format": "{bandwidthDownBytes} ⬇ / {bandwidthUpBytes} ⬆ ({ipaddr})",
+    "max-length": 50,
+  },
+}

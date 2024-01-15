@@ -1,0 +1,58 @@
+* {
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: FontAwesome, JetBrainsMono Nerd Font Mono, sans-serif;
+  font-size: 18px;
+}
+
+window#waybar {
+  background-color: #282828;
+  color: #EBDBB2;
+  transition-property: background-color;
+  transition-duration: .5s;
+}
+
+#clock.date {
+  background-color: #458588;
+}
+
+#clock.time {
+  background-color: #458588;
+}
+
+#cpu {
+  background-color: #98971A;
+}
+
+#workspaces {
+  background-color: #32302F;
+  border-radius: 0px;
+}
+#workspaces button.focused {
+  background-color: #458588;
+}
+#workspaces button.urgent {
+  background-color: #CC241D;
+}
+
+#memory {
+  background-color: #D65D0E;
+}
+
+#disk {
+  background-color: #D4879C;
+}
+
+#cpu,
+#sway,
+#memory,
+#disk,
+#network,
+#clock {
+  padding: 0 10px;
+  color: #282828;
+}
+
+#network {
+  background-color: #32302F;
+  color: #EBDBB2;
+}

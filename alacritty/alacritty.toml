@@ -1,0 +1,37 @@
+import = ["/home/adam/.config/alacritty/gruvbox.toml"]
+live_config_reload = true
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 16
+
+[font.bold]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Bold"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Italic"
+
+[font.normal]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Medium"
+
+[scrolling]
+history = 1000
+
+[shell]
+args = ["-c", "tmux -u"]
+program = "/home/adam/.nix-profile/bin/fish"
+
+[window]
+dynamic_padding = true
+
+[window.padding]
+x = 16
+y = 16
