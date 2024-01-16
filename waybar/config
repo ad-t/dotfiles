@@ -11,7 +11,8 @@
     "clock#time",
   ],
   "modules-right": [
-    "network",
+    "network#down",
+    "network#up",
     "cpu",
     "memory",
     "disk",
@@ -39,10 +40,16 @@
     "format": " {percentage_used}%",
     "path": "/home",
   },
-  "network": {
+  "network#up": {
     "interval": 1,
     "interface": "enp14s0",
-    "format": "{bandwidthDownBytes} ⬇ / {bandwidthUpBytes} ⬆",
+    "format": "{bandwidthUpBytes} ⬆",
+    "max-length": 50,
+  },
+  "network#down": {
+    "interval": 1,
+    "interface": "enp14s0",
+    "format": "{bandwidthDownBytes} ⬇",
     "max-length": 50,
   },
 }

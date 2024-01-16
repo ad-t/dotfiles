@@ -1,4 +1,4 @@
-set __fish_git_prompt_show_informative_status
+set __fish_git_prompt_show_informative_status true
 set __fish_git_prompt_showdirtystate true
 set __fish_git_prompt_showuntrackedfiles true
 set __fish_git_prompt_char_stateseparator ' '
