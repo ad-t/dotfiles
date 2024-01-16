@@ -42,7 +42,7 @@
   "network": {
     "interval": 1,
     "interface": "enp14s0",
-    "format": "{bandwidthDownBytes} ⬇ / {bandwidthUpBytes} ⬆ ({ipaddr})",
+    "format": "{bandwidthDownBytes} ⬇ / {bandwidthUpBytes} ⬆",
     "max-length": 50,
   },
 }
