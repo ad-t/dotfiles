@@ -27,7 +27,7 @@ history = 1000
 
 [shell]
 args = ["-c", "tmux -u"]
-program = "/home/adam/.nix-profile/bin/fish"
+program = "fish"
 
 [window]
 dynamic_padding = true

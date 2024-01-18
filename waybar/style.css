@@ -27,7 +27,7 @@ window#waybar {
   background-color: #32302F;
   border-radius: 0;
 }
-#workspaces button.focused {
+#workspaces button.active {
   background-color: #458588;
 }
 #workspaces button.urgent {
