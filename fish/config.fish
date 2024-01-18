@@ -38,10 +38,6 @@ set -x EDITOR "nvim"
 # set GTK scaling
 # set -x GDK_DPI_SCALE 1.25
 
-# set cursor details
-set -x XCURSOR_SIZE 64
-set -x XCURSOR_THEME "Capitaine Cursors"
-
 # set autocompletion for gopass
 source ~/.config/dotfiles/aliases
 
