@@ -21,7 +21,7 @@ set $term "alacritty"
 set $menu "wofi -f"
 set $browser "firefox"
 set $file_browser "thunar"
-set $lock_screen "swaylock -f -c 000000"
+set $lock_screen "swaylock -c 000000"
 set $emoji_menu "$HOME/.config/dotfiles/emojis/emoji-picker.sh"
 
 include /etc/sway/config-vars.d/*
@@ -32,7 +32,7 @@ include /etc/sway/config-vars.d/*
 output * {
     bg /home/adam/.config/backgrounds/background fill
 }
-# output HDMI-A-1 scale 1
+output HDMI-A-1 scale 1
 font pango:JetBrainsMono Nerd Font Mono 14
 gaps inner 15
 default_border pixel 5
@@ -48,10 +48,9 @@ seat * xcursor_theme capitaine-cursors 64
 #
 # Example configuration:
 #
-exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 000000'
+# exec swayidle -w timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+#          before-sleep 'swaylock -f -c 000000'
 
 # locking the screen
 bindsym $mod+shift+t exec $lock_screen
@@ -264,5 +263,8 @@ exec dunst
 
 # waybar
 exec_always "killall .waybar-wrapped; LC_ALL=C waybar"
+
+# make sure monitor hotplugging is sorted
+exec_always pkill kanshi; exec kanshi
 
 include /etc/sway/config.d/*
