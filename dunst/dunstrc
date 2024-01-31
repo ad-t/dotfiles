@@ -17,6 +17,7 @@
   font = JetBrains Mono Nerd Font Mono 16
   format = "<b>%s</b>\n%b"
   word_wrap = yes
+  min_icon_size = 128
 
 # [urgency_low]
 # 	background = "#1E1E2E"
