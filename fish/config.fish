@@ -37,6 +37,8 @@ set -x EDITOR "nvim"
 
 # set GTK scaling
 # set -x GDK_DPI_SCALE 1.25
+# set QT scaling
+set -x QT_SCALE_FACTOR 2
 
 # set autocompletion for gopass
 source ~/.config/dotfiles/aliases

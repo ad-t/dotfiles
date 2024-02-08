@@ -33,6 +33,7 @@ window#waybar {
 }
 #workspaces button.urgent {
   background-color: #CC241D;
+  border-radius: 0;
 }
 
 #memory {
