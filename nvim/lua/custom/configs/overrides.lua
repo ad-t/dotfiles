@@ -27,12 +27,28 @@ M.mason = {
     "lua-language-server",
     "stylua",
 
+    -- devops stuff
+    "ansible-language-server",
+    "bash-language-server",
+    "bzl",
+    "docker-compose-language-service",
+    "dockerfile-language-server",
+    "python-lsp-server",
+    "terraform-ls",
+    "tflint",
+    "yaml-language-server",
+
     -- web dev stuff
     "css-lsp",
     "html-lsp",
     "typescript-language-server",
     "deno",
     "prettier",
+    "eslint-lsp",
+    "json-lsp",
+    "nginx-language-server",
+    "stylelint-lsp",
+    "tailwindcss-language-server",
 
     -- c/cpp stuff
     "clangd",
