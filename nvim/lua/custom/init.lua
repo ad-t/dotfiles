@@ -9,6 +9,10 @@
 -- Set cursor to block
 vim.opt.guicursor = ""
 
+-- make sure undos don't leak between
+-- sessions
+vim.o.undofile = false
+
 -- Remap jk and kj to be escape characters
 vim.keymap.set('i', 'kj', "<Esc>")
 vim.keymap.set('i', 'jk', "<Esc>")
