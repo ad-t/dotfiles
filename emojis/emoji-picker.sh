@@ -17,4 +17,4 @@ EMOJI_SELECTOR_OUTPUT=$(egrep -v "^[# ]" $EMOJI_FILE \
   | sed -r "s/E[0-9]+\.[0-9] //g" \
   | LC_ALL=C rofi -i -dmenu -font 'Fira Code 16' -theme ~/.config/dotfiles/rofi/wal.rasi)
 
-echo "$EMOJI_SELECTOR_OUTPUT" | sed "s/ .*//g" | tr "\n" " " | sed "s/ //g" | xclip -sel CLIPBOARD
+echo "$EMOJI_SELECTOR_OUTPUT" | sed "s/ .*//g" | tr "\n" " " | sed "s/ //g" | wl-copy
