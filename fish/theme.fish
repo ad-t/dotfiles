@@ -14,13 +14,13 @@ end
 
 function git_segment 
   set GIT "$argv[1]"
-  separator "blue" "yellow"
-  set_color black
-  set_color -b yellow
   if [ "$GIT" != "" ]
+    separator "blue" "yellow"
+    set_color black
+    set_color -b yellow
     segment (echo $GIT | string replace '(' ' ' | string replace ')' ' ' | string trim --left --right)
+    separator "yellow" "black"
   end
-  separator "yellow" "black"
 end
 
 function right_prompt
