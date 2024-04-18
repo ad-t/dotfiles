@@ -20,6 +20,8 @@ function git_segment
     set_color -b yellow
     segment (echo $GIT | string replace '(' ' ' | string replace ')' ' ' | string trim --left --right)
     separator "yellow" "black"
+  else
+    separator "blue" "black"
   end
 end
 
