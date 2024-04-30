@@ -6,6 +6,9 @@ local M = {}
 
 M.ui = {
 	theme = "gruvbox",
+  statusline = {
+    separator_style = "block"
+  }
 
 	-- hl_override = {
 	-- 	Comment = { italic = true },
