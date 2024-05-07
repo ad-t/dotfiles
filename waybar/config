@@ -1,5 +1,5 @@
 {
-  "font": "JetBrainsMono NFM Light",
+  "font": "Monaspace Neon",
   "height": 35,
   "spacing": 15,
   "modules-left": [
@@ -26,11 +26,11 @@
   },
   "clock#date": {
     "interval": 60,
-    "format": "<b>{:%d %B %Y}</b>",
+    "format": "{:%d %B %Y}",
   },
   "clock#time": {
     "interval": 1,
-    "format": "<b>{:%H:%M:%S}</b>",
+    "format": "{:%H:%M:%S}",
   },
   "sway/workspaces": {
     "format": "<b>{name}</b>",

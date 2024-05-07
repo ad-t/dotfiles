@@ -14,7 +14,8 @@
 
     width: 1000;
     /* font: "Fira Code Nerd Font 16"; */
-    font: "JetBrainsMono Nerd Font Mono 20";
+    /* font: "JetBrainsMono Nerd Font Mono 20"; */
+    font: "Monaspace Neon 24";
 }
 
 element-text, element-icon , mode-switcher {

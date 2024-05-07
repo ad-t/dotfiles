@@ -1,6 +1,7 @@
 * {
   /* `otf-font-awesome` is required to be installed for icons */
-  font-family: FontAwesome, JetBrainsMono NFM Light, sans-serif;
+  /* font-family: FontAwesome, JetBrainsMono NFM Light, sans-serif; */
+  font-family: FontAwesome, Monaspace Neon, sans-serif;
   font-size: 18px;
 }
 
