@@ -11,6 +11,6 @@ export DOCKER_BUILDKIT=1
 export TERM="xterm"
 export EDITOR="nvim"
 
-# set fzf default options
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore="node_modules" --ignore=".next" --ignore=".git" --ignore="dist" -g "."'
+# # set fzf default options
+# export FZF_DEFAULT_COMMAND='ag --hidden --ignore="node_modules" --ignore=".next" --ignore=".git" --ignore="dist" -g "."'
 export AG_DEFAULT_FLAGS='-i --hidden --ignore="node_modules" --ignore=".git" --ignore="dist"'

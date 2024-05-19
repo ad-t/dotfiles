@@ -43,33 +43,45 @@ set -x QT_SCALE_FACTOR 2
 # set autocompletion for gopass
 source ~/.config/dotfiles/aliases
 
-# set fzf default options
-set -x FZF_DEFAULT_COMMAND 'ag --hidden --ignore node_modules --ignore .next -g "."'
+# # set fzf default options
+# set -x FZF_DEFAULT_COMMAND 'ag --hidden --ignore node_modules --ignore .next -g "."'
 
-set TERMINAL_BACKGROUND "#282828"
-set DARK0 "#0D0E0F"
-set DARK "#0D0E0F"
-set BACKGROUND_DARK "#171A1A"
-set BACKGROUND "#1D2021"
-set BACKGROUND_LIGHT "#32302F"
-set FOREGROUND "#EBDBB2"
-set GRAY "#DEDEDE"
-set MEDIUM_GRAY "#504945"
-set COMMENT "#665C54"
-set MILK "#E7D7AD"
-set ERROR_RED "#CC241D"
-set RED "#FB4934"
-set ORANGE "#D65D0E"
-set BRIGHT_YELLOW "#FABD2F"
-set SOFT_YELLOW "#EEBD35"
-set PINK "#D4879C"
-set MAGENTA "#B16286"
-set SOFT_GREEN "#98971A"
-set FOREST_GREEN "#689D6A"
-set CLEAN_GREEN "#8EC07C"
-set BLUE_GRAY "#458588"
-set DARK_GRAY "#83A598"
-set LIGHT_BLUE "#7FA2AC"
+# gruvbox theme
+
+# set TERMINAL_BACKGROUND "#282828"
+# set DARK0 "#0D0E0F"
+# set DARK "#0D0E0F"
+# set BACKGROUND_DARK "#171A1A"
+# set BACKGROUND "#1D2021"
+# set BACKGROUND_LIGHT "#32302F"
+# set FOREGROUND "#EBDBB2"
+# set GRAY "#DEDEDE"
+# set MEDIUM_GRAY "#504945"
+# set COMMENT "#665C54"
+# set MILK "#E7D7AD"
+# set ERROR_RED "#CC241D"
+# set RED "#FB4934"
+# set ORANGE "#D65D0E"
+# set BRIGHT_YELLOW "#FABD2F"
+# set SOFT_YELLOW "#EEBD35"
+# set PINK "#D4879C"
+# set MAGENTA "#B16286"
+# set SOFT_GREEN "#98971A"
+# set FOREST_GREEN "#689D6A"
+# set CLEAN_GREEN "#8EC07C"
+# set BLUE_GRAY "#458588"
+# set DARK_GRAY "#83A598"
+# set LIGHT_BLUE "#7FA2AC"
+
+# catppuccin theme
+set TERMINAL_BACKGROUND "#1e1e2e"
+set FOREGROUND "#cdd6f4"
+set GRAY "#cdd6f4"
+set ERROR_RED "#f5e0dc"
+set ORANGE "#cba6f7"
+set BRIGHT_YELLOW "#f38ba8"
+set LIGHT_BLUE "#cba67f"
+set MEDIUM_GRAY "#313244"
 
 set -x FZF_DEFAULT_OPTS "\
 --color=fg:$FOREGROUND \
