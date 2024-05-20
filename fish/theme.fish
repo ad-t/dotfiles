@@ -23,7 +23,7 @@ end
 
 function right_prompt
   set_color black
-  set_color -b yellow
+  set_color -b blue
   segment (date +%T)
 end
 

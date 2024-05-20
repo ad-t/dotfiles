@@ -150,7 +150,14 @@ require("lazy").setup({
       })
       require("mason-lspconfig").setup_handlers {
         function (server_name)
-          require("lspconfig")[server_name].setup {}
+          require("lspconfig")[server_name].setup {
+            on_attach = function(client, bufnr)
+              local function opts(desc)
+                return { buffer = bufnr, desc = "LSP " .. desc }
+              end
+              vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "go to definition" })
+            end
+          }
         end,
       }
     end
