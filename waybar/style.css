@@ -1,48 +1,51 @@
+@import "catppuccin-mocha.css";
+
 * {
   /* `otf-font-awesome` is required to be installed for icons */
   /* font-family: FontAwesome, JetBrainsMono NFM Light, sans-serif; */
   font-family: FontAwesome, Iosevka NF, sans-serif;
   font-size: 18px;
+  color: @text;
 }
 
 window#waybar {
-  background-color: #282828;
-  color: #EBDBB2;
+  background-color: @base;
+  color: @text;
   transition-property: background-color;
   transition-duration: .5s;
 }
 
 #clock.date {
-  background-color: #458588;
+  background-color: @blue;
 }
 
 #clock.time {
-  background-color: #458588;
+  background-color: @blue;
 }
 
 #cpu {
-  background-color: #98971A;
+  background-color: @maroon;
 }
 
 #workspaces {
-  background-color: #32302F;
+  background-color: @base;
   border-radius: 0;
 }
 #workspaces button.active {
-  background-color: #458588;
+  background-color: @surface0;
   border-radius: 0;
 }
 #workspaces button.urgent {
-  background-color: #CC241D;
+  background-color: @red;
   border-radius: 0;
 }
 
 #memory {
-  background-color: #D65D0E;
+  background-color: @mauve;
 }
 
 #disk {
-  background-color: #D4879C;
+  background-color: @lavender;
 }
 
 #cpu,
@@ -52,10 +55,10 @@ window#waybar {
 #network,
 #clock {
   padding: 0 10px;
-  color: #282828;
+  color: @base;
 }
 
 #network {
-  background-color: #32302F;
-  color: #EBDBB2;
+  background-color: @surface0;
+  color: @text;
 }
