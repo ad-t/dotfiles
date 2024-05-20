@@ -32,7 +32,6 @@ set -x COMPOSE_DOCKER_CLI_BUILD 1
 set -x DOCKER_BUILDKIT 1
 
 # set the right terminal type
-set -x TERM "xterm-256color"
 set -x EDITOR "nvim"
 
 # set GTK scaling
