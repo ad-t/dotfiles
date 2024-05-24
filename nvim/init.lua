@@ -249,6 +249,16 @@ require("lazy").setup({
 
     end,
   },
+
+  {
+    "folke/trouble.nvim",
+    opts = {
+      auto_open = true,
+      auto_close = true,
+      height = 7,
+      severity = vim.diagnostic.severity.ERROR,
+    }
+  }
 });
 
 -- things that need to happen after all plugins have loaded
