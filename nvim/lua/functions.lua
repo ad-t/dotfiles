@@ -7,10 +7,15 @@ M.lsp_progress = function()
     return [[ no LSP ]]
   end
   local client_names = {}
-  for _, client in pairs(clients) do
-    table.insert(client_names, client.name)
+  local messages = vim.lsp.util.get_progress_messages()
+  for id, client in pairs(clients) do
+    local working = "  "
+    if messages[id] ~= nil then
+      working = ""
+    end
+    table.insert(client_names, working .. client.name)
   end
-  return table.concat(client_names, ' | ')
+  return table.concat(client_names, '  ')
 end
 
 return M

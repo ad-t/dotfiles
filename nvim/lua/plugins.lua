@@ -29,7 +29,7 @@ return {
     opts = {
       theme = 'catppuccin',
       sections = {
-        lualine_x = { 'filetype', 'encoding' },
+        lualine_x = { 'filetype' },
         lualine_y = { functions.lsp_progress, }
       },
     },
