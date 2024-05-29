@@ -47,34 +47,36 @@ return {
 
   {
     'nvim-treesitter/nvim-treesitter',
-    opts = {
-      ensure_installed = { 
-        "bash",
-        "c",
-        "css",
-        "dockerfile",
-        "fish",
-        "gitignore",
-        "html",
-        "javascript",
-        "json",
-        "lua",
-        "markdown",
-        "nix",
-        "proto",
-        "terraform",
-        "tsx",
-        "xml",
-        "yaml",
-      },
-      auto_install = true,
-      highlight = {
-        enable = true,
-      },
-      indent = {
-        enable = true,
-      }
-    }
+    build = ":TSUpdate",
+    config = function()
+      local configs = require("nvim-treesitter.configs")
+
+      configs.setup({
+        ensure_installed = {
+          "bash",
+          "c",
+          "css",
+          "dockerfile",
+          "fish",
+          "gitignore",
+          "html",
+          "javascript",
+          "json",
+          "lua",
+          "markdown",
+          "nix",
+          "proto",
+          "terraform",
+          "tsx",
+          "xml",
+          "yaml",
+        },
+        auto_install = true,
+        sync_install = false,
+        highlight = { enable = true },
+        indent = { enable = true },
+      })
+    end,
   },
 
   {
