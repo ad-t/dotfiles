@@ -5,6 +5,7 @@ return {
   { "folke/neoconf.nvim", cmd = "Neoconf" },
   "folke/neodev.nvim",
 
+  -- colorscheme
   {
     "catppuccin/nvim",
     lazy = false,
@@ -45,6 +46,7 @@ return {
     },
   },
 
+  -- syntax highlighting
   {
     'nvim-treesitter/nvim-treesitter',
     build = ":TSUpdate",
@@ -79,10 +81,11 @@ return {
     end,
   },
 
+  -- file searching -- super fast!
   {
     "ibhagwan/fzf-lua",
     keys = {
-      { "<leader>f", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true } },
+      { "<leader>ff", "<cmd>lua require('fzf-lua').files()<cr>", { silent = true } },
     },
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
@@ -193,7 +196,7 @@ return {
           ['<C-n>'] = cmp.mapping.select_next_item(),
           ['<C-Space>'] = cmp.mapping.complete(),
           ['<C-e>'] = cmp.mapping.abort(),
-          ['<CR>'] = cmp.mapping.confirm({
+          ['<cr>'] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Insert,
             select = true,
           }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
@@ -227,8 +230,12 @@ return {
     end,
   },
 
+  -- present all the file errors in a window
   {
     "folke/trouble.nvim",
+    keys = {
+      { "<leader>p", "<cmd>TroubleToggle<cr>", desc = "Toggle trouble window" }
+    },
     opts = {
       auto_open = true,
       auto_close = true,
@@ -236,4 +243,31 @@ return {
       severity = vim.diagnostic.severity.ERROR,
     }
   },
+
+  -- symbols available in the file
+  {
+    "hedyhli/outline.nvim",
+    lazy = true,
+    cmd = { "Outline", "OutlineOpen" },
+    keys = { -- Example mapping to toggle outline
+      { "<leader>o", "<cmd>Outline<cr>", desc = "Toggle outline" },
+    },
+    opts = {
+      -- Your setup opts here
+    },
+  },
+
+  -- file exploring
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    keys = {
+      { "<leader>n", "<cmd>Neotree toggle=true<cr>", desc = "Open file explorer" }
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+    }
+  }
 }
