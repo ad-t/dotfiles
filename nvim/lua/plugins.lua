@@ -117,6 +117,11 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     config = function()
+      -- we'd like to disable lsp logging, however
+      -- still provide the ability to enable debug
+      -- logging if required
+      vim.lsp.set_log_level("off")
+      -- vim.lsp.set_log_level("debug")
       -- enforce a specific loading order
       require("mason").setup()
       require("mason-lspconfig").setup({

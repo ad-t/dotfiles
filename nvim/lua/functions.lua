@@ -7,7 +7,7 @@ M.lsp_progress = function()
     return [[ no LSP ]]
   end
   local client_names = {}
-  local messages = vim.lsp.util.get_progress_messages()
+  local messages = vim.lsp.status()
   for id, client in pairs(clients) do
     local working = "  "
     if messages[id] ~= nil then

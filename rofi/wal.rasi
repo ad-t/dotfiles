@@ -27,7 +27,9 @@
     width: 1000;
     /* font: "Fira Code Nerd Font 16"; */
     /* font: "JetBrainsMono Nerd Font Mono 20"; */
-    font: "Iosevka NF 22";
+    font: "IosevkaTerm NF 22";
+    font-feature-settings: "dlig";
+    font-feature-settings: "ss14";
 }
 
 element-text, element-icon , mode-switcher {

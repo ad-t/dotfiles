@@ -3,8 +3,8 @@
 * {
   /* `otf-font-awesome` is required to be installed for icons */
   /* font-family: FontAwesome, JetBrainsMono NFM Light, sans-serif; */
-  font-family: FontAwesome, Iosevka NF, sans-serif;
-  font-size: 18px;
+  font-family: FontAwesome, IosevkaTerm NF, sans-serif;
+  font-size: 24px;
   font-feature-settings: "dlig";
   font-feature-settings: "ss14";
   color: @text;
