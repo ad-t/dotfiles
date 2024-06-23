@@ -103,13 +103,27 @@ return {
     after = "catppuccin",
     version = "*",
     dependencies = 'nvim-tree/nvim-web-devicons',
-    opts = {
-      options = {
-        -- mode = "buffers",
-        themable = true,
-        diagnostics = "nvim_lsp",
+    opts = function()
+      local mocha = require("catppuccin.palettes").get_palette "mocha"
+      return {
+        options = {
+          -- mode = "buffers",
+          themable = true,
+          diagnostics = "nvim_lsp",
+        },
+        highlights = {
+          fill = { bg = mocha.base },
+          background = { bg = mocha.mantle },
+          buffer_visible = { bg = mocha.surface0 },
+          buffer_selected = { bg = mocha.surface1 },
+          separator = { bg = mocha.base },
+          close_button_selected = { bg = mocha.surface1, fg = mocha.red },
+          close_button_visible = { bg = mocha.surface0 },
+          indicator_visible = { bg = mocha.yellow },
+          indicator_selected = { bg = mocha.green },
+        },
       }
-    }
+    end,
   },
 
   -- to enable language server autodownloading & setup
