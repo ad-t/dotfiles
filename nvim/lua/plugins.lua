@@ -100,6 +100,7 @@ return {
   -- tabufline
   {
     'akinsho/bufferline.nvim',
+    after = "catppuccin",
     version = "*",
     dependencies = 'nvim-tree/nvim-web-devicons',
     opts = {
@@ -273,6 +274,11 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
+    },
+    opts = {
+      window = {
+        position = "right",
+      }
     }
   }
 }
