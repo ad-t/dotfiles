@@ -1,5 +1,5 @@
 alias cp="rsync -har --progress"
-alias e="$EDITOR -p"
+alias e="$EDITOR"
 
 alias ...="cd ../.."
 alias ....="cd ../../.."
