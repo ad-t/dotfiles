@@ -240,14 +240,22 @@ return {
   -- present all the file errors in a window
   {
     "folke/trouble.nvim",
+    lazy = false,
     keys = {
-      { "<leader>p", "<cmd>TroubleToggle<cr>", desc = "Toggle trouble window" }
+      { "<leader>p", "<cmd>Trouble diagnostics toggle<cr>", desc = "Toggle trouble diagnostics window" }
     },
     opts = {
-      auto_open = true,
+      modes = {
+        diagnostics = {
+          auto_open = false,
+        }
+      },
+      warn_no_results = false,
+      open_no_results = true,
       auto_close = true,
-      height = 7,
       severity = vim.diagnostic.severity.ERROR,
+      height = 7,
+      focus = true,
     }
   },
 
