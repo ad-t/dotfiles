@@ -98,7 +98,6 @@ return {
     version = "*",
     dependencies = {
       'nvim-tree/nvim-web-devicons',
-      'catppuccin/nvim'
     },
     opts = function()
       local highlights = require("catppuccin.groups.integrations.bufferline").get()
