@@ -68,34 +68,43 @@ source ~/.config/dotfiles/aliases
 # set LIGHT_BLUE "#7FA2AC"
 
 # catppuccin theme
-set TERMINAL_BACKGROUND "#1e1e2e"
-set FOREGROUND "#cdd6f4"
-set GRAY "#cdd6f4"
-set ERROR_RED "#f5e0dc"
-set ORANGE "#cba6f7"
-set BRIGHT_YELLOW "#f38ba8"
-set LIGHT_BLUE "#cba67f"
-set MEDIUM_GRAY "#313244"
-
-set -x FZF_DEFAULT_OPTS "\
---color=fg:$FOREGROUND \
---color=bg:$TERMINAL_BACKGROUND \
---color=hl:$BRIGHT_YELLOW \
---color=fg+:bold:$GRAY \
---color=bg+:$MEDIUM_GRAY \
---color=gutter:$TERMINAL_BACKGROUND \
---color=hl+:$BRIGHT_YELLOW \
---color=info:$ORANGE \
---color=prompt:$LIGHT_BLUE \
---color=spinner:$BRIGHT_YELLOW \
---color=pointer:bold:$BRIGHT_YELLOW \
---color=marker:$ERROR_RED \
---color=header:$ORANGE \
-"
+# set TERMINAL_BACKGROUND "#1e1e2e"
+# set FOREGROUND "#cdd6f4"
+# set GRAY "#cdd6f4"
+# set ERROR_RED "#f5e0dc"
+# set ORANGE "#cba6f7"
+# set BRIGHT_YELLOW "#f38ba8"
+# set LIGHT_BLUE "#cba67f"
+# set MEDIUM_GRAY "#313244"
+#
+# set -x FZF_DEFAULT_OPTS "\
+# --color=fg:$FOREGROUND \
+# --color=bg:$TERMINAL_BACKGROUND \
+# --color=hl:$BRIGHT_YELLOW \
+# --color=fg+:bold:$GRAY \
+# --color=bg+:$MEDIUM_GRAY \
+# --color=gutter:$TERMINAL_BACKGROUND \
+# --color=hl+:$BRIGHT_YELLOW \
+# --color=info:$ORANGE \
+# --color=prompt:$LIGHT_BLUE \
+# --color=spinner:$BRIGHT_YELLOW \
+# --color=pointer:bold:$BRIGHT_YELLOW \
+# --color=marker:$ERROR_RED \
+# --color=header:$ORANGE \
+# "
 # set -x FZF_DEFAULT_OPTS "\
 # --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 # --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 # --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+
+# nord theme
+set -x FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS\
+    --padding=5%\
+    --color=gutter:#3b4252\
+    --color=fg:#e5e9f0,bg:#3b4252,hl:#81a1c1\
+    --color=fg+:#e5e9f0,bg+:#434c5e,hl+:#81a1c1\
+    --color=info:#eacb8a,prompt:#bf6069,pointer:#b48dac\
+    --color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b"
 
 # set java version
 set -x JAVA_HOME "/usr/lib/jvm/java-11-openjdk-amd64"

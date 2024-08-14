@@ -15,6 +15,8 @@
     grey: #3c3736;
     */
 
+  /* catppuccin */
+  /*
     bg-col:  #1e1e2e;
     bg-col-light: #1e1e2e;
     border-col: #1e1e2e;
@@ -23,6 +25,16 @@
     fg-col: #cdd6f4;
     fg-col2: #f38ba8;
     grey: #6c7086;
+  */
+
+    bg-col:  #2e3440;
+    bg-col-light: #3b4252;
+    border-col: #2e3440;
+    selected-col: #d8dee9;
+    blue: #5e81ac;
+    fg-col: #d8dee9;
+    fg-col2: #e5e9f0;
+    grey: #4c566a;
 
     width: 1000;
     /* font: "Fira Code Nerd Font 16"; */

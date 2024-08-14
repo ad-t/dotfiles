@@ -18,13 +18,27 @@ return {
     },
   },
 
+  {
+    "shaunsingh/nord.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.nord_contrast = true
+      vim.g.nord_borders = false
+      vim.g.nord_disable_background = false
+      vim.g.nord_italic = false
+      vim.g.nord_uniform_diff_background = true
+      vim.g.nord_bold = false
+    end
+  },
+
   -- line at the bottom
   {
     'nvim-lualine/lualine.nvim',
     lazy = false,
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = {
-      theme = 'catppuccin',
+      theme = 'nord',
       sections = {
         lualine_x = { 'filetype' },
       },
@@ -85,6 +99,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
       winopts = {
+        border = false,
         preview = {
           hidden = "hidden"
         }
@@ -100,14 +115,18 @@ return {
       'nvim-tree/nvim-web-devicons',
     },
     opts = function()
-      local highlights = require("catppuccin.groups.integrations.bufferline").get()
+      local catppuccinHighlights = require("catppuccin.groups.integrations.bufferline").get()
+      local nordHighlights = require("nord").bufferline.highlights({
+        italic = true,
+        bold = true,
+      })
       return {
         options = {
           mode = "buffers",
           themable = true,
           diagnostics = "nvim_lsp",
         },
-        highlights = highlights
+        highlights = nordHighlights
       }
     end
   },
