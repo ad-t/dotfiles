@@ -1,5 +1,5 @@
 /* @import "catppuccin-mocha.css"; */
-@import "nord.css";
+@import "gruvbox.css";
 
 * {
   /* `otf-font-awesome` is required to be installed for icons */
@@ -19,15 +19,17 @@ window#waybar {
 }
 
 #clock.date {
-  background-color: @blue;
+  background-color: @darkgray;
+  color: @text;
 }
 
 #clock.time {
-  background-color: @blue;
+  background-color: @darkgray;
+  color: @text;
 }
 
 #cpu {
-  background-color: @red;
+  background-color: @yellow;
 }
 
 #workspaces {
@@ -48,7 +50,7 @@ window#waybar {
 }
 
 #disk {
-  background-color: @yellow;
+  background-color: @red;
 }
 
 #cpu,

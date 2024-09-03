@@ -1,18 +1,16 @@
 #!/usr/local/bin/fish
 
-set THM_BG "#2e3440"
-set THM_FG "#d8dee9"
-set THM_CYAN "#88c8d0"
-set THM_BLACK "#2e3440"
-set THM_GRAY "#4c556a"
-set THM_MAGENTA "#b48ead"
-set THM_PINK "#b38ead"
-set THM_RED "#bf616a"
-set THM_GREEN "#a3be8c"
-set THM_YELLOW "#ebcb8b"
-set THM_BLUE "#5e81ac"
-set THM_ORANGE "#d80770"
-set THM_BLACK4 "#3b4252"
+set THM_BG "#282828"
+set THM_FG "#d4be98"
+set THM_CYAN "#89b482"
+set THM_BLACK "#665c54"
+set THM_GRAY "#928374"
+set THM_MAGENTA "#d3869b"
+set THM_RED "#ea6962"
+set THM_GREEN "#a9b665"
+set THM_YELLOW "#d8a657"
+set THM_BLUE "#7daea3"
+set THM_ORANGE "#e78a4e"
 
 function segment
   set CONTENT "$argv[1]"
@@ -29,7 +27,7 @@ end
 function git_segment 
   set GIT "$argv[1]"
   if [ "$GIT" != "" ]
-    set_color $THM_FG
+    set_color $THM_BG
     set_color -b $THM_GRAY
     segment (echo $GIT | string replace '(' ' ' | string replace ')' ' ' | string trim --left --right)
   end

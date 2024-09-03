@@ -4,7 +4,7 @@ vim.opt.guicursor = ""
 -- make sure undos don't leak between sessions
 vim.o.undofile = false
 -- change colorscheme
-vim.cmd.colorscheme "nord"
+vim.cmd.colorscheme "gruvbox-material"
 -- show the cursorline where your cursor is
 vim.o.cursorline = true
 -- enable mouse input

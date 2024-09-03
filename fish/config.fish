@@ -98,13 +98,22 @@ source ~/.config/dotfiles/aliases
 # --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
 # nord theme
+# set -x FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS\
+#     --padding=5%\
+#     --color=gutter:#3b4252\
+#     --color=fg:#e5e9f0,bg:#3b4252,hl:#81a1c1\
+#     --color=fg+:#e5e9f0,bg+:#434c5e,hl+:#81a1c1\
+#     --color=info:#eacb8a,prompt:#bf6069,pointer:#b48dac\
+#     --color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b"
+
+# gruvbox theme
 set -x FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS\
     --padding=5%\
-    --color=gutter:#3b4252\
-    --color=fg:#e5e9f0,bg:#3b4252,hl:#81a1c1\
-    --color=fg+:#e5e9f0,bg+:#434c5e,hl+:#81a1c1\
-    --color=info:#eacb8a,prompt:#bf6069,pointer:#b48dac\
-    --color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b"
+    --color=gutter:#282828\
+    --color=fg:#d4be98,bg:#282828,hl:#928374\
+    --color=fg+:#d4be98,bg+:#665c54,hl+:#928374\
+    --color=info:#e78a4e,prompt:#665c54,pointer:#a9b665\
+    --color=marker:#b38ead,spinner:#a9b665,header:#665c54"
 
 # set java version
 set -x JAVA_HOME "/usr/lib/jvm/java-11-openjdk-amd64"

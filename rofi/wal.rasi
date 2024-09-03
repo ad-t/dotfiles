@@ -27,14 +27,14 @@
     grey: #6c7086;
   */
 
-    bg-col:  #2e3440;
-    bg-col-light: #3b4252;
-    border-col: #2e3440;
-    selected-col: #d8dee9;
-    blue: #5e81ac;
-    fg-col: #d8dee9;
-    fg-col2: #e5e9f0;
-    grey: #4c566a;
+    bg-col:  #282828;
+    bg-col-light: #d4be98;
+    border-col: #282828;
+    selected-col: #282828;
+    blue: #7daea3;
+    fg-col: #d4be98;
+    fg-col2: #665c54;
+    grey: #928374;
 
     width: 1000;
     /* font: "Fira Code Nerd Font 16"; */

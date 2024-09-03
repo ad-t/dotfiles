@@ -32,13 +32,24 @@ return {
     end
   },
 
+  {
+    "sainnhe/gruvbox-material",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.gruvbox_material_background = 'medium'
+      -- For better performance
+      vim.g.gruvbox_material_better_performance = 1
+    end,
+  },
+
   -- line at the bottom
   {
     'nvim-lualine/lualine.nvim',
     lazy = false,
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = {
-      theme = 'nord',
+      theme = 'gruvbox-material',
       sections = {
         lualine_x = { 'filetype' },
       },
@@ -90,6 +101,15 @@ return {
     end,
   },
 
+  -- highlight in-text colors
+  {
+    "norcalli/nvim-colorizer.lua",
+    lazy = false,
+    config = function()
+      require('colorizer').setup()
+    end
+  },
+
   -- file searching -- super fast!
   {
     "ibhagwan/fzf-lua",
@@ -126,7 +146,7 @@ return {
           themable = true,
           diagnostics = "nvim_lsp",
         },
-        highlights = nordHighlights
+        -- highlights = nordHighlights
       }
     end
   },
