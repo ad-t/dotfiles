@@ -20,7 +20,7 @@ end
 function path_segment
   set PATH_STRING "$argv[1]"
   set_color $THM_BG
-  set_color -b $THM_BLUE
+  set_color -b $THM_FG
   segment $PATH_STRING
 end
 
@@ -35,7 +35,7 @@ end
 
 function right_prompt
   set_color $THM_BG
-  set_color -b $THM_BLUE
+  set_color -b $THM_GRAY
   segment (date +%T)
 end
 
