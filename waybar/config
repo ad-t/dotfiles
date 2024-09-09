@@ -1,5 +1,5 @@
 {
-  "font": "VictorMonoNFM",
+  "font": "InconsolataLGCNF",
   "height": 35,
   "spacing": 15,
   "modules-left": [
@@ -18,11 +18,11 @@
   ],
   "cpu": {
     "interval": 1,
-    "format": "  {usage}%",
+    "format": " {usage}%",
   },
   "memory": {
     "interval": 1,
-    "format": "  {percentage}%",
+    "format": " {percentage}%",
   },
   "clock#date": {
     "interval": 60,
@@ -36,7 +36,7 @@
     "format": "<b>{name}</b>",
   },
   "disk": {
-    "format": "  {percentage_used}%",
+    "format": " {percentage_used}%",
     "path": "/home",
   },
   "network#up": {
