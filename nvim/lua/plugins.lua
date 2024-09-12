@@ -171,6 +171,7 @@ return {
           "cssls",
           "dockerls",
           "eslint",
+          "gopls",
           "html",
           "jsonls",
           "markdown_oxide",
