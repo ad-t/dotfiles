@@ -26,14 +26,11 @@
   },
   "clock#date": {
     "interval": 60,
-    "format": "<b>{:%d %B %Y}</b>",
+    "format": "{:%d %B %Y}",
   },
   "clock#time": {
     "interval": 1,
-    "format": "<b>{:%H:%M:%S}</b>",
-  },
-  "sway/workspaces": {
-    "format": "<b>{name}</b>",
+    "format": "{:%H:%M:%S}",
   },
   "disk": {
     "format": " {percentage_used}%",
