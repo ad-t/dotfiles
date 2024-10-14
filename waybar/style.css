@@ -13,45 +13,45 @@
 }
 
 window#waybar {
-  background-color: @base;
+  background-color: @background;
   color: @text;
   transition-property: background-color;
   transition-duration: .5s;
 }
 
 #clock.date {
-  background-color: @darkgray;
+  background-color: @clock-bg;
   color: @text;
 }
 
 #clock.time {
-  background-color: @darkgray;
+  background-color: @clock-bg;
   color: @text;
 }
 
 #cpu {
-  background-color: @yellow;
+  background-color: @cpu-bg;
 }
 
 #workspaces {
-  background-color: @base;
+  background-color: @workspace-bg;
   border-radius: 0;
 }
 #workspaces button.active {
-  background-color: @darkgray;
+  background-color: @workspace-active-bg;
   border-radius: 0;
 }
 #workspaces button.urgent {
-  background-color: @red;
+  background-color: @workspace-urgent-bg;
   border-radius: 0;
 }
 
 #memory {
-  background-color: @orange;
+  background-color: @memory-bg;
 }
 
 #disk {
-  background-color: @red;
+  background-color: @disk-bg;
 }
 
 #cpu,
@@ -61,10 +61,10 @@ window#waybar {
 #network,
 #clock {
   padding: 0 10px;
-  color: @base;
+  color: @background;
 }
 
 #network {
-  background-color: @darkgray;
+  background-color: @network-bg;
   color: @text;
 }

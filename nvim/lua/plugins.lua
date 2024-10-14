@@ -170,6 +170,7 @@ return {
         ensure_installed = {
           "ansiblels",
           "bashls",
+          "clangd",
           "cssls",
           "dockerls",
           "eslint",

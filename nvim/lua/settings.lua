@@ -19,3 +19,5 @@ vim.o.tabstop = 2
 vim.o.softtabstop = 2
 vim.o.number = true
 vim.o.numberwidth = 5
+-- prevent other overrides
+vim.g.editorconfig = false

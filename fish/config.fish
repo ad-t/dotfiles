@@ -131,6 +131,7 @@ fish_add_path "$HOME/.nvm/versions/node/v18.10.0/bin"
 fish_add_path "/usr/local/cuda-12.1/bin"
 # this causes nix things to break, add this back on a case-by-case basis
 # set -x LD_LIBRARY_PATH /usr/lib/x86_64-linux-gnu
+set -x NIX_LD "/usr/lib/x86_64-linux-gnu"
 
 function nvm
   set -x NVM_DIR "$HOME/.nvm"
