@@ -108,9 +108,9 @@ source ~/.config/dotfiles/aliases
 
 # gruvbox theme
 set -x FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS\
-    --padding=0\
-    --color=gutter:#32302f\
-    --color=fg:#d4be98,bg:#32302f,hl:#665c54\
+    --padding=1,2\
+    --color=gutter:#282828\
+    --color=fg:#d4be98,bg:#282828,hl:#665c54\
     --color=fg+:#d4be98,bg+:#45403d,hl+:#928374\
     --color=info:#e78a4e,prompt:#928374,pointer:#a9b665\
     --color=marker:#b38ead,spinner:#a9b665,header:#665c54"
