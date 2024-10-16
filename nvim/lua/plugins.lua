@@ -184,7 +184,7 @@ return {
           "tflint",
           "lemminx",
           "yamlls",
-          "tsserver",
+          "ts_ls",
         },
         automatic_installation = true,
       })
