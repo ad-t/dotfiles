@@ -170,6 +170,10 @@ return {
         ensure_installed = {
           "ansiblels",
           "bashls",
+          -- about to be deprecateed
+          -- "bufls",
+          -- in favour of this:
+          "buf_ls",
           "clangd",
           "cssls",
           "dockerls",
@@ -332,8 +336,11 @@ return {
     opts = {
       window = {
         position = "right",
-      }
-    }
+      },
+      filesystem = {
+        follow_current_file = { enabled = true },
+      },
+    },
   },
 
   -- notifications
