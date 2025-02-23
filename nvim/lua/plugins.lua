@@ -90,6 +90,7 @@ return {
           "proto",
           "terraform",
           "tsx",
+          "typescript",
           "xml",
           "yaml",
         },
@@ -351,5 +352,13 @@ return {
     dependencies = {
       "MunifTanjim/nui.nvim",
     }
+  },
+
+  -- completing closing tags for html-like languages
+  {
+    "tronikelis/ts-autotag.nvim",
+    opts = {},
+    -- ft = {}, optionally you can load it only in jsx/html
+    event = "VeryLazy",
   }
 }
