@@ -27,10 +27,10 @@
     grey: #6c7086;
   */
 
-    bg-col:  #282828;
+    bg-col:  #32302f;
     bg-col-light: #d4be98;
-    border-col: #282828;
-    selected-col: #282828;
+    border-col: #32302f;
+    selected-col: #32302f;
     blue: #7daea3;
     fg-col: #d4be98;
     fg-col2: #665c54;

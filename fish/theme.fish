@@ -1,6 +1,6 @@
 #!/usr/local/bin/fish
 
-set THM_BG "#282828"
+set THM_BG "#32302f"
 set THM_FG "#d4be98"
 set THM_CYAN "#89b482"
 set THM_BLACK "#665c54"
