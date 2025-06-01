@@ -156,9 +156,9 @@ return {
 
   -- to enable language server autodownloading & setup
   { "neovim/nvim-lspconfig" },
-  { "williamboman/mason.nvim" },
+  { "mason-org/mason.nvim" },
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     config = function()
       -- we'd like to disable lsp logging, however
       -- still provide the ability to enable debug
@@ -189,27 +189,15 @@ return {
           "tflint",
           "lemminx",
           "yamlls",
-          "ts_ls",
+          "vtsls",
         },
         automatic_installation = true,
       })
-      require("mason-lspconfig").setup_handlers {
-        function (server_name)
-          require("lspconfig")[server_name].setup {
-            on_attach = function(client, bufnr)
-              local function opts(desc)
-                return { buffer = bufnr, desc = "LSP " .. desc }
-              end
-              vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "go to definition" })
-            end
-          }
-        end,
-      }
     end
   },
 
   -- autocompletion
-   {
+  {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
@@ -279,8 +267,8 @@ return {
         sources = cmp.config.sources({
           { name = 'path' }
         }, {
-          { name = 'cmdline' }
-        }),
+            { name = 'cmdline' }
+          }),
         matching = { disallow_symbol_nonprefix_matching = false }
       })
 
@@ -360,5 +348,43 @@ return {
     opts = {},
     -- ft = {}, optionally you can load it only in jsx/html
     event = "VeryLazy",
+  },
+
+  -- code context
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    lazy = false,
+    config = function()
+      require("treesitter-context").setup {
+        enable = true,
+      }
+    end
+  },
+
+  -- organisation
+  {
+    "nvim-neorg/neorg",
+    lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+    version = "*", -- Pin Neorg to the latest stable release
+    config = function()
+      require("neorg").setup {
+        load = {
+          ["core.defaults"] = {},
+          ["core.concealer"] = {},
+          ["core.dirman"] = {
+            config = {
+              -- -- not setting this up ... for now
+              -- workspaces = {
+              --   notes = "~/notes",
+              -- },
+              -- default_workspace = "notes",
+            },
+          },
+        },
+      }
+
+      vim.wo.foldlevel = 99
+      vim.wo.conceallevel = 2
+    end,
   }
 }

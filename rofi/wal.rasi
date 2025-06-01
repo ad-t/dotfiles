@@ -40,7 +40,7 @@
     /* font: "Fira Code Nerd Font 16"; */
     /* font: "JetBrainsMono Nerd Font Mono 20"; */
     /*font: "IosevkaTerm NF 22";*/
-    font: "Fira Code Nerd Font 22";
+    font: "Iosevka Nerd Font Mono 22";
     /*font: "Cascadia Code NF 22";*/
     font-feature-settings: "dlig";
     font-feature-settings: "ss14";

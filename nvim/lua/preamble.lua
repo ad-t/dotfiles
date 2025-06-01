@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- space as leader key
 vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
-vim.g.maplocalleader = "\\" -- Same for `maplocalleader`
+vim.g.maplocalleader = " " -- Same for `maplocalleader`
 
 -- set the termguicolors before anything else
 vim.opt.termguicolors = true
