@@ -1,2 +1,5 @@
 # ignore tags
 tags
+
+# ignore pycache (vit added this)
+__pycache__
