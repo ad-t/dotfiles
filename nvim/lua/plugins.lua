@@ -357,6 +357,9 @@ return {
     config = function()
       require("treesitter-context").setup {
         enable = true,
+        mode = "topline",
+        max_lines = 10,
+        multiline_threshold = 1,
       }
     end
   },
@@ -386,5 +389,13 @@ return {
       vim.wo.foldlevel = 99
       vim.wo.conceallevel = 2
     end,
+  },
+
+  -- render markdown prettier
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    ft = { 'markdown' },
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+    opts = {},
   }
 }

@@ -21,3 +21,14 @@ vim.o.number = true
 vim.o.numberwidth = 5
 -- prevent other overrides
 vim.g.editorconfig = false
+
+-- configuring values on specific lsps (TODO: move somewhere else)
+vim.lsp.config['vtsls'] = {
+  settings = {
+    typescript = {
+      tsserver = {
+        maxTsServerMemory = 8196,
+      }
+    }
+  }
+}

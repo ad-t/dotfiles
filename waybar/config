@@ -1,6 +1,6 @@
 {
   "font": "Cascadia Code NF",
-  "height": 35,
+  "height": 30,
   "spacing": 15,
   "modules-left": [
     "hyprland/workspaces",
@@ -18,34 +18,34 @@
   ],
   "cpu": {
     "interval": 1,
-    "format": " {usage}%",
+    "format": "  {usage}% ",
   },
   "memory": {
     "interval": 1,
-    "format": " {percentage}%",
+    "format": "  {percentage}% ",
   },
   "clock#date": {
     "interval": 60,
-    "format": "{:%d %B %Y}",
+    "format": " {:%d %B %Y} ",
   },
   "clock#time": {
     "interval": 1,
-    "format": "{:%H:%M:%S}",
+    "format": " {:%H:%M:%S} ",
   },
   "disk": {
-    "format": " {percentage_used}%",
+    "format": "  {percentage_used}% ",
     "path": "/home",
   },
   "network#up": {
     "interval": 1,
     "interface": "enp14s0",
-    "format": "{bandwidthUpBytes} ⬆",
+    "format": " {bandwidthUpBytes} ⬆ ",
     "max-length": 50,
   },
   "network#down": {
     "interval": 1,
     "interface": "enp14s0",
-    "format": "{bandwidthDownBytes} ⬇",
+    "format": " {bandwidthDownBytes} ⬇ ",
     "max-length": 50,
   },
 }

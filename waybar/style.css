@@ -13,7 +13,8 @@
 }
 
 window#waybar {
-  background-color: @background;
+  /* background-color: @background; */
+  background-color: transparent;
   color: @text;
   transition-property: background-color;
   transition-duration: .5s;
@@ -29,10 +30,6 @@ window#waybar {
   color: @text;
 }
 
-#cpu {
-  background-color: @cpu-bg;
-}
-
 #workspaces {
   background-color: @workspace-bg;
   border-radius: 0;
@@ -46,6 +43,12 @@ window#waybar {
   border-radius: 0;
 }
 
+#memory,
+#disk,
+#cpu {
+  color: @background;
+}
+
 #memory {
   background-color: @memory-bg;
 }
@@ -54,14 +57,20 @@ window#waybar {
   background-color: @disk-bg;
 }
 
+#cpu {
+  background-color: @cpu-bg;
+}
+
 #cpu,
 #sway,
 #memory,
 #disk,
 #network,
+#workspaces,
 #clock {
-  padding: 0 10px;
-  color: @background;
+  margin-top: 5px;
+  padding: 1px;
+  border-radius: 5px;
 }
 
 #network {
