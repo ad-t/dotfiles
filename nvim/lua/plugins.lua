@@ -5,34 +5,6 @@ return {
 
   -- colorscheme
   {
-    "catppuccin/nvim",
-    lazy = false,
-    name = "catppuccin",
-    priority = 1000,
-    opts = {
-      flavour = "mocha",
-      integrations = {
-        gitsigns = true,
-        treesitter = true, mason = true, which_key = true,
-      }
-    },
-  },
-
-  {
-    "shaunsingh/nord.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.g.nord_contrast = true
-      vim.g.nord_borders = false
-      vim.g.nord_disable_background = false
-      vim.g.nord_italic = false
-      vim.g.nord_uniform_diff_background = true
-      vim.g.nord_bold = false
-    end
-  },
-
-  {
     "sainnhe/gruvbox-material",
     lazy = false,
     priority = 1000,
@@ -44,16 +16,31 @@ return {
   },
 
   -- line at the bottom
+  -- {
+  --   'nvim-lualine/lualine.nvim',
+  --   lazy = false,
+  --   dependencies = { 'nvim-tree/nvim-web-devicons' },
+  --   opts = {
+  --     theme = 'gruvbox-material',
+  --     sections = {
+  --       lualine_x = { 'filetype' },
+  --     },
+  --   },
+  -- },
+
   {
-    'nvim-lualine/lualine.nvim',
-    lazy = false,
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    opts = {
-      theme = 'gruvbox-material',
-      sections = {
-        lualine_x = { 'filetype' },
-      },
-    },
+    "rebelot/heirline.nvim",
+    event = "UiEnter",
+    config = function()
+      local statusline = require("conf.heirline.statusline")
+      local colors = require("conf.heirline.colors")
+      require("heirline").setup({
+        statusline = statusline,
+        opts = {
+          colors = colors
+        }
+      })
+    end
   },
 
   -- git signs
@@ -138,18 +125,12 @@ return {
       'nvim-tree/nvim-web-devicons',
     },
     opts = function()
-      local catppuccinHighlights = require("catppuccin.groups.integrations.bufferline").get()
-      local nordHighlights = require("nord").bufferline.highlights({
-        italic = true,
-        bold = true,
-      })
       return {
         options = {
           mode = "buffers",
           themable = true,
           diagnostics = "nvim_lsp",
         },
-        -- highlights = nordHighlights
       }
     end
   },
@@ -182,6 +163,7 @@ return {
           "gopls",
           "html",
           "jsonls",
+          "lua_ls",
           "markdown_oxide",
           "pyright",
           "taplo",
