@@ -1,8 +1,10 @@
 local utils = require("heirline.utils")
 
 return {
+  text = utils.get_highlight("Normal").fg,
+  bg = utils.get_highlight("Normal").bg,
   bright_bg = utils.get_highlight("Folded").bg,
-  bright_fg = utils.get_highlight("Folded").fg,
+  bright_fg = utils.get_highlight("Comment").fg,
   red = utils.get_highlight("DiagnosticError").fg,
   dark_red = utils.get_highlight("DiffDelete").bg,
   green = utils.get_highlight("String").fg,
@@ -10,7 +12,7 @@ return {
   gray = utils.get_highlight("NonText").fg,
   orange = utils.get_highlight("Type").fg,
   purple = utils.get_highlight("Boolean").fg,
-  cyan = utils.get_highlight("Special").fg,
+  cyan = utils.get_highlight("Identifier").fg,
   diag_warn = utils.get_highlight("DiagnosticWarn").fg,
   diag_error = utils.get_highlight("DiagnosticError").fg,
   diag_hint = utils.get_highlight("DiagnosticHint").fg,

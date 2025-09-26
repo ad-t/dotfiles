@@ -1,4 +1,8 @@
 local conditions = require("heirline.conditions")
+local symbols = require("conf.heirline.symbols")
+
+local fg = "text"
+local bg = "gray"
 
 return {
   condition = conditions.is_git_repo,
@@ -8,46 +12,55 @@ return {
     self.has_changes = self.status_dict.added ~= 0 or self.status_dict.removed ~= 0 or self.status_dict.changed ~= 0
   end,
 
-  hl = { fg = "orange" },
+  hl = { fg = fg },
 
   {   -- git branch name
     provider = function(self)
-      return " " .. self.status_dict.head
+      return "  " .. self.status_dict.head
     end,
-    hl = { bold = true }
+    hl = { fg = fg, bg = bg }
   },
   -- You could handle delimiters, icons and counts similar to Diagnostics
   {
     condition = function(self)
       return self.has_changes
     end,
-    provider = "("
+    provider = " ",
+    hl = { fg = fg, bg = bg }
   },
   {
     provider = function(self)
       local count = self.status_dict.added or 0
       return count > 0 and ("+" .. count)
     end,
-    hl = { fg = "git_add" },
+    hl = { fg = "git_add" , bg = bg },
   },
   {
     provider = function(self)
       local count = self.status_dict.removed or 0
       return count > 0 and ("-" .. count)
     end,
-    hl = { fg = "red" },
+    hl = { fg = "red", bg = bg },
   },
   {
     provider = function(self)
       local count = self.status_dict.changed or 0
       return count > 0 and ("~" .. count)
     end,
-    hl = { fg = "git_change" },
+    hl = { fg = "git_change", bg = bg },
   },
   {
     condition = function(self)
       return self.has_changes
     end,
-    provider = ")",
+    provider = " ",
+    hl = { fg = fg, bg = bg }
+  },
+  {
+    -- separator
+    provider = function(self)
+      return symbols.circle_left
+    end,
+    hl = { fg = bg, bg = "bright_bg" }
   },
 }
