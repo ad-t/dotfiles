@@ -14,14 +14,21 @@ set THM_ORANGE "#e78a4e"
 
 function segment
   set CONTENT "$argv[1]"
-  printf " %s " $CONTENT
+  printf "%s" $CONTENT
 end
 
 function path_segment
   set PATH_STRING "$argv[1]"
+  set GIT "$argv[2]"
+  printf "\ue0b6"
   set_color $THM_BG
   set_color -b $THM_FG
   segment $PATH_STRING
+  if [ "$GIT" != "" ]
+    set_color $THM_FG
+    set_color -b $THM_GRAY
+    printf "\ue0b4 "
+  end
 end
 
 function git_segment 
@@ -31,12 +38,19 @@ function git_segment
     set_color -b $THM_GRAY
     segment (echo $GIT | string replace '(' ' ' | string replace ')' ' ' | string trim --left --right)
   end
+  set_color -r
+  printf "\ue0b4"
 end
 
 function right_prompt
+  set_color $THM_GRAY
+  set_color -b $THM_BG
+  printf "\ue0b6"
+  set_color -r
+  segment (date +%T)
   set_color $THM_BG
   set_color -b $THM_GRAY
-  segment (date +%T)
+  printf "\ue0b4"
 end
 
 function status_segment

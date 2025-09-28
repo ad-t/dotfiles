@@ -10,7 +10,7 @@ source $HOME/.config/dotfiles/fish/theme.fish
 
 function fish_prompt
   status_segment $status
-  path_segment (prompt_pwd)
+  path_segment (prompt_pwd) (fish_git_prompt)
   git_segment (fish_git_prompt)
   set_color normal
   echo -n " "
