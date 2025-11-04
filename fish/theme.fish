@@ -33,11 +33,7 @@ function path_segment
   set_color -b $PATH_BG
   printf " "
   segment $PATH_STRING
-  if [ "$GIT" != "" ]
-    set_color $PATH_BG
-    set_color -b $GIT_BG
-    printf "\ue0b4 "
-  end
+  printf " "
 end
 
 function git_segment 
@@ -45,17 +41,17 @@ function git_segment
   if [ "$GIT" != "" ]
     set_color $GIT_FG
     set_color -b $GIT_BG
+    printf " "
     segment (echo $GIT | string replace '(' ' ' | string replace ')' ' ' | string trim --left --right)
+    printf " "
   end
-  set_color -r
-  printf "\ue0b4"
 end
 
 function right_prompt
   set_color $RIGHT_BG
   set_color -b $RIGHT_FG
-  printf "\ue0b6"
   set_color -r
+  printf " "
   segment (date +%T)
   printf " "
 end
@@ -67,9 +63,7 @@ function status_segment
     set_color -b $STATUS_BG
     printf " "
     segment "$STATUS"
-    set_color $STATUS_BG
-    set_color -b $PATH_BG
-    printf "\ue0b4"
+    printf " "
   end
 end
 

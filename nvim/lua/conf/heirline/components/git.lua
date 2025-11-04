@@ -1,5 +1,4 @@
 local conditions = require("heirline.conditions")
-local symbols = require("conf.heirline.symbols")
 
 local fg = "text"
 local bg = "gray"
@@ -50,17 +49,7 @@ return {
     hl = { fg = "git_change", bg = bg },
   },
   {
-    condition = function(self)
-      return self.has_changes
-    end,
     provider = " ",
     hl = { fg = fg, bg = bg }
-  },
-  {
-    -- separator
-    provider = function(self)
-      return symbols.circle_left
-    end,
-    hl = { fg = bg, bg = "bright_bg" }
   },
 }
