@@ -1,4 +1,6 @@
 local conditions = require("heirline.conditions")
+local symbols = require("conf.heirline.symbols")
+local colors = require("conf.heirline.colors")
 
 local fg = "text"
 local bg = "gray"
@@ -51,5 +53,9 @@ return {
   {
     provider = " ",
     hl = { fg = fg, bg = bg }
+  },
+  {
+    provider = symbols.angle_left,
+    hl = { fg = bg, bg = colors.bright_bg }
   },
 }
