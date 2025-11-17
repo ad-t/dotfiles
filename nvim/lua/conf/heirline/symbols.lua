@@ -10,5 +10,7 @@ return {
   angle_left = "\u{e0b8}",
   angle_right = "\u{e0ba}",
   point_left = "\u{e0b0}",
-  point_right = "\u{e0b2}"
+  point_right = "\u{e0b2}",
+  angle_left_thin = "\u{e0b9}",
+  angle_right_thin = "\u{e0bb}",
 }

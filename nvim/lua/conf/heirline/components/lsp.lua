@@ -23,7 +23,7 @@ return {
       for i, server in pairs(vim.lsp.get_clients({ bufnr = 0 })) do
         table.insert(names, server.name)
       end
-      return "  " .. table.concat(names, " | ") .. " "
+      return " " .. table.concat(names, " " .. symbols.angle_right_thin .. " ") .. " "
     end,
     hl = { bg = bg, fg = fg },
   },
