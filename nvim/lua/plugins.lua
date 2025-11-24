@@ -85,6 +85,7 @@ return {
         sync_install = false,
         highlight = { enable = true },
         indent = { enable = true },
+        ignore_install = { 'org' },
       })
     end,
   },
@@ -346,38 +347,27 @@ return {
     end
   },
 
-  -- organisation
-  {
-    "nvim-neorg/neorg",
-    lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
-    version = "*", -- Pin Neorg to the latest stable release
-    config = function()
-      require("neorg").setup {
-        load = {
-          ["core.defaults"] = {},
-          ["core.concealer"] = {},
-          ["core.dirman"] = {
-            config = {
-              -- -- not setting this up ... for now
-              -- workspaces = {
-              --   notes = "~/notes",
-              -- },
-              -- default_workspace = "notes",
-            },
-          },
-        },
-      }
-
-      vim.wo.foldlevel = 99
-      vim.wo.conceallevel = 2
-    end,
-  },
-
   -- render markdown prettier
   {
     'MeanderingProgrammer/render-markdown.nvim',
     ft = { 'markdown' },
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
     opts = {},
+  },
+
+  -- remembering things, organising thoughts and information
+  {
+    'nvim-orgmode/orgmode',
+    event = 'VeryLazy',
+    ft = { 'org' },
+    config = function()
+      -- Setup orgmode
+      require('orgmode').setup({
+        org_agenda_files = '~/code/orgfiles/**/*',
+        org_default_notes_file = '~/code/orgfiles/refile.org',
+        org_startup_indented = true,
+        org_startup_folded = 'showeverything'
+      })
+    end,
   }
 }
