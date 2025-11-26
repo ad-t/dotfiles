@@ -1,3 +1,4 @@
 return {
-  provider = " "
+  provider = " ",
+  hl = { bg = "bright_bg" },
 }

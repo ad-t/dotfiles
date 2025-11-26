@@ -15,18 +15,18 @@ return {
     end,
   },
 
-  -- line at the bottom
-  -- {
-  --   'nvim-lualine/lualine.nvim',
-  --   lazy = false,
-  --   dependencies = { 'nvim-tree/nvim-web-devicons' },
-  --   opts = {
-  --     theme = 'gruvbox-material',
-  --     sections = {
-  --       lualine_x = { 'filetype' },
-  --     },
-  --   },
-  -- },
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      theme = "dragon",
+      background = {
+        dark = "dragon",
+        light = "lotus"
+      },
+    }
+  },
 
   {
     "rebelot/heirline.nvim",
