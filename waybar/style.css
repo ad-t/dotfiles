@@ -1,18 +1,15 @@
-@import "kanagawa_dragon.css";
+@import url("./kanagawa_dragon.css");
 
 * {
   /* `otf-font-awesome` is required to be installed for icons */
   font-family: FontAwesome, FiraCode Nerd Font Mono, sans-serif;
   font-size: 20px;
-  font-feature-settings: "dlig";
-  font-feature-settings: "ss05";
   font-feature-settings: "calt";
   font-feature-settings: "zero";
   color: @text;
 }
 
 window#waybar {
-  /* background-color: @background; */
   background-color: transparent;
   color: @text;
   transition-property: background-color;
@@ -31,15 +28,13 @@ window#waybar {
 
 #workspaces {
   background-color: @workspace-bg;
-  border-radius: 0;
+  color: @red;
 }
 #workspaces button.active {
   background-color: @workspace-active-bg;
-  border-radius: 0;
 }
 #workspaces button.urgent {
   background-color: @workspace-urgent-bg;
-  border-radius: 0;
 }
 
 #memory,

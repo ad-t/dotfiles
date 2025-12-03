@@ -58,7 +58,7 @@ set -x FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS\
     --padding=1,2\
     --color=gutter:$THM_BG\
     --color=fg:$THM_FG,bg:$THM_BG,hl:$THM_CYAN\
-    --color=fg+:$THM_BG,bg+:$THM_BLUE,hl+:$THM_CYAN\
+    --color=fg+:$THM_BG,bg+:$THM_BLUE,hl+:$THM_FG\
     --color=info:$THM_MAGENTA,prompt:$THM_GREEN,pointer:$THM_BLUE\
     --color=marker:$THM_MAGENTA,spinner:$THM_GREEN,header:$THM_BG"
 

@@ -10,11 +10,11 @@
 @define-color green #8a9a7b;
 
 @define-color background @base;
-@define-color clock-bg @base2;
+@define-color clock-bg @base;
 @define-color cpu-bg @green;
-@define-color workspace-bg @base2;
-@define-color workspace-active-bg @base3;
+@define-color workspace-bg @base;
+@define-color workspace-active-bg @yellow;
 @define-color workspace-urgent-bg @red;
 @define-color memory-bg @orange;
 @define-color disk-bg @red;
-@define-color network-bg @base2;
+@define-color network-bg @base;
