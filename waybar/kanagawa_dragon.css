@@ -1,0 +1,20 @@
+@define-color text #c5c9c5;
+@define-color base #181616;
+@define-color base2 #12120f;
+@define-color base3 #0d0c0c;
+@define-color blue #8ba4b0;
+@define-color red #c4746e;
+@define-color darkgray #a6a69c;
+@define-color orange #b6927b;
+@define-color yellow #c4b28a;
+@define-color green #8a9a7b;
+
+@define-color background @base;
+@define-color clock-bg @base2;
+@define-color cpu-bg @green;
+@define-color workspace-bg @base2;
+@define-color workspace-active-bg @base3;
+@define-color workspace-urgent-bg @red;
+@define-color memory-bg @orange;
+@define-color disk-bg @red;
+@define-color network-bg @base2;

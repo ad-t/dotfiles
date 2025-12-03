@@ -1,14 +1,13 @@
-/* @import "catppuccin-mocha.css"; */
-@import "gruvbox.css";
+@import "kanagawa_dragon.css";
 
 * {
   /* `otf-font-awesome` is required to be installed for icons */
-  /* font-family: FontAwesome, JetBrainsMono NFM Light, sans-serif; */
-  /* font-family: FontAwesome, IosevkaTerm NF, sans-serif; */
-  font-family: FontAwesome, Iosevka Nerd Font Mono, sans-serif;
-  font-size: 22px;
+  font-family: FontAwesome, FiraCode Nerd Font Mono, sans-serif;
+  font-size: 20px;
   font-feature-settings: "dlig";
   font-feature-settings: "ss05";
+  font-feature-settings: "calt";
+  font-feature-settings: "zero";
   color: @text;
 }
 

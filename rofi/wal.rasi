@@ -3,38 +3,14 @@
  */
 
 * {
-    /* gruvbox */
-    /*
-    bg-col:  #282828;
-    bg-col-light: #3c3836;
-    border-col: #282828;
-    selected-col: #282828;
-    blue: #458588;
-    fg-col: #fbf1c7;
-    fg-col2: #d3869b;
-    grey: #3c3736;
-    */
-
-  /* catppuccin */
-  /*
-    bg-col:  #1e1e2e;
-    bg-col-light: #1e1e2e;
-    border-col: #1e1e2e;
-    selected-col: #1e1e2e;
-    blue: #89b4fa;
-    fg-col: #cdd6f4;
-    fg-col2: #f38ba8;
-    grey: #6c7086;
-  */
-
-    bg-col:  #32302f;
-    bg-col-light: #d4be98;
-    border-col: #32302f;
-    selected-col: #32302f;
-    blue: #7daea3;
-    fg-col: #d4be98;
-    fg-col2: #665c54;
-    grey: #928374;
+    bg-col:  #0d0c0c;
+    bg-col-light: #c8c093;
+    border-col: #0d0c0c;
+    selected-col: #0d0c0c;
+    blue: #8ba4b0;
+    fg-col: #c5c9c5;
+    fg-col2: #2d4f67;
+    grey: #a6a69c;
 
     width: 1000;
     /* font: "Fira Code Nerd Font 16"; */

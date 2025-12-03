@@ -40,80 +40,27 @@ source ~/.config/dotfiles/aliases
 # # set fzf default options
 # set -x FZF_DEFAULT_COMMAND 'ag --hidden --ignore node_modules --ignore .next -g "."'
 
-# gruvbox theme
+set THM_BG "#181616"
+set THM_BLACK "#0D0C0C"
+set THM_BLACK2 "#12120F"
+set THM_BRIGHTBLACK "#A6A69C"
+set THM_RED "#C4746E"
+set THM_GREEN "#8A9A7B"
+set THM_YELLOW "#C4B28A"
+set THM_BLUE "#8BA4B0"
+set THM_MAGENTA "#A292A3"
+set THM_CYAN "#8EA4A2"
+set THM_GRAY "#C8C093"
+set THM_FG "#C5C9C5"
 
-# set TERMINAL_BACKGROUND "#282828"
-# set DARK0 "#0D0E0F"
-# set DARK "#0D0E0F"
-# set BACKGROUND_DARK "#171A1A"
-# set BACKGROUND "#1D2021"
-# set BACKGROUND_LIGHT "#32302F"
-# set FOREGROUND "#EBDBB2"
-# set GRAY "#DEDEDE"
-# set MEDIUM_GRAY "#504945"
-# set COMMENT "#665C54"
-# set MILK "#E7D7AD"
-# set ERROR_RED "#CC241D"
-# set RED "#FB4934"
-# set ORANGE "#D65D0E"
-# set BRIGHT_YELLOW "#FABD2F"
-# set SOFT_YELLOW "#EEBD35"
-# set PINK "#D4879C"
-# set MAGENTA "#B16286"
-# set SOFT_GREEN "#98971A"
-# set FOREST_GREEN "#689D6A"
-# set CLEAN_GREEN "#8EC07C"
-# set BLUE_GRAY "#458588"
-# set DARK_GRAY "#83A598"
-# set LIGHT_BLUE "#7FA2AC"
-
-# catppuccin theme
-# set TERMINAL_BACKGROUND "#1e1e2e"
-# set FOREGROUND "#cdd6f4"
-# set GRAY "#cdd6f4"
-# set ERROR_RED "#f5e0dc"
-# set ORANGE "#cba6f7"
-# set BRIGHT_YELLOW "#f38ba8"
-# set LIGHT_BLUE "#cba67f"
-# set MEDIUM_GRAY "#313244"
-#
-# set -x FZF_DEFAULT_OPTS "\
-# --color=fg:$FOREGROUND \
-# --color=bg:$TERMINAL_BACKGROUND \
-# --color=hl:$BRIGHT_YELLOW \
-# --color=fg+:bold:$GRAY \
-# --color=bg+:$MEDIUM_GRAY \
-# --color=gutter:$TERMINAL_BACKGROUND \
-# --color=hl+:$BRIGHT_YELLOW \
-# --color=info:$ORANGE \
-# --color=prompt:$LIGHT_BLUE \
-# --color=spinner:$BRIGHT_YELLOW \
-# --color=pointer:bold:$BRIGHT_YELLOW \
-# --color=marker:$ERROR_RED \
-# --color=header:$ORANGE \
-# "
-# set -x FZF_DEFAULT_OPTS "\
-# --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
-# --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
-# --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
-
-# nord theme
-# set -x FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS\
-#     --padding=5%\
-#     --color=gutter:#3b4252\
-#     --color=fg:#e5e9f0,bg:#3b4252,hl:#81a1c1\
-#     --color=fg+:#e5e9f0,bg+:#434c5e,hl+:#81a1c1\
-#     --color=info:#eacb8a,prompt:#bf6069,pointer:#b48dac\
-#     --color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b"
-
-# gruvbox theme
+# kanagawa dragon theme
 set -x FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS\
     --padding=1,2\
-    --color=gutter:#32302f\
-    --color=fg:#d4be98,bg:#32302f,hl:#665c54\
-    --color=fg+:#d4be98,bg+:#665c54,hl+:#928374\
-    --color=info:#e78a4e,prompt:#928374,pointer:#a9b665\
-    --color=marker:#b38ead,spinner:#a9b665,header:#665c54"
+    --color=gutter:$THM_BG\
+    --color=fg:$THM_FG,bg:$THM_BG,hl:$THM_CYAN\
+    --color=fg+:$THM_BG,bg+:$THM_BLUE,hl+:$THM_CYAN\
+    --color=info:$THM_MAGENTA,prompt:$THM_GREEN,pointer:$THM_BLUE\
+    --color=marker:$THM_MAGENTA,spinner:$THM_GREEN,header:$THM_BG"
 
 # set java version
 set -x JAVA_HOME "/usr/lib/jvm/java-11-openjdk-amd64"

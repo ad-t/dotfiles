@@ -1,25 +1,26 @@
 #!/usr/local/bin/fish
 
-set THM_BG "#32302f"
-set THM_FG "#d4be98"
-set THM_CYAN "#89b482"
-set THM_BLACK "#665c54"
-set THM_GRAY "#928374"
-set THM_MAGENTA "#d3869b"
-set THM_RED "#ea6962"
-set THM_GREEN "#a9b665"
-set THM_YELLOW "#d8a657"
-set THM_BLUE "#7daea3"
-set THM_ORANGE "#e78a4e"
+set THM_BG "#181616"
+set THM_BLACK "#0D0C0C"
+set THM_BLACK2 "#12120F"
+set THM_BRIGHTBLACK "#A6A69C"
+set THM_RED "#C4746E"
+set THM_GREEN "#8A9A7B"
+set THM_YELLOW "#C4B28A"
+set THM_BLUE "#8BA4B0"
+set THM_MAGENTA "#A292A3"
+set THM_CYAN "#8EA4A2"
+set THM_GRAY "#C8C093"
+set THM_FG "#C5C9C5"
 
 set STATUS_FG $THM_BG
 set STATUS_BG $THM_RED
 set PATH_FG $THM_BG
-set PATH_BG $THM_FG
-set GIT_FG $THM_BG
-set GIT_BG $THM_GRAY
+set PATH_BG $THM_YELLOW
+set GIT_FG $THM_BRIGHTBLACK
+set GIT_BG $THM_BLACK
 set RIGHT_FG $THM_BG
-set RIGHT_BG $THM_GRAY
+set RIGHT_BG $THM_YELLOW
 
 function segment
   set CONTENT "$argv[1]"

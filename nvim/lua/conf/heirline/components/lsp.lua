@@ -2,7 +2,7 @@ local conditions = require("heirline.conditions")
 local symbols = require("conf.heirline.symbols")
 local colors = require("conf.heirline.colors")
 
-local fg = "bg"
+local fg = "bright_bg"
 local bg = "cyan"
 
 return {

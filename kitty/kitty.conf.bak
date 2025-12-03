@@ -19,9 +19,3 @@ font_family      family='FiraCode Nerd Font Mono' style=Light features='+calt +z
 bold_font        family='FiraCode Nerd Font Mono' style=Regular features='+calt +zero'
 italic_font      family='FiraCode Nerd Font Mono' style=Light features='+calt +zero'
 bold_italic_font family='FiraCode Nerd Font Mono' style=Regular features='+calt +zero'
-
-
-# BEGIN_KITTY_THEME
-# Kanagawa_dragon
-include current-theme.conf
-# END_KITTY_THEME
