@@ -52,14 +52,15 @@ set THM_MAGENTA "#A292A3"
 set THM_CYAN "#8EA4A2"
 set THM_GRAY "#C8C093"
 set THM_FG "#C5C9C5"
+set THM_DARKBLUE "#2d4f67"
 
 # kanagawa dragon theme
 set -x FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS\
     --padding=1,2\
     --color=gutter:$THM_BG\
-    --color=fg:$THM_FG,bg:$THM_BG,hl:$THM_CYAN\
-    --color=fg+:$THM_BG,bg+:$THM_BLUE,hl+:$THM_FG\
-    --color=info:$THM_MAGENTA,prompt:$THM_GREEN,pointer:$THM_BLUE\
+    --color=fg:$THM_FG,bg:$THM_BG,hl:$THM_DARKBLUE\
+    --color=fg+:$THM_BG,bg+:$THM_DARKBLUE,hl+:$THM_BLUE\
+    --color=info:$THM_MAGENTA,prompt:$THM_DARKBLUE,pointer:$THM_BLUE\
     --color=marker:$THM_MAGENTA,spinner:$THM_GREEN,header:$THM_BG"
 
 # set java version
