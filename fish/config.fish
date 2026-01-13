@@ -38,7 +38,7 @@ set -x QT_SCALE_FACTOR 1.5
 source ~/.config/dotfiles/aliases
 
 # # set fzf default options
-# set -x FZF_DEFAULT_COMMAND 'ag --hidden --ignore node_modules --ignore .next -g "."'
+set -x FZF_DEFAULT_COMMAND 'fd --type f'
 
 set THM_BG "#181616"
 set THM_BLACK "#0D0C0C"
