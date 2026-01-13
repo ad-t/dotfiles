@@ -38,7 +38,7 @@ set -x QT_SCALE_FACTOR 1.5
 source ~/.config/dotfiles/aliases
 
 # # set fzf default options
-set -x FZF_DEFAULT_COMMAND 'fd --type f'
+set -x FZF_DEFAULT_COMMAND 'fd --type file --follow --hidden --exclude .git'
 
 set THM_BG "#181616"
 set THM_BLACK "#0D0C0C"

@@ -139,9 +139,6 @@ return {
         preview = {
           hidden = "hidden"
         }
-      },
-      files = {
-        cmd = "fd --type f"
       }
     },
   },
