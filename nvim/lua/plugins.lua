@@ -197,10 +197,11 @@ return {
           "tflint",
           "lemminx",
           "yamlls",
-          "vtsls",
         },
         automatic_installation = true,
       })
+      vim.lsp.enable('tsgo')
+      vim.lsp.enable('jdtls')
     end
   },
 
