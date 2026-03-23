@@ -23,3 +23,5 @@ force_color_prompt=yes
 
 # fix gpg
 export GPG_TTY=$(tty)
+# fix qt scaling
+export QT_SCALE_FACTOR=1.25
