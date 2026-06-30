@@ -9,7 +9,8 @@ mkdir -p "$SCREENSHOTS_DIR"
 
 # maim -s "$SCREENSHOTS_DIR/$FILE_NAME"
 # wayland
-grimblast save area "$SCREENSHOTS_DIR/$FILE_NAME"
+# change to hyprshot
+grimblast save area --freeze "$SCREENSHOTS_DIR/$FILE_NAME"
 
 # cat "$SCREENSHOTS_DIR/$FILE_NAME" | xclip -sel CLIPBOARD -t image/png
 cat "$SCREENSHOTS_DIR/$FILE_NAME" | wl-copy --type image/png
